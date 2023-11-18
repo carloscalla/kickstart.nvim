@@ -8,5 +8,7 @@ return {
   { 'nvim-tree/nvim-web-devicons' },
   { 'vuciv/vim-bujo' },
   { 'norcalli/nvim-colorizer.lua' },
+  { 'tpope/vim-commentary' },
+  { 'tpope/vim-repeat' },
+  { 'tpope/vim-surround' },
 }
-
