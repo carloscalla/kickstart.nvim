@@ -19,9 +19,14 @@ vim.keymap.set('n', '<Down>', '3<C-e>')
 -- Plugin Remaps
 
 -- NERDTree
-vim.keymap.set('n', '<leader>nt', ':NERDTreeToggle<CR>')
-vim.keymap.set('n', '<leader>fi', ':NERDTreeFind<CR>')
-vim.keymap.set('n', '<leader>fo', ':NERDTreeFocus<CR>')
+-- vim.keymap.set('n', '<leader>nt', ':NERDTreeToggle<CR>')
+-- vim.keymap.set('n', '<leader>fi', ':NERDTreeFind<CR>')
+-- vim.keymap.set('n', '<leader>fo', ':NERDTreeFocus<CR>')
+
+-- Neo-tree
+vim.keymap.set('n', '<leader>nt', ':Neotree float toggle<CR>')
+vim.keymap.set('n', '<leader>fi', ':Neotree float reveal<CR>')
+vim.keymap.set('n', '<leader>fo', ':Neotree float focus<CR>')
 
 -- Harpoon
 vim.keymap.set("n", "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>", {})
