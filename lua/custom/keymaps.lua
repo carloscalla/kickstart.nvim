@@ -28,3 +28,7 @@ vim.keymap.set("n", "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<C
 vim.keymap.set("n", "<leader>ht", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", {})
 vim.keymap.set("n", "<leader>hh", "<cmd>lua require('harpoon.ui').nav_prev()<CR>", {})
 vim.keymap.set("n", "<leader>ll", "<cmd>lua require('harpoon.ui').nav_next()<CR>", {})
+
+-- Prettier
+
+vim.keymap.set('n', '<leader>pp', '<Plug>(PrettierAsync)')
