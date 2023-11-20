@@ -35,5 +35,7 @@ vim.keymap.set("n", "<leader>hh", "<cmd>lua require('harpoon.ui').nav_prev()<CR>
 vim.keymap.set("n", "<leader>ll", "<cmd>lua require('harpoon.ui').nav_next()<CR>", {})
 
 -- Prettier
-
 vim.keymap.set('n', '<leader>pp', '<Plug>(PrettierAsync)')
+
+-- Undotree
+vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>')

@@ -5,13 +5,13 @@
 return {
   { 'preservim/nerdtree' },
   { 'gruvbox-community/gruvbox' },
-  -- { 'nvim-tree/nvim-web-devicons' },
   { 'vuciv/vim-bujo' },
   { 'norcalli/nvim-colorizer.lua' },
   { 'tpope/vim-commentary' },
   { 'tpope/vim-repeat' },
   { 'tpope/vim-surround' },
-  { 'her/synicons.vim' },
-  { 'ryanoasis/vim-devicons' },
+  -- { 'her/synicons.vim' },
+  -- { 'ryanoasis/vim-devicons' },
   { 'github/copilot.vim' },
+  { 'mbbill/undotree' },
 }
