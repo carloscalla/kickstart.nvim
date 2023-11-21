@@ -8,6 +8,8 @@ vim.o.scrolloff = 2
 vim.o.list = true
 vim.o.listchars = "eol:↩,tab:<·>"
 
+vim.wo.relativenumber = true
+
 vim.g.carlos_colorscheme = "gruvbox"
 
 vim.g.skip_ts_context_commentstring_module = true
