@@ -8,6 +8,9 @@ vim.o.scrolloff = 2
 vim.o.list = true
 vim.o.listchars = "eol:↩,tab:<·>"
 
+vim.o.splitbelow = true
+vim.o.splitright = true
+
 vim.wo.relativenumber = true
 
 vim.g.carlos_colorscheme = "gruvbox"

@@ -3,7 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  { 'preservim/nerdtree' },
+  -- { 'preservim/nerdtree' },
   { 'gruvbox-community/gruvbox' },
   { 'vuciv/vim-bujo' },
   { 'norcalli/nvim-colorizer.lua' },
@@ -12,6 +12,6 @@ return {
   { 'tpope/vim-surround' },
   -- { 'her/synicons.vim' },
   -- { 'ryanoasis/vim-devicons' },
-  { 'github/copilot.vim' },
-  { 'mbbill/undotree' },
+  -- { 'github/copilot.vim' },
+  -- { 'mbbill/undotree' },
 }

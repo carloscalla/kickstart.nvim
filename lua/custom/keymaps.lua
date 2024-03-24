@@ -38,9 +38,9 @@ vim.keymap.set("n", "<leader>ll", "<cmd>lua require('harpoon.ui').nav_next()<CR>
 vim.keymap.set('n', '<leader>pp', '<Plug>(PrettierAsync)')
 
 -- Undotree
-vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>')
+-- vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>')
 
 -- Copilot
-vim.keymap.set('i', '<C-y>', 'copilot#Accept()', { noremap = true, expr = true, silent = true, replace_keycodes = false })
-vim.g.copilot_no_tab_map = true
-vim.g.copilot_assume_mapped = true
+-- vim.keymap.set('i', '<C-y>', 'copilot#Accept()', { noremap = true, expr = true, silent = true, replace_keycodes = false })
+-- vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_assume_mapped = true
