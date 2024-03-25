@@ -54,7 +54,7 @@ function ColorHighlights()
 
   hl('Cursor', {
     bg = 'DarkCyan',
-    fg = 'White',
+    fg = 'Yellow',
   })
 
   hl('Normal', {
