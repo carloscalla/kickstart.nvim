@@ -2,4 +2,16 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+return {
+  -- { 'gruvbox-community/gruvbox', priority = 1000 },
+  { 'vuciv/vim-bujo' },
+  { 'norcalli/nvim-colorizer.lua' },
+  { 'tpope/vim-commentary' },
+  { 'tpope/vim-repeat' },
+  { 'tpope/vim-surround' },
+  -- { 'mbbill/undotree' },
+
+  -- Git related plugins
+  'tpope/vim-fugitive',
+  'tpope/vim-rhubarb',
+}
