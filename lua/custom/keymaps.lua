@@ -15,6 +15,10 @@ vim.keymap.set('n', '<leader>wq', '<C-W>q')
 vim.keymap.set('n', '<Up>', '3<C-y>')
 vim.keymap.set('n', '<Down>', '3<C-e>')
 
+vim.keymap.set('x', '<leader>pt', [["_dp]])
+vim.keymap.set('v', '<leader>d', [["_d]])
+vim.keymap.set('n', '<leader>d', [["_d]])
+
 -- Plugin Remaps
 
 -- Neo-tree
@@ -32,4 +36,4 @@ vim.keymap.set('n', '<leader>ll', "<cmd>lua require('harpoon.ui').nav_next()<CR>
 vim.keymap.set('n', '<leader>pp', '<Plug>(PrettierAsync)')
 
 -- Undotree
--- vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>')
+vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>')

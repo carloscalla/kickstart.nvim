@@ -9,7 +9,7 @@ return {
   { 'tpope/vim-commentary' },
   { 'tpope/vim-repeat' },
   { 'tpope/vim-surround' },
-  -- { 'mbbill/undotree' },
+  { 'mbbill/undotree' },
 
   -- Git related plugins
   'tpope/vim-fugitive',
