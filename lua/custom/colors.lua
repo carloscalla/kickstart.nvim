@@ -48,10 +48,6 @@ function ColorRosePine()
   hl('NormalNC', {
     bg = 'none',
   })
-
-  hl('NormalFloat', {
-    bg = 'none',
-  })
 end
 
 ColorRosePine()
