@@ -3,13 +3,13 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  -- { 'gruvbox-community/gruvbox', priority = 1000 },
   { 'vuciv/vim-bujo' },
   { 'norcalli/nvim-colorizer.lua' },
   { 'tpope/vim-commentary' },
   { 'tpope/vim-repeat' },
   { 'tpope/vim-surround' },
   { 'mbbill/undotree' },
+  { 'rose-pine/neovim', name = 'rose-pine' },
 
   -- Git related plugins
   'tpope/vim-fugitive',

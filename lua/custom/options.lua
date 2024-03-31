@@ -14,8 +14,6 @@ vim.o.splitright = true
 vim.wo.relativenumber = true
 vim.o.cursorline = false
 
-vim.g.carlos_colorscheme = 'gruvbox'
-
 vim.g.skip_ts_context_commentstring_module = true
 
 vim.o.termguicolors = true

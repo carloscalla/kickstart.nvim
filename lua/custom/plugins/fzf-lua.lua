@@ -11,6 +11,7 @@ return {
             ['png'] = { 'chafa', '{file}' },
             ['svg'] = { 'chafa', '{file}' },
             ['jpg'] = { 'chafa', '{file}' },
+            ['gif'] = { 'chafa', '{file}' },
             -- ['png'] = { 'viu', '-b' },
             -- ['svg'] = { 'viu', '-b' },
             -- ['jpg'] = { 'viu', '-b' },

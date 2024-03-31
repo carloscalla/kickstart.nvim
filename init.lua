@@ -388,6 +388,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>fr', require('fzf-lua').resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader>ls', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>sb', require('fzf-lua').buffers, { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>gs', '<cmd>Telescope git_status<CR>', { noremap = true })
 
       -- Slightly advanced example of overriding default behavior and theme
@@ -845,7 +846,7 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'html', 'lua', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -915,5 +916,7 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+vim.cmd 'colorscheme rose-pine-moon'
 
 require 'custom.colors'
