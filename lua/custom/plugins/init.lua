@@ -9,7 +9,6 @@ return {
   { 'tpope/vim-repeat' },
   { 'tpope/vim-surround' },
   { 'mbbill/undotree' },
-  { 'rose-pine/neovim', name = 'rose-pine' },
 
   -- Git related plugins
   'tpope/vim-fugitive',

@@ -52,14 +52,6 @@ function ColorRosePine()
   hl('NormalFloat', {
     bg = 'none',
   })
-
-  hl('TreesitterContext', {
-    bg = '#333333',
-  })
-
-  hl('TreesitterContextLineNumber', {
-    fg = '#f5b942',
-  })
 end
 
 ColorRosePine()
