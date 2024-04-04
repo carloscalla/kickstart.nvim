@@ -5,7 +5,7 @@
 return {
   { 'vuciv/vim-bujo' },
   { 'norcalli/nvim-colorizer.lua' },
-  { 'tpope/vim-commentary' },
+  -- { 'tpope/vim-commentary' },
   { 'tpope/vim-repeat' },
   { 'tpope/vim-surround' },
   { 'mbbill/undotree' },
