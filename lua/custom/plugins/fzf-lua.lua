@@ -5,6 +5,12 @@ return {
   config = function()
     -- calling `setup` is optional for customization
     require('fzf-lua').setup {
+      winopts = {
+        preview = {
+          horizontal = 'right:50%',
+          layout = 'flex',
+        },
+      },
       previewers = {
         builtin = {
           extensions = {

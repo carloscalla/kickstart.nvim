@@ -19,6 +19,11 @@ vim.keymap.set('x', '<leader>pt', [["_dp]])
 vim.keymap.set('v', '<leader>d', [["_d]])
 vim.keymap.set('n', '<leader>d', [["_d]])
 
+vim.keymap.set('n', '[[', '?{<CR>w99[{')
+vim.keymap.set('n', '][', '/}<CR>b99]}')
+vim.keymap.set('n', ']]', 'j0[[%/{<CR>')
+vim.keymap.set('n', '[]', 'k$][%?}<CR>')
+
 -- Plugin Remaps
 
 -- Neo-tree
