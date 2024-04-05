@@ -4,7 +4,12 @@
 -- See the kickstart.nvim README for more information
 return {
   { 'vuciv/vim-bujo' },
-  { 'norcalli/nvim-colorizer.lua' },
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup()
+    end,
+  },
   -- { 'tpope/vim-commentary' },
   { 'tpope/vim-repeat' },
   { 'tpope/vim-surround' },
