@@ -359,7 +359,16 @@ require('lazy').setup({
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+
+      local actions = require 'telescope.actions'
       require('telescope').setup {
+        pickers = {
+          live_grep = {
+            mappings = {
+              i = { ['<c-g>'] = actions.to_fuzzy_refine },
+            },
+          },
+        },
         path_display = { truncate = 2 },
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
