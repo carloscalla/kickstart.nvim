@@ -19,6 +19,11 @@ vim.keymap.set('x', '<leader>p', [["_dP]])
 vim.keymap.set('v', '<leader>d', [["_d]])
 vim.keymap.set('n', '<leader>d', [["_d]])
 
+vim.keymap.set('n', '<leader>ll', '<cmd>cnext<CR>zz')
+vim.keymap.set('n', '<leader>hh', '<cmd>cprev<CR>zz')
+vim.keymap.set('n', '<leader>kk', '<cmd>lnext<CR>zz')
+vim.keymap.set('n', '<leader>jj', '<cmd>lprev<CR>zz')
+
 vim.keymap.set('n', '[[', '?{<CR>w99[{')
 vim.keymap.set('n', '][', '/}<CR>b99]}')
 vim.keymap.set('n', ']]', 'j0[[%/{<CR>')
