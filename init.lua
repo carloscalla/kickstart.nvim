@@ -361,7 +361,15 @@ require('lazy').setup({
       -- See `:help telescope` and `:help telescope.setup()`
 
       local actions = require 'telescope.actions'
+      local trouble = require 'trouble.providers.telescope'
+
       require('telescope').setup {
+        defaults = {
+          mappings = {
+            i = { ['<c-t>'] = trouble.open_with_trouble },
+            n = { ['<c-t>'] = trouble.open_with_trouble },
+          },
+        },
         pickers = {
           live_grep = {
             mappings = {
@@ -897,6 +905,36 @@ require('lazy').setup({
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
+      textobjects = {
+        select = {
+          enable = true,
+          lookahead = true,
+          include_surrounding_whitespace = false,
+          keymaps = {
+            ['aF'] = {
+              query = '@function.outer',
+              desc = 'select around a function',
+            },
+            ['iF'] = {
+              query = '@function.inner',
+              desc = 'select inner part of a function',
+            },
+            ['ac'] = {
+              query = '@class.outer',
+              desc = 'select around a class',
+            },
+            ['ic'] = {
+              query = '@class.inner',
+              desc = 'select inner part of a class',
+            },
+          },
+          -- selection_modes = {
+          -- ['@parameter.outer'] = 'v',
+          -- ['@function.outer'] = 'V',
+          -- ['@class.outer'] = '<c-v>',
+          -- },
+        },
+      },
     },
     config = function(_, opts)
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -958,5 +996,9 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- QUICKFIX
+
+vim.cmd [[packadd cfilter]]
 
 require 'custom.colors'
