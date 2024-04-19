@@ -3,8 +3,10 @@ return {
   -- optional for icon support
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
+    -- local actions = require 'fzf-lua.actions'
     -- calling `setup` is optional for customization
     require('fzf-lua').setup {
+      'telescope',
       winopts = {
         preview = {
           horizontal = 'right:50%',
@@ -25,6 +27,17 @@ return {
         },
       },
       fzf_opts = { ['--layout'] = 'default' },
+      -- keymap = {
+      --   fzf = {
+      --     ['ctrl-a'] = 'toggle-all',
+      --   },
+      -- },
+      -- actions = {
+      --   files = {
+      --     ['ctrl-q'] = actions.file_sel_to_qf,
+      --     ['ctrl-l'] = actions.file_sel_to_ll,
+      --   },
+      -- },
     }
 
     vim.keymap.set('n', '<leader>sf', require('fzf-lua').files, { desc = '[S]earch [F]iles' })
