@@ -36,10 +36,16 @@ return {
     end)
 
     vim.keymap.set('n', ']x', function()
+      if not require('trouble').is_open() then
+        require('trouble').open {}
+      end
       require('trouble').next { skip_groups = true, jump = true }
     end)
 
     vim.keymap.set('n', '[x', function()
+      if not require('trouble').is_open() then
+        require('trouble').open {}
+      end
       require('trouble').previous { skip_groups = true, jump = true }
     end)
   end,
