@@ -38,7 +38,7 @@ function ColorRosePine()
 
   hl('Cursor', {
     bg = 'DarkCyan',
-    fg = 'Yellow',
+    fg = 'White',
   })
 
   hl('Normal', {
