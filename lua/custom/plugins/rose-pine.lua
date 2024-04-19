@@ -8,6 +8,6 @@ return {
       extend_background_behind_borders = false,
     }
 
-    vim.cmd 'colorscheme rose-pine'
+    -- vim.cmd 'colorscheme rose-pine'
   end,
 }
