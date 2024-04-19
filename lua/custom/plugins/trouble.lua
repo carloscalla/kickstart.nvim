@@ -5,48 +5,50 @@ return {
     height = 15,
   },
   init = function()
-    vim.keymap.set('n', '<leader>xx', require('trouble').toggle)
+    local trouble = require 'trouble'
+
+    vim.keymap.set('n', '<leader>xx', trouble.toggle)
 
     vim.keymap.set('n', '<leader>xw', function()
-      require('trouble').toggle 'workspace_diagnostics'
+      trouble.toggle 'workspace_diagnostics'
     end)
 
     vim.keymap.set('n', '<leader>xd', function()
-      require('trouble').toggle 'document_diagnostics'
+      trouble.toggle 'document_diagnostics'
     end)
 
     vim.keymap.set('n', '<leader>xq', function()
-      require('trouble').toggle 'quickfix'
+      trouble.toggle 'quickfix'
     end)
 
     vim.keymap.set('n', '<leader>xl', function()
-      require('trouble').toggle 'loclist'
+      trouble.toggle 'loclist'
     end)
 
     vim.keymap.set('n', 'gd', function()
-      require('trouble').toggle 'lsp_definitions'
+      trouble.toggle 'lsp_definitions'
     end)
 
     vim.keymap.set('n', 'gr', function()
-      require('trouble').toggle 'lsp_references'
+      trouble.toggle 'lsp_references'
     end)
 
     vim.keymap.set('n', 'gI', function()
-      require('trouble').toggle 'lsp_implementations'
+      trouble.toggle 'lsp_implementations'
     end)
 
     vim.keymap.set('n', ']x', function()
-      if not require('trouble').is_open() then
-        require('trouble').open {}
+      if not trouble.is_open() then
+        trouble.open {}
       end
-      require('trouble').next { skip_groups = true, jump = true }
+      trouble.next { skip_groups = true, jump = true }
     end)
 
     vim.keymap.set('n', '[x', function()
-      if not require('trouble').is_open() then
-        require('trouble').open {}
+      if not trouble.is_open() then
+        trouble.open {}
       end
-      require('trouble').previous { skip_groups = true, jump = true }
+      trouble.previous { skip_groups = true, jump = true }
     end)
   end,
 }
