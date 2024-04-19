@@ -28,11 +28,11 @@ return {
     vim.keymap.set('n', 'gI', function()
       require('trouble').toggle 'lsp_implementations'
     end)
-    vim.keymap.set('n', '[x', function()
+    vim.keymap.set('n', ']x', function()
       require('trouble').next { skip_groups = true, jump = true }
     end)
 
-    vim.keymap.set('n', ']x', function()
+    vim.keymap.set('n', '[x', function()
       require('trouble').previous { skip_groups = true, jump = true }
     end)
   end,

@@ -45,32 +45,29 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- [[ Configure Telescope ]]
     -- See `:help telescope` and `:help telescope.setup()`
 
-    local actions = require 'telescope.actions'
     local trouble = require 'trouble.providers.telescope'
 
     require('telescope').setup {
-      defaults = {
-        mappings = {
-          i = { ['<c-t>'] = trouble.open_with_trouble },
-          n = { ['<c-t>'] = trouble.open_with_trouble },
-        },
-      },
-      pickers = {
-        live_grep = {
-          mappings = {
-            i = { ['<c-g>'] = actions.to_fuzzy_refine },
-          },
-        },
-      },
+      -- pickers = {
+      --   live_grep = {
+      --     mappings = {
+      --       i = { ['<c-g>'] = actions.to_fuzzy_refine },
+      --     },
+      --   },
+      -- },
       path_display = { truncate = 2 },
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
       --
-      -- defaults = {
-      --   mappings = {
-      --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-      --   },
-      -- },
+      defaults = {
+        mappings = {
+          i = {
+            ['<c-t>'] = trouble.open_with_trouble,
+            ['<c-g>'] = 'to_fuzzy_refine',
+          },
+          n = { ['<c-t>'] = trouble.open_with_trouble },
+        },
+      },
       -- pickers = {}
       extensions = {
         ['ui-select'] = {
@@ -92,7 +89,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
     vim.keymap.set('n', '<leader>pf', builtin.live_grep, { desc = '[P]roject [F]ind' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-    vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
+    vim.keymap.set('n', '<leader>tr', builtin.resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader>ls', builtin.buffers, { desc = '[ ] Find existing buffers' })
     vim.keymap.set('n', '<leader>gs', '<cmd>Telescope git_status<CR>', { noremap = true })
