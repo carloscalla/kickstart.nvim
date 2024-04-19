@@ -76,3 +76,6 @@ vim.o.cursorline = false
 vim.g.skip_ts_context_commentstring_module = true
 
 vim.o.termguicolors = true
+
+-- QUICKFIX
+vim.cmd [[packadd cfilter]]
