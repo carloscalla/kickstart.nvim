@@ -23,5 +23,8 @@ return {
 
     vim.o.background = 'dark' -- or "light" for light mode
     vim.cmd [[colorscheme gruvbox]]
+
+    -- You can configure highlights by doing something like:
+    -- vim.cmd.hi 'Comment gui=none'
   end,
 }
