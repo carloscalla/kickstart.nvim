@@ -41,11 +41,6 @@ return { -- Highlight, edit, and navigate code
             desc = 'select inner part of a class',
           },
         },
-        -- selection_modes = {
-        -- ['@parameter.outer'] = 'v',
-        -- ['@function.outer'] = 'V',
-        -- ['@class.outer'] = '<c-v>',
-        -- },
       },
     },
   },
