@@ -23,15 +23,15 @@
 If you experience any errors while trying to install kickstart, run `:checkhealth` for more info.
 --]]
 
-require 'custom.options'
+require 'carlos.options'
 
-require 'custom.keymaps'
+require 'carlos.keymaps'
 
-require 'custom.autocmds'
+require 'carlos.autocmds'
 
-require 'custom.lazy'
+require 'carlos.lazy'
 
-require 'custom.colors'
+require 'carlos.colors'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
