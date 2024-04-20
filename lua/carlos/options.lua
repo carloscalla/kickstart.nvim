@@ -79,3 +79,8 @@ vim.o.termguicolors = true
 
 -- QUICKFIX
 vim.cmd [[packadd cfilter]]
+
+if vim.fn.executable 'rg' == 1 then
+  vim.o.grepprg = 'rg --vimgrep --no-heading --smart-case'
+  -- vim.o.grepformat = '%f:%l:%m'
+end
