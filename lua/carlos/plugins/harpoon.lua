@@ -1,5 +1,5 @@
 return {
-  'ThePrimeagen/harpoon',
+  'carloscalla/harpoon',
   config = function()
     require('harpoon').setup {
       menu = {
