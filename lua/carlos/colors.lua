@@ -29,8 +29,6 @@ function ColorGruvBox()
   })
 end
 
--- ColorGruvBox()
-
 function ColorRosePine()
   local hl = function(thing, opts)
     vim.api.nvim_set_hl(0, thing, opts)

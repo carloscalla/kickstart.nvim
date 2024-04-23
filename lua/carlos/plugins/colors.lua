@@ -1,3 +1,7 @@
+local hl = function(thing, opts)
+  vim.api.nvim_set_hl(0, thing, opts)
+end
+
 return {
   {
     'ellisonleao/gruvbox.nvim',
@@ -28,6 +32,8 @@ return {
 
       -- You can configure highlights by doing something like:
       -- vim.cmd.hi 'Comment gui=none'
+
+      ColorGruvBox()
     end,
   },
   {
@@ -42,6 +48,8 @@ return {
       }
 
       vim.cmd 'colorscheme rose-pine'
+
+      ColorRosePine()
     end,
   },
   {
@@ -53,10 +61,16 @@ return {
         styles = {
           comments = { italic = false },
           keywords = { italic = false },
+          functions = { italic = false },
+          variables = { italic = false },
         },
       }
 
       vim.cmd [[colorscheme solarized-osaka]]
+
+      hl('TreesitterContextLineNumber', {
+        fg = '#f5b942',
+      })
     end,
   },
 }
