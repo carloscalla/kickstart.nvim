@@ -2,6 +2,48 @@ local hl = function(thing, opts)
   vim.api.nvim_set_hl(0, thing, opts)
 end
 
+function ColorGruvBox()
+  hl('SignColumn', {
+    bg = 'none',
+  })
+
+  hl('WinSeparator', {
+    fg = 'Gray',
+  })
+
+  hl('Cursor', {
+    bg = 'DarkCyan',
+    fg = 'White',
+  })
+
+  hl('Normal', {
+    bg = 'none',
+  })
+
+  hl('TreesitterContext', {
+    bg = '#333333',
+  })
+
+  hl('TreesitterContextLineNumber', {
+    fg = '#f5b942',
+  })
+end
+
+function ColorRosePine()
+  hl('Cursor', {
+    bg = 'DarkCyan',
+    fg = 'White',
+  })
+
+  hl('Normal', {
+    bg = 'none',
+  })
+
+  hl('NormalNC', {
+    bg = 'none',
+  })
+end
+
 return {
   {
     'ellisonleao/gruvbox.nvim',
@@ -54,6 +96,7 @@ return {
   },
   {
     'craftzdog/solarized-osaka.nvim',
+    enabled = true,
     lazy = false,
     priority = 1000,
     config = function()
