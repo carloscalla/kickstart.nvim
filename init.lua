@@ -31,7 +31,7 @@ require 'carlos.autocmds'
 
 require 'carlos.lazy'
 
-require 'carlos.colors'
+-- Up to date with: https://github.com/nvim-lua/kickstart.nvim/commit/8df3deb6fe7d8adf6957bc649b171f0ffde7f1ad
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
