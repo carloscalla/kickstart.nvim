@@ -47,5 +47,3 @@ function ColorRosePine()
     bg = 'none',
   })
 end
-
--- ColorRosePine()
