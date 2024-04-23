@@ -29,7 +29,7 @@ function ColorGruvBox()
   })
 end
 
-ColorGruvBox()
+-- ColorGruvBox()
 
 function ColorRosePine()
   local hl = function(thing, opts)
