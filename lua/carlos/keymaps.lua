@@ -48,6 +48,8 @@ vim.keymap.set('n', '<leader>wH', '<C-W>H')
 vim.keymap.set('n', '<leader>wK', '<C-W>K')
 vim.keymap.set('n', '<leader>wJ', '<C-W>J')
 vim.keymap.set('n', '<leader>wq', '<C-W>q')
+vim.keymap.set('n', '<leader>wo', '<C-W>o')
+vim.keymap.set('n', '<C-q>', '<C-W>q')
 
 vim.keymap.set('n', '<Up>', '3<C-y>')
 vim.keymap.set('n', '<Down>', '3<C-e>')
