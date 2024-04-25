@@ -58,6 +58,19 @@ return { -- Highlight, edit, and navigate code
         },
       },
     },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        -- maps in normal mode to init the node/scope selection with space
+        init_selection = ',',
+        -- increment to the upper named parent
+        node_incremental = ',',
+        -- decrement to the previous node
+        node_decremental = '<bs>',
+        -- increment to the upper scope (as defined in locals.scm)
+        scope_incremental = '<tab>',
+      },
+    },
   },
   config = function(_, opts)
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
