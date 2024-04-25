@@ -47,13 +47,21 @@ return { -- Highlight, edit, and navigate code
             query = '@function.inner',
             desc = 'select inner part of a function',
           },
-          ['ac'] = {
+          ['aC'] = {
             query = '@class.outer',
             desc = 'select around a class',
           },
-          ['ic'] = {
+          ['iC'] = {
             query = '@class.inner',
             desc = 'select inner part of a class',
+          },
+          ['ac'] = {
+            query = '@comment.outer',
+            desc = 'select around a comment',
+          },
+          ['ic'] = {
+            query = '@comment.inner',
+            desc = 'select inner part of a comment',
           },
         },
       },
