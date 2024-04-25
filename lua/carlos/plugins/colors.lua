@@ -114,6 +114,8 @@ return {
       hl('TreesitterContextLineNumber', {
         fg = '#f5b942',
       })
+
+      vim.cmd [[ hi Visual cterm=NONE gui=NONE ]]
     end,
   },
 }
