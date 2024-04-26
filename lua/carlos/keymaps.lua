@@ -6,7 +6,7 @@ vim.opt.hlsearch = true
 -- vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Clears hlsearch after doing a search, otherwise just does normal <CR> stuff
-vim.cmd [[ nnoremap <expr> <CR> {-> v:hlsearch ? "<Cmd>nohlsearch<Bar>diffupdate<CR>" : "<CR>"}() ]]
+vim.cmd [[ nnoremap <expr> <CR> {-> v:hlsearch ? "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>" : "<CR>"}() ]]
 -- <C-L> neovim builtin mapping:
 -- <Cmd>nohlsearch|diffupdate|normal! <C-L><CR>
 -- I'm mapping <C-l> to switch windows below, so
