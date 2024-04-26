@@ -29,9 +29,7 @@ return { -- LSP Configuration & Plugins
         map('<leader>gd', require('fzf-lua').lsp_definitions, '[G]oto [D]efinition')
 
         -- Find references for the word under your cursor.
-        map('gR', function()
-          require('telescope.builtin').lsp_references(require('telescope.themes').get_ivy())
-        end, '[G]oto [R]eferences')
+        map('gR', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
         map('<leader>gr', require('fzf-lua').lsp_references, '[G]oto [R]eferences')
 
         -- Jump to the implementation of the word under your cursor.

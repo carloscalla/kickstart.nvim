@@ -27,8 +27,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
     local actions = require 'telescope.actions'
 
     require('telescope').setup {
-      path_display = { truncate = 2 },
       defaults = {
+        path_display = { truncate = 1 },
+        layout_config = {
+          vertical = {
+            width = 0.7,
+          },
+        },
         mappings = {
           i = {
             ['<c-t>'] = trouble.open_with_trouble,
@@ -41,10 +46,23 @@ return { -- Fuzzy Finder (files, lsp, etc)
           },
         },
       },
-      -- pickers = {}
+      pickers = {
+        live_grep = {
+          layout_strategy = 'vertical',
+        },
+        lsp_references = {
+          layout_strategy = 'vertical',
+          fname_width = 80,
+          show_line = true,
+          trim_text = false,
+        },
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
+        },
+        file_browser = {
+          theme = 'ivy',
         },
       },
     }
@@ -52,6 +70,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+    pcall(require('telescope').load_extension 'file_browser')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
