@@ -6,11 +6,10 @@ vim.opt.hlsearch = true
 -- vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Clears hlsearch after doing a search, otherwise just does normal <CR> stuff
+-- Use <C-L> neovim builtin mapping for clearing
 vim.cmd [[ nnoremap <expr> <CR> {-> v:hlsearch ? "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>" : "<CR>"}() ]]
--- <C-L> neovim builtin mapping:
--- <Cmd>nohlsearch|diffupdate|normal! <C-L><CR>
--- I'm mapping <C-l> to switch windows below, so
--- use :mode to clear and redraw the screen or capital L, Ctrl+Shift+l
+-- I'm mapping <C-l> to switch windows below
+-- Once can also use :mode to clear and redraw the screen or capital L, Ctrl+Shift+l
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
