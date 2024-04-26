@@ -1,3 +1,9 @@
+vim.api.nvim_create_user_command('ToggleTSContext', function()
+  require('treesitter-context').toggle()
+end, {
+  desc = 'Toggle TreeSitter Context',
+})
+
 return {
   'nvim-treesitter/nvim-treesitter-context',
   config = function()

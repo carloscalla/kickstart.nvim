@@ -9,6 +9,7 @@ end, {
   desc = 'Disable autoformat-on-save',
   bang = true,
 })
+
 vim.api.nvim_create_user_command('FormatEnable', function()
   vim.b.disable_autoformat = false
   vim.g.disable_autoformat = false
