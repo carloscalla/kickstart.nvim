@@ -9,13 +9,19 @@ vim.opt.hlsearch = true
 -- Use <C-L> neovim builtin mapping for clearing
 vim.cmd [[ nnoremap <expr> <CR> {-> v:hlsearch ? "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>" : "<CR>"}() ]]
 -- I'm mapping <C-l> to switch windows below
--- Once can also use :mode to clear and redraw the screen or capital L, Ctrl+Shift+l
+-- One can also use :mode to clear and redraw the screen or capital L, Ctrl+Shift+l
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+vim.keymap.set('n', '[e', function()
+  vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.ERROR }
+end, { desc = 'Go to previous [D]iagnostic message' })
+vim.keymap.set('n', ']e', function()
+  vim.diagnostic.goto_next { severity = vim.diagnostic.severity.ERROR }
+end, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic Location list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -62,10 +68,12 @@ vim.keymap.set('n', '[c', '<cmd>cprev<CR>zz')
 vim.keymap.set('n', ']l', '<cmd>lnext<CR>zz')
 vim.keymap.set('n', '[l', '<cmd>lprev<CR>zz')
 
-vim.keymap.set('n', '[[', '?{<CR>w99[{')
-vim.keymap.set('n', '][', '/}<CR>b99]}')
-vim.keymap.set('n', ']]', 'j0[[%/{<CR>')
-vim.keymap.set('n', '[]', 'k$][%?}<CR>')
+-- Commenting them out since <CR> interferes with the search performed in this mapping
+-- Also I barely use this nowadays. Treesitter and textobjects have improved this experience a lot
+-- vim.keymap.set('n', '[[', '?{<CR>w99[{')
+-- vim.keymap.set('n', '][', '/}<CR>b99]}')
+-- vim.keymap.set('n', ']]', 'j0[[%/{<CR>')
+-- vim.keymap.set('n', '[]', 'k$][%?}<CR>')
 
 -- Plugin Remaps
 
