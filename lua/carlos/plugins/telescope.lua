@@ -52,7 +52,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
         },
         lsp_references = {
           layout_strategy = 'vertical',
-          fname_width = 80,
+          fname_width = 0.7,
           show_line = true,
           trim_text = false,
         },
