@@ -29,6 +29,8 @@ require 'carlos.keymaps'
 
 require 'carlos.autocmds'
 
+require 'carlos.usercmds'
+
 require 'carlos.lazy'
 
 -- Up to date with: https://github.com/nvim-lua/kickstart.nvim/commit/8df3deb6fe7d8adf6957bc649b171f0ffde7f1ad
