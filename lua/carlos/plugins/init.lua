@@ -31,5 +31,4 @@ return {
       'nvim-lua/plenary.nvim',
     },
   },
-  'epwalsh/obsidian.nvim',
 }
