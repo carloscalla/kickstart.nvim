@@ -118,4 +118,22 @@ return {
       vim.cmd [[ hi Visual cterm=NONE gui=NONE ]]
     end,
   },
+  {
+    'folke/tokyonight.nvim',
+    enabled = false,
+    lazy = false,
+    priority = 1000,
+    opts = {
+      style = 'night',
+      transparent = true,
+      terminal_colo = true,
+      styles = {
+        comments = { italic = false },
+        keywords = { italic = false },
+      },
+    },
+    init = function()
+      vim.cmd [[colorscheme tokyonight]]
+    end,
+  },
 }
