@@ -58,7 +58,7 @@ return { -- Autocompletion
         -- Select the [p]revious item
         ['<C-p>'] = cmp.mapping.select_prev_item(),
 
-        -- Scroll the documentation window [b]ack / [f]orward
+        -- Scroll the documentation window [u]p / [d]own
         ['<C-u>'] = cmp.mapping.scroll_docs(-4),
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
 
@@ -67,6 +67,7 @@ return { -- Autocompletion
         -- Accept ([y]es) the completion.
         --  This will auto-import if your LSP supports it.
         --  This will expand snippets if the LSP sent a snippet.
+        ['<C-y>'] = cmp.mapping.confirm { select = true },
         ['<Tab>'] = cmp.mapping.confirm { select = true },
 
         -- Manually trigger a completion from nvim-cmp.
