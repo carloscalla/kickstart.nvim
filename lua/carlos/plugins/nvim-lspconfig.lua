@@ -136,7 +136,24 @@ return { -- LSP Configuration & Plugins
       --    https://github.com/pmizio/typescript-tools.nvim
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
-      tsserver = {},
+      tsserver = {
+        on_attach = function(client, bufnr)
+          vim.keymap.set('n', '<leader>cR', function()
+            vim.lsp.buf.code_action {
+              apply = true,
+              context = {
+                only = { 'source.removeUnused.ts' },
+                diagnostics = {},
+              },
+            }
+          end, { buffer = bufnr, desc = 'Remove Unused Imports' })
+        end,
+        settings = {
+          completions = {
+            completeFunctionCalls = true,
+          },
+        },
+      },
       --
 
       lua_ls = {
@@ -155,14 +172,13 @@ return { -- LSP Configuration & Plugins
       },
 
       eslint = {
-        --[[
-          on_attach = function(client, bufnr)
-            vim.api.nvim_create_autocmd('BufWritePre', {
-              buffer = bufnr,
-              command = 'EslintFixAll',
-            })
-          end,
-        --]]
+        on_attach = function(client, bufnr)
+          vim.keymap.set('n', '<leader>co', '<cmd>EslintFixAll<cr>', { buffer = bufnr, desc = 'Organize Imports' })
+          -- vim.api.nvim_create_autocmd('BufWritePre', {
+          --   buffer = bufnr,
+          --   command = 'EslintFixAll',
+          -- })
+        end,
       },
       cssls = {},
       jsonls = {},
