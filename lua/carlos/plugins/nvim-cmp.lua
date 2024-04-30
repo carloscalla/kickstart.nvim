@@ -46,7 +46,7 @@ return { -- Autocompletion
           luasnip.lsp_expand(args.body)
         end,
       },
-      -- completion = { completeopt = 'menu,menuone,noinsert' },
+      completion = { completeopt = 'menu,menuone,noinsert' },
 
       -- For an understanding of why these mappings were
       -- chosen, you will need to read `:help ins-completion`
@@ -102,6 +102,9 @@ return { -- Autocompletion
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
+      },
+      experimental = {
+        ghost_text = true,
       },
     }
   end,
