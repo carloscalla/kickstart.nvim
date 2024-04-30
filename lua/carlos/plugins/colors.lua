@@ -115,6 +115,10 @@ return {
         fg = '#f5b942',
       })
 
+      hl('MsgArea', {
+        fg = '#9fabad',
+      })
+
       vim.cmd [[ hi Visual cterm=NONE gui=NONE ]]
     end,
   },
