@@ -92,4 +92,7 @@ vim.keymap.set('n', '<leader>hn', "<cmd>lua require('harpoon.ui').nav_next()<CR>
 -- vim.keymap.set('n', '<leader>pp', '<Plug>(PrettierAsync)')
 
 -- Undotree
-vim.keymap.set('n', '<leader>u', '<cmd>UndotreeToggle<CR>')
+vim.keymap.set('n', '<leader>u', '<Cmd>UndotreeToggle<CR>')
+
+-- ToggleTerm
+vim.keymap.set('n', '<leader>tt', '<Cmd>ToggleTerm<CR>')
