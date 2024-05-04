@@ -1,5 +1,8 @@
 return {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  'vuciv/vim-bujo',
+  'tpope/vim-repeat',
+  'tpope/vim-surround',
   {
     'folke/todo-comments.nvim', -- Highlight todo, notes, etc in comments
     event = 'VimEnter',
@@ -16,9 +19,6 @@ return {
       require('colorizer').setup()
     end,
   },
-  'vuciv/vim-bujo',
-  'tpope/vim-repeat',
-  'tpope/vim-surround',
   {
     'mbbill/undotree',
     keys = {
@@ -26,10 +26,6 @@ return {
     },
   },
   -- { 'tpope/vim-commentary' },
-
-  -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
   {
     'nvim-pack/nvim-spectre',
     dependencies = {
@@ -45,4 +41,8 @@ return {
     },
     config = true,
   },
+
+  -- Git related plugins
+  'tpope/vim-fugitive',
+  'tpope/vim-rhubarb',
 }
