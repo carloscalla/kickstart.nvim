@@ -25,7 +25,7 @@ return {
       desc = 'Run File',
     },
     {
-      '<leader>tT',
+      '<leader>tR',
       function()
         require('neotest').run.run(vim.uv.cwd())
       end,
