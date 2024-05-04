@@ -7,4 +7,7 @@ return {
       direction = 'horizontal',
     }
   end,
+  keys = {
+    { '<leader>tt', '<Cmd>ToggleTerm<CR>' },
+  },
 }

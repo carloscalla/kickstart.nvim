@@ -19,7 +19,12 @@ return {
   'vuciv/vim-bujo',
   'tpope/vim-repeat',
   'tpope/vim-surround',
-  'mbbill/undotree',
+  {
+    'mbbill/undotree',
+    keys = {
+      { '<leader>u', '<Cmd>UndotreeToggle<CR>' },
+    },
+  },
   -- { 'tpope/vim-commentary' },
 
   -- Git related plugins

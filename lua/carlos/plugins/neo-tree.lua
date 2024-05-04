@@ -15,4 +15,9 @@ return {
     }
     vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
   end,
+  keys = {
+    { '<leader>nt', ':Neotree float toggle<CR>', 'n' },
+    { '<leader>fi', ':Neotree float reveal<CR>', 'n' },
+    -- { '<leader>fo', ':Neotree float focus<CR>', 'n' },
+  },
 }
