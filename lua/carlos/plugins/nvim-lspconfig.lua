@@ -172,6 +172,10 @@ return { -- LSP Configuration & Plugins
       },
 
       eslint = {
+        settings = {
+          -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
+          workingDirectories = { mode = 'auto' },
+        },
         on_attach = function(client, bufnr)
           vim.keymap.set('n', '<leader>co', '<cmd>EslintFixAll<cr>', { buffer = bufnr, desc = 'Organize Imports' })
           -- vim.api.nvim_create_autocmd('BufWritePre', {
