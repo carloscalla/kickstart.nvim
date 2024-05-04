@@ -119,7 +119,7 @@ return {
         fg = '#9fabad',
       })
 
-      vim.cmd [[ hi Visual cterm=NONE gui=NONE ]]
+      -- vim.cmd [[ hi Visual cterm=NONE gui=NONE ]]
     end,
   },
   {
