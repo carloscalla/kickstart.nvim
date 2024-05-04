@@ -25,13 +25,6 @@ return {
       desc = 'Run File',
     },
     {
-      '<leader>tR',
-      function()
-        require('neotest').run.run(vim.uv.cwd())
-      end,
-      desc = 'Run All Test Files',
-    },
-    {
       '<leader>tr',
       function()
         require('neotest').run.run()
