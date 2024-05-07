@@ -29,7 +29,7 @@ return {
       trouble.toggle 'lsp_definitions'
     end)
 
-    vim.keymap.set('n', 'gr', function()
+    vim.keymap.set('n', 'gR', function()
       trouble.toggle 'lsp_references'
     end)
 
