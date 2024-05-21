@@ -25,9 +25,9 @@ return {
       trouble.toggle 'loclist'
     end)
 
-    vim.keymap.set('n', 'gd', function()
-      trouble.toggle 'lsp_definitions'
-    end)
+    -- vim.keymap.set('n', 'gd', function()
+    --   trouble.toggle 'lsp_definitions'
+    -- end)
 
     vim.keymap.set('n', 'gR', function()
       trouble.toggle 'lsp_references'
