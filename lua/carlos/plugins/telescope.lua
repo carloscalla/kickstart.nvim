@@ -23,8 +23,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
-    local trouble = require 'trouble.providers.telescope'
+    -- local trouble = require 'trouble.providers.telescope'
     local actions = require 'telescope.actions'
+    local open_with_trouble = require('trouble.sources.telescope').open
 
     require('telescope').setup {
       defaults = {
@@ -36,12 +37,14 @@ return { -- Fuzzy Finder (files, lsp, etc)
         },
         mappings = {
           i = {
-            ['<c-t>'] = trouble.open_with_trouble,
+            -- ['<c-t>'] = trouble.open_with_trouble,
+            ['<c-t>'] = open_with_trouble,
             ['<c-g>'] = 'to_fuzzy_refine',
             ['<c-s>'] = actions.send_selected_to_qflist + actions.open_qflist,
           },
           n = {
-            ['<c-t>'] = trouble.open_with_trouble,
+            -- ['<c-t>'] = trouble.open_with_trouble,
+            ['<c-t>'] = open_with_trouble,
             ['<c-s>'] = actions.send_selected_to_qflist + actions.open_qflist,
           },
         },
@@ -74,7 +77,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]earch [F]iles' })
     vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-    vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+    vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
     vim.keymap.set('n', '<leader>pf', builtin.live_grep, { desc = '[P]roject [F]ind' })
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
