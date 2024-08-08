@@ -34,7 +34,7 @@ require 'carlos.usercmds'
 require 'carlos.lazy'
 
 -- Up to date with:
--- https://github.com/nvim-lua/kickstart.nvim/commit/07a9f446a30487439a6c922a7b4a4aa5756ee1d9
+-- https://github.com/nvim-lua/kickstart.nvim/commit/7513ec8a7dd579957ce2d9b44e05c1da18d7d0e3
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
