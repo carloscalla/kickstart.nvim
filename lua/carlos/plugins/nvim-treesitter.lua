@@ -22,6 +22,7 @@ return { -- Highlight, edit, and navigate code
       'luadoc',
       'markdown',
       'markdown_inline',
+      'query',
       'tsx',
       'typescript',
       'vim',
