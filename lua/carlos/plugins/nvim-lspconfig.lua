@@ -146,6 +146,16 @@ return { -- Main LSP Configuration
               },
             }
           end, { buffer = bufnr, desc = 'Remove Unused Imports' })
+
+          vim.keymap.set('n', '<leader>cM', function()
+            vim.lsp.buf.code_action {
+              apply = true,
+              context = {
+                only = { 'source.addMissingImports.ts' },
+                diagnostics = {},
+              },
+            }
+          end, { buffer = bufnr, desc = 'Add missing imports' })
         end,
         settings = {
           completions = {

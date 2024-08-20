@@ -44,5 +44,7 @@ return {
     vim.keymap.set('n', '<leader>sg', require('fzf-lua').live_grep, { desc = '[S]earch by [G]rep' })
     -- vim.keymap.set('n', '<leader>sr', require('fzf-lua').resume, { desc = '[S]earch [R]esume' })
     vim.keymap.set('n', '<leader>sb', require('fzf-lua').buffers, { desc = '[ ] Find existing buffers' })
+    vim.keymap.set('n', '<leader>sw', require('fzf-lua').grep_cword, { desc = '[ ] Grep cword' })
+    vim.keymap.set('n', '<leader>sW', require('fzf-lua').grep_cWORD, { desc = '[ ] Grep cWORD' })
   end,
 }
