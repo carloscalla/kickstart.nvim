@@ -44,7 +44,8 @@ return { -- Autoformat
         return
       end
       return {
-        timeout_ms = 500,
+        -- timeout_ms = 500,
+        timeout_ms = 1000,
         lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
       }
     end,
@@ -67,6 +68,7 @@ return { -- Autoformat
       ['markdown'] = { 'prettierd', 'prettier', stop_after_first = true },
       ['markdown.mdx'] = { 'prettierd', 'prettier', stop_after_first = true },
       ['graphql'] = { 'prettierd', 'prettier', stop_after_first = true },
+      kotlin = { 'ktlint' },
     },
   },
 }

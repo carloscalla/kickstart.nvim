@@ -27,6 +27,9 @@ return {
         },
       },
       fzf_opts = { ['--layout'] = 'default' },
+      grep = {
+        winopts = { preview = { layout = 'vertical' } },
+      },
       -- keymap = {
       --   fzf = {
       --     ['ctrl-a'] = 'toggle-all',
@@ -40,11 +43,14 @@ return {
       -- },
     }
 
-    vim.keymap.set('n', '<leader>sf', require('fzf-lua').files, { desc = '[S]earch [F]iles' })
-    vim.keymap.set('n', '<leader>sg', require('fzf-lua').live_grep, { desc = '[S]earch by [G]rep' })
-    -- vim.keymap.set('n', '<leader>sr', require('fzf-lua').resume, { desc = '[S]earch [R]esume' })
-    vim.keymap.set('n', '<leader>sb', require('fzf-lua').buffers, { desc = '[ ] Find existing buffers' })
-    vim.keymap.set('n', '<leader>sw', require('fzf-lua').grep_cword, { desc = '[ ] Grep cword' })
-    vim.keymap.set('n', '<leader>sW', require('fzf-lua').grep_cWORD, { desc = '[ ] Grep cWORD' })
+    vim.keymap.set('n', '<leader>ff', require('fzf-lua').files, { desc = '[F]ind [F]iles' })
+    vim.keymap.set('n', '<leader>pf', require('fzf-lua').live_grep, { desc = '[P]roject [F]ind' })
+    vim.keymap.set('n', '<leader>fr', require('fzf-lua').resume, { desc = '[F]zf [R]esume' })
+    vim.keymap.set('n', '<leader>ls', require('fzf-lua').buffers, { desc = '[ ] Find existing buffers' })
+    vim.keymap.set('n', '<leader>fw', require('fzf-lua').grep_cword, { desc = '[ ] Grep cword' })
+    vim.keymap.set('n', '<leader>fW', require('fzf-lua').grep_cWORD, { desc = '[ ] Grep cWORD' })
+    vim.keymap.set('n', '<leader>fo', require('fzf-lua').oldfiles, { desc = '[ ] Old files' })
+    vim.keymap.set('n', '<leader>rg', require('fzf-lua').grep, { desc = '[ ] Grep' })
+    vim.keymap.set('v', '<leader>rg', require('fzf-lua').grep_visual, { desc = '[ ] Grep visual' })
   end,
 }
