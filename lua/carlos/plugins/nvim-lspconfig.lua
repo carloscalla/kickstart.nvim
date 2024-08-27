@@ -25,15 +25,36 @@ return { -- Main LSP Configuration
         --  This is where a variable was first declared, or where a function is defined, etc.
         --  To jump back, press <C-t>.
         map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-        map('<leader>gd', require('fzf-lua').lsp_definitions, '[G]oto [D]efinition')
+        map('<leader>gd', function()
+          require('fzf-lua').lsp_definitions {
+            winopts = {
+              height = 0.7,
+              width = 0.6,
+              preview = {
+                layout = 'vertical',
+                vertical = 'up:70%',
+              },
+            },
+          }
+        end, '[G]oto [D]efinition')
 
         -- Find references for the word under your cursor.
-        map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-        map('<leader>gr', require('fzf-lua').lsp_references, '[G]oto [R]eferences')
+        map('<leader>gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+        map('gr', function()
+          require('fzf-lua').lsp_references {
+            winopts = {
+              width = 0.7,
+              preview = {
+                layout = 'vertical',
+                vertical = 'up:55%',
+              },
+            },
+          }
+        end, '[G]oto [R]eferences')
 
         -- Jump to the implementation of the word under your cursor.
         --  Useful when your language has ways of declaring types without an actual implementation.
-        -- map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+        map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
         map('<leader>gI', require('fzf-lua').lsp_implementations, '[G]oto [I]mplementation')
 
         -- Jump to the type of the word under your cursor.

@@ -32,16 +32,16 @@ return {
       '<cmd>Trouble qflist toggle<cr>',
       desc = 'Quickfix List (Trouble)',
     },
-    {
-      'gR',
-      '<cmd>Trouble lsp_references toggle<cr>',
-      desc = 'LSP References (Trouble)',
-    },
-    {
-      'gI',
-      '<cmd>Trouble lsp_implementations toggle<cr>',
-      desc = 'LSP Implementations (Trouble)',
-    },
+    -- {
+    --   'gR',
+    --   '<cmd>Trouble lsp_references toggle<cr>',
+    --   desc = 'LSP References (Trouble)',
+    -- },
+    -- {
+    --   'gI',
+    --   '<cmd>Trouble lsp_implementations toggle<cr>',
+    --   desc = 'LSP Implementations (Trouble)',
+    -- },
   },
   opts = {},
   -- v2 config
