@@ -15,3 +15,12 @@ vim.api.nvim_create_user_command('PersistenceStop', function()
 end, {
   desc = "Stop Persistence => session won't be saved on exit",
 })
+
+vim.api.nvim_create_user_command('FullFilePath', function()
+  vim.fn.setreg('+', vim.fn.expand '%:p')
+end, { desc = 'Copy full path of current buffer to clipboard' })
+
+vim.api.nvim_create_user_command('FilePath', function()
+  -- copy relative path of current buffer to clipboard
+  vim.fn.setreg('+', vim.fn.expand '%:~:.')
+end, { desc = 'Copy relative path of current buffer to clipboard' })
