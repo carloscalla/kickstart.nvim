@@ -65,7 +65,28 @@ return {
             hidden = 'hidden',
           },
         },
+        fzf_opts = {
+          ['--layout'] = 'reverse',
+        },
       }
     end, { desc = 'Grep current buffer' })
+    vim.keymap.set('n', '<leader>:', require('fzf-lua').command_history, { desc = 'Command History' })
+    vim.keymap.set('n', '<leader>cA', function()
+      require('fzf-lua').lsp_code_actions {
+        winopts = {
+          row = 0.5,
+          height = 15,
+          width = 100,
+          preview = {
+            hidden = 'hidden',
+          },
+        },
+        fzf_opts = {
+          ['--layout'] = 'reverse',
+        },
+      }
+    end, { desc = 'LSP Code Actions' })
+    vim.keymap.set('n', '<leader>gC', require('fzf-lua').git_commits, { desc = 'Git Commits' })
+    vim.keymap.set('n', '<leader>gc', require('fzf-lua').git_bcommits, { desc = 'Git Buffer Commits' })
   end,
 }
