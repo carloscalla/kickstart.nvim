@@ -71,6 +71,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+    pcall(require('telescope').load_extension 'harpoon')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
@@ -85,6 +86,12 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader>gs', builtin.git_status, { noremap = true })
+    -- vim.keymap.set('n', '<leader>ht', function()
+    --   require('telescope').extensions.harpoon.marks(require('telescope.themes').get_dropdown {
+    --     previewer = false,
+    --     winblend = 10,
+    --   })
+    -- end)
 
     -- Slightly advanced example of overriding default behavior and theme
     -- vim.keymap.set('n', '<leader>/', function()

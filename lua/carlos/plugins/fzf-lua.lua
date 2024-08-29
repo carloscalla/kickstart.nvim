@@ -7,6 +7,13 @@ return {
     -- calling `setup` is optional for customization
     require('fzf-lua').setup {
       'telescope',
+      fzf_opts = { ['--layout'] = 'default' },
+      keymap = {
+        fzf = {
+          ['ctrl-j'] = 'half-page-down',
+          ['ctrl-k'] = 'half-page-up',
+        },
+      },
       winopts = {
         preview = {
           horizontal = 'right:50%',
@@ -16,17 +23,18 @@ return {
       previewers = {
         builtin = {
           extensions = {
-            ['png'] = { 'chafa', '{file}' },
-            ['svg'] = { 'chafa', '{file}' },
-            ['jpg'] = { 'chafa', '{file}' },
-            ['gif'] = { 'chafa', '{file}' },
-            -- ['png'] = { 'viu', '-b' },
-            -- ['svg'] = { 'viu', '-b' },
-            -- ['jpg'] = { 'viu', '-b' },
+            -- ['png'] = { 'chafa', '{file}' },
+            -- ['svg'] = { 'chafa', '{file}' },
+            -- ['jpg'] = { 'chafa', '{file}' },
+            -- ['gif'] = { 'chafa', '{file}' },
+
+            ['png'] = { 'viu', '-b' },
+            ['svg'] = { 'viu', '-b' },
+            ['jpg'] = { 'viu', '-b' },
+            ['gif'] = { 'viu', '-b' },
           },
         },
       },
-      fzf_opts = { ['--layout'] = 'default' },
       grep = {
         winopts = {
           preview = {
@@ -34,16 +42,15 @@ return {
           },
         },
       },
-      -- keymap = {
-      --   fzf = {
-      --     ['ctrl-a'] = 'toggle-all',
-      --   },
-      -- },
       -- actions = {
       --   files = {
       --     ['ctrl-q'] = actions.file_sel_to_qf,
       --     ['ctrl-l'] = actions.file_sel_to_ll,
       --   },
+      -- },
+      -- oldfiles = {
+      --   include_current_session = true,
+      --   cwd_only = true,
       -- },
     }
 
@@ -56,6 +63,7 @@ return {
     vim.keymap.set('n', '<leader>fo', require('fzf-lua').oldfiles, { desc = '[ ] Old files' })
     vim.keymap.set('n', '<leader>rg', require('fzf-lua').grep, { desc = '[ ] Grep' })
     vim.keymap.set('v', '<leader>rg', require('fzf-lua').grep_visual, { desc = '[ ] Grep visual' })
+    vim.keymap.set('n', '<leader>f/', require('fzf-lua').lines, { desc = '[ ] Grep visual' })
     vim.keymap.set('n', '<leader>/', function()
       require('fzf-lua').grep_curbuf {
         winopts = {
@@ -88,5 +96,16 @@ return {
     end, { desc = 'LSP Code Actions' })
     vim.keymap.set('n', '<leader>gC', require('fzf-lua').git_commits, { desc = 'Git Commits' })
     vim.keymap.set('n', '<leader>gc', require('fzf-lua').git_bcommits, { desc = 'Git Buffer Commits' })
+    vim.keymap.set('n', '<leader>gB', require('fzf-lua').git_branches, { desc = 'Git Branches' })
+
+    --[[
+    NOTE: fzf_live is a more performant way to do live queries, can be files or grep
+
+    For files:
+    :FzF fzf_live or :lua require'fzf-lua'.fzf_live()
+
+    For grep:
+    :lua require'fzf-lua'.fzf_live("rg --column --line-number --no-heading --color=always --smart-case")
+    ]]
   end,
 }
