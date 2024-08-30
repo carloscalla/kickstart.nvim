@@ -79,7 +79,7 @@ return {
       }
     end, { desc = 'Grep current buffer' })
     vim.keymap.set('n', '<leader>:', require('fzf-lua').command_history, { desc = 'Command History' })
-    vim.keymap.set('n', '<leader>cA', function()
+    vim.keymap.set({ 'n', 'x' }, '<leader>cA', function()
       require('fzf-lua').lsp_code_actions {
         winopts = {
           row = 0.5,
