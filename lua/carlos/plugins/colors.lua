@@ -107,6 +107,8 @@ return {
           functions = { italic = false },
           variables = { italic = false },
         },
+        on_colors = function(colors) end,
+        on_highlights = function(highlights, colors) end,
       }
 
       vim.cmd [[colorscheme solarized-osaka]]
@@ -119,7 +121,7 @@ return {
         fg = '#9fabad',
       })
 
-      -- vim.cmd [[ hi Visual cterm=NONE gui=NONE ]]
+      vim.cmd [[ hi Visual cterm=NONE gui=NONE ]]
     end,
   },
   {

@@ -21,6 +21,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+
+    -- Emojis
+    { 'xiyaowong/telescope-emoji.nvim' },
   },
   config = function()
     -- local trouble = require 'trouble.providers.telescope'
@@ -79,6 +82,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
     pcall(require('telescope').load_extension 'harpoon')
+    pcall(require('telescope').load_extension 'emoji')
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
