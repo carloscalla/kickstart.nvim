@@ -54,6 +54,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
         live_grep = {
           layout_strategy = 'vertical',
         },
+        lsp_definitions = {
+          layout_strategy = 'vertical',
+          layout_config = {
+            preview_height = 0.65,
+          },
+          fname_width = 0.6,
+        },
         lsp_references = {
           layout_strategy = 'vertical',
           fname_width = 0.7,
