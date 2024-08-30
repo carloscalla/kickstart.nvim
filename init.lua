@@ -34,7 +34,7 @@ require 'carlos.usercmds'
 require 'carlos.lazy'
 
 -- Up to date with:
--- https://github.com/nvim-lua/kickstart.nvim/commit/d452633b35d4dd9ada06efeca95750beaf0f584f
+-- https://github.com/nvim-lua/kickstart.nvim/commit/c76c323a7cc30186a77e2a68c7ecd8f62973cad9
 
 -- Except
 -- https://github.com/nvim-lua/kickstart.nvim/commit/ac78e7d9e77048fa7d5b0711f85aab93508e71a7
