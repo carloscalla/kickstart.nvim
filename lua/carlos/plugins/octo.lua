@@ -4,8 +4,8 @@ return {
   event = { { event = 'BufReadCmd', pattern = 'octo://*' } },
   dependencies = {
     'nvim-lua/plenary.nvim',
-    -- 'nvim-telescope/telescope.nvim',
-    'ibhagwan/fzf-lua',
+    'nvim-telescope/telescope.nvim',
+    -- 'ibhagwan/fzf-lua',
     'nvim-tree/nvim-web-devicons',
   },
   config = function()
@@ -17,12 +17,16 @@ return {
     }
   end,
   init = function()
-    vim.api.nvim_create_user_command('GhPrTeam', function()
+    vim.api.nvim_create_user_command('GhPrToTeam', function()
       vim.cmd [[ Octo pr search is:open review-requested:@me ]]
-    end, { desc = 'Github PRs assigned to me or my team' })
+    end, { desc = 'Github open PRs assigned to me or my team' })
 
-    vim.api.nvim_create_user_command('GhPrMe', function()
+    vim.api.nvim_create_user_command('GhPrToMe', function()
       vim.cmd [[ Octo pr search is:open user-review-requested:@me ]]
-    end, { desc = 'Github PRs assigned to me' })
+    end, { desc = 'Github open PRs assigned to me' })
+
+    vim.api.nvim_create_user_command('GhPrByMe', function()
+      vim.cmd [[ Octo pr search is:open author:@me ]]
+    end, { desc = 'Github open PRs created by me' })
   end,
 }
