@@ -17,6 +17,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'markdown' },
   callback = function()
-    vim.wo.conceallevel = 1
+    vim.wo[vim.api.nvim_get_current_win()][0].conceallevel = 1
   end,
 })
