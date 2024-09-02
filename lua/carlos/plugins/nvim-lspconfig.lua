@@ -158,10 +158,17 @@ return { -- Main LSP Configuration
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
       tsserver = {
-        -- root_dir = require('lspconfig.util').root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git'),
-        -- Set the root directory for the LSP to be the root of the git repository to avoid running multiple processes
+        -- Default
+        -- root_dir = root_pattern('tsconfig.json', 'jsconfig.json', 'package.json', '.git'),
+
+        -- From folke dot files
+        -- root_dir = function(...)
+        --   return require('lspconfig.util').root_pattern '.git'(...)
+        -- end,
+
+        -- Set the root directory for the LSP to be the root of the git repository (priority if exists) to avoid running multiple processes
         root_dir = function(...)
-          return require('lspconfig.util').root_pattern '.git'(...) or vim.fn.getcwd()
+          return require('lspconfig.util').root_pattern('.git', 'tsconfig.json', 'jsconfig.json', 'package.json')(...)
         end,
         on_attach = function(client, bufnr)
           vim.keymap.set('n', '<leader>cR', function()
