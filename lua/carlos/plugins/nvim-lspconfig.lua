@@ -148,7 +148,7 @@ return { -- Main LSP Configuration
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
       clangd = {},
-      -- gopls = {},
+      gopls = {},
       -- pyright = {},
       rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -158,6 +158,11 @@ return { -- Main LSP Configuration
       --
       -- But for many setups, the LSP (`tsserver`) will work just fine
       tsserver = {
+        -- root_dir = require('lspconfig.util').root_pattern('package.json', 'tsconfig.json', 'jsconfig.json', '.git'),
+        -- Set the root directory for the LSP to be the root of the git repository to avoid running multiple processes
+        root_dir = function(...)
+          return require('lspconfig.util').root_pattern '.git'(...) or vim.fn.getcwd()
+        end,
         on_attach = function(client, bufnr)
           vim.keymap.set('n', '<leader>cR', function()
             vim.lsp.buf.code_action {
