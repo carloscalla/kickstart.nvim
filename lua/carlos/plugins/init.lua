@@ -94,5 +94,4 @@ return {
     cmd = 'GBrowse',
     dependencies = { 'tpope/vim-fugitive' },
   },
-  -- 'tpope/vim-rhubarb',
 }

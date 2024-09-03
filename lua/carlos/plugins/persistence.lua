@@ -20,6 +20,12 @@ return {
       desc = 'Restore the last session',
     })
 
+    vim.api.nvim_create_user_command('PersistenceSelect', function()
+      require('persistence').select()
+    end, {
+      desc = 'Restore the session for the current directory',
+    })
+
     vim.api.nvim_create_user_command('PersistenceStop', function()
       require('persistence').stop()
     end, {
