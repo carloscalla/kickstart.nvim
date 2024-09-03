@@ -61,6 +61,7 @@ return {
   -- { 'tpope/vim-commentary' },
   {
     'nvim-pack/nvim-spectre',
+    cmd = 'Spectre',
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
@@ -76,6 +77,31 @@ return {
   },
 
   -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
+  {
+    'tpope/vim-fugitive',
+    cmd = {
+      'Git',
+      'G',
+      'Gdiffsplit',
+      'Gvdiffsplit',
+      'Gedit',
+      'Gsplit',
+      'GMove',
+      'Gread',
+      'Gwrite',
+      'GDelete',
+      'GRemove',
+      'GMove',
+      'GRename',
+      'Ggrep',
+      'Glgrep',
+      -- 'GBrowse',
+    },
+  },
+  {
+    'tpope/vim-rhubarb',
+    cmd = 'GBrowse',
+    dependencies = { 'tpope/vim-fugitive' },
+  },
+  -- 'tpope/vim-rhubarb',
 }
