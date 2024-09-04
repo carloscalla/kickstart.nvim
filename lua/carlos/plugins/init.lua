@@ -1,7 +1,6 @@
 return {
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  'vuciv/vim-bujo',
-  'tpope/vim-repeat',
+  { 'tpope/vim-repeat', event = 'VeryLazy' },
   {
     'tpope/vim-surround',
     --[[
