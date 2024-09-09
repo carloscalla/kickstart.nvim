@@ -158,6 +158,8 @@ return { -- Main LSP Configuration
       --
       -- But for many setups, the LSP (`ts_ls`) will work just fine
       ts_ls = {
+        -- Disabling ts_ls in favor of vtsls
+        enabled = false,
         -- Default
         -- root_dir = root_pattern('tsconfig.json', 'jsconfig.json', 'package.json', '.git'),
 
@@ -197,7 +199,60 @@ return { -- Main LSP Configuration
           },
         },
       },
-      --
+
+      vtsls = {
+        -- Set the root directory for the LSP to be the root of the git repository (priority if exists) to avoid running multiple processes
+        root_dir = function(...)
+          return require('lspconfig.util').root_pattern('.git', 'tsconfig.json', 'jsconfig.json', 'package.json')(...)
+        end,
+        on_attach = function(client, bufnr)
+          vim.keymap.set('n', '<leader>cR', function()
+            vim.lsp.buf.code_action {
+              apply = true,
+              context = {
+                only = { 'source.removeUnused.ts' },
+                diagnostics = {},
+              },
+            }
+          end, { buffer = bufnr, desc = 'Remove Unused Imports' })
+
+          vim.keymap.set('n', '<leader>cM', function()
+            vim.lsp.buf.code_action {
+              apply = true,
+              context = {
+                only = { 'source.addMissingImports.ts' },
+                diagnostics = {},
+              },
+            }
+          end, { buffer = bufnr, desc = 'Add missing imports' })
+        end,
+        settings = {
+          complete_function_calls = true,
+          vtsls = {
+            enableMoveToFileCodeAction = true,
+            autoUseWorkspaceTsdk = true,
+            experimental = {
+              completion = {
+                enableServerSideFuzzyMatch = true,
+              },
+            },
+          },
+          typescript = {
+            updateImportsOnFileMove = { enabled = 'always' },
+            suggest = {
+              completeFunctionCalls = true,
+            },
+            inlayHints = {
+              enumMemberValues = { enabled = true },
+              functionLikeReturnTypes = { enabled = true },
+              parameterNames = { enabled = 'literals' },
+              parameterTypes = { enabled = true },
+              propertyDeclarationTypes = { enabled = true },
+              variableTypes = { enabled = true },
+            },
+          },
+        },
+      },
 
       lua_ls = {
         -- cmd = {...},
@@ -266,5 +321,11 @@ return { -- Main LSP Configuration
         end,
       },
     }
+
+    -- Set up the LSP for vtsls
+    -- require('lspconfig.configs').vtsls = require('vtsls').lspconfig -- set default server config, optional but recommended
+
+    -- If the lsp setup is taken over by other plugin, it is the same to call the counterpart setup function
+    -- require('lspconfig').vtsls.setup { --[[ your custom server config here ]] }
   end,
 }
