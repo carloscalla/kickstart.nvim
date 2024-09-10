@@ -260,8 +260,25 @@ return { -- Main LSP Configuration
         -- capabilities = {},
         settings = {
           Lua = {
+            workspace = {
+              checkThirdParty = false,
+            },
+            codeLens = {
+              enable = true,
+            },
             completion = {
               callSnippet = 'Replace',
+            },
+            doc = {
+              privateName = { '^_' },
+            },
+            hint = {
+              enable = true,
+              setType = false,
+              paramType = true,
+              paramName = 'Disable',
+              semicolon = 'Disable',
+              arrayIndex = 'Disable',
             },
             -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
             -- diagnostics = { disable = { 'missing-fields' } },
