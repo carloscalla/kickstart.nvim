@@ -205,6 +205,7 @@ return { -- Main LSP Configuration
         root_dir = function(...)
           return require('lspconfig.util').root_pattern('.git', 'tsconfig.json', 'jsconfig.json', 'package.json')(...)
         end,
+
         on_attach = function(client, bufnr)
           vim.keymap.set('n', '<leader>cR', function()
             vim.lsp.buf.code_action {
@@ -225,7 +226,18 @@ return { -- Main LSP Configuration
               },
             }
           end, { buffer = bufnr, desc = 'Add missing imports' })
+
+          vim.keymap.set({ 'n', 'x' }, '<leader>cA', function()
+            vim.lsp.buf.code_action {
+              apply = true,
+              context = {
+                only = { 'source' },
+                diagnostics = {},
+              },
+            }
+          end, { buffer = bufnr, desc = 'Source Action' })
         end,
+
         settings = {
           complete_function_calls = true,
           vtsls = {
