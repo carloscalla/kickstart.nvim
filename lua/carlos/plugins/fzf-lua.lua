@@ -13,6 +13,9 @@ return {
           ['ctrl-j'] = 'half-page-down',
           ['ctrl-k'] = 'half-page-up',
         },
+        builtin = {
+          ['<C-o>'] = 'toggle-preview',
+        },
       },
       winopts = {
         preview = {
