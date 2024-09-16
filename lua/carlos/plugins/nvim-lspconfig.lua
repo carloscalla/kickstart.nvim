@@ -370,6 +370,8 @@ return { -- Main LSP Configuration
       'stylua', -- Used to format Lua code
       'prettierd',
       'prettier',
+      'ktlint',
+      'markdownlint',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
