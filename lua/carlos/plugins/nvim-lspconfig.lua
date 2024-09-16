@@ -263,6 +263,20 @@ return { -- Main LSP Configuration
               variableTypes = { enabled = true },
             },
           },
+          javascript = {
+            updateImportsOnFileMove = { enabled = 'always' },
+            suggest = {
+              completeFunctionCalls = true,
+            },
+            inlayHints = {
+              enumMemberValues = { enabled = true },
+              functionLikeReturnTypes = { enabled = true },
+              parameterNames = { enabled = 'literals' },
+              parameterTypes = { enabled = true },
+              propertyDeclarationTypes = { enabled = true },
+              variableTypes = { enabled = true },
+            },
+          },
         },
       },
 
@@ -318,6 +332,27 @@ return { -- Main LSP Configuration
       yamlls = {},
       bashls = {},
       dockerls = {},
+      pyright = {},
+      ruff = {
+        cmd_env = { RUFF_TRACE = 'messages' },
+        init_options = {
+          settings = {
+            logLevel = 'error',
+          },
+        },
+        on_attach = function(client, bufnr)
+          client.server_capabilities.hoverProvider = false
+          vim.keymap.set('n', '<leader>co', function()
+            vim.lsp.buf.code_action {
+              apply = true,
+              context = {
+                only = { 'source.organizeImports' },
+                diagnostics = {},
+              },
+            }
+          end, { buffer = bufnr, desc = 'Format' })
+        end,
+      },
     }
 
     -- Ensure the servers and tools above are installed
