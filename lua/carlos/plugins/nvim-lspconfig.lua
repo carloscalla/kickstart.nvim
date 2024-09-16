@@ -372,6 +372,8 @@ return { -- Main LSP Configuration
       'prettier',
       'ktlint',
       'markdownlint',
+      'goimports',
+      'gofumpt',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

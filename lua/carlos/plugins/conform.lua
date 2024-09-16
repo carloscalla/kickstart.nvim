@@ -75,6 +75,7 @@ return { -- Autoformat
       ['markdown.mdx'] = { 'prettierd', 'prettier', stop_after_first = true },
       ['graphql'] = { 'prettierd', 'prettier', stop_after_first = true },
       kotlin = { 'ktlint' },
+      go = { 'goimports', 'gofumpt' },
     },
   },
 }
