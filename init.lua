@@ -31,7 +31,7 @@ require 'carlos.autocmds'
 
 require 'carlos.usercmds'
 
-require 'carlos.lazy'
+require 'carlos.lazy-bootstrap'
 
 -- Up to date with:
 -- https://github.com/nvim-lua/kickstart.nvim/commit/c76c323a7cc30186a77e2a68c7ecd8f62973cad9
