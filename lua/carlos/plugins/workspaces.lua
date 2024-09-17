@@ -1,6 +1,6 @@
 return {
   'natecraddock/workspaces.nvim',
-  cmd = { 'WorkspacesOpen' },
+  cmd = { 'WorkspacesAdd', 'WorkspacesList', 'WorkspacesOpen' },
   config = function()
     require('workspaces').setup {
       hooks = {
