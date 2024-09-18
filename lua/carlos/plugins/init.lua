@@ -56,6 +56,10 @@ return {
     keys = {
       { '<leader>u', '<Cmd>UndotreeToggle<CR>' },
     },
+    init = function()
+      vim.cmd [[let g:undotree_WindowLayout = 2]]
+      vim.cmd [[let g:undotree_DiffpanelHeight = 15]]
+    end,
   },
   -- { 'tpope/vim-commentary' },
   {
