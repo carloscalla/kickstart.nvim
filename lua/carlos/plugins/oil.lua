@@ -16,6 +16,11 @@ return {
     win_options = {
       winbar = '%!v:lua.get_oil_winbar()',
     },
+    float = {
+      win_options = {
+        winbar = '',
+      },
+    },
   },
   -- Optional dependencies
   dependencies = { 'nvim-tree/nvim-web-devicons' },
