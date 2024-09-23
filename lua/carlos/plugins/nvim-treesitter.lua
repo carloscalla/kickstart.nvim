@@ -79,7 +79,7 @@ return { -- Highlight, edit, and navigate code
       enable = true,
       keymaps = {
         -- maps in normal mode to init the node/scope selection with space
-        init_selection = ',',
+        init_selection = '<leader>,',
         -- increment to the upper named parent
         node_incremental = ',',
         -- decrement to the previous node
