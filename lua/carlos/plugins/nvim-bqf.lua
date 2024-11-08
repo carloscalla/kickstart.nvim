@@ -4,7 +4,9 @@ return {
   dependencies = {
     'junegunn/fzf',
     build = function()
-      vim.fn['fzf#install']()
+      -- The following line is not working, I don't know why yet
+      -- It's not a problem since I install fzf through homebrew
+      -- vim.fn['fzf#install']()
     end,
   },
 }
