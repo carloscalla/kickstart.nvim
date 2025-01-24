@@ -36,13 +36,16 @@ require 'carlos.lazy-bootstrap'
 require 'carlos.lazy-plugins'
 
 -- Up to date with:
--- https://github.com/nvim-lua/kickstart.nvim/commit/4120893b8a1f31a0957f2f891f7fbef73ddfb9b1
+-- https://github.com/nvim-lua/kickstart.nvim/commit/5bdde24dfb353d365d908c5dd700f412ed2ffb17
 
 -- Except (all related to which key which I don't use):
 -- https://github.com/nvim-lua/kickstart.nvim/commit/ac78e7d9e77048fa7d5b0711f85aab93508e71a7
 -- https://github.com/nvim-lua/kickstart.nvim/commit/24d368f9ff3a951f9760c3c0e776a52726401f4f
 -- https://github.com/nvim-lua/kickstart.nvim/commit/a22976111e406ec0e4903ae78bf66a1fc0125b8a
 -- https://github.com/nvim-lua/kickstart.nvim/commit/7201dc480134f41dd1be1f8f9b8f8470aac82a3b
+-- https://github.com/nvim-lua/kickstart.nvim/commit/8d1ef972bc32faa86fee21a57f9033b41f612ebb
+-- https://github.com/nvim-lua/kickstart.nvim/commit/bcdb4cd2525d517864b8221ddce3c5652ac35f9e
+-- https://github.com/nvim-lua/kickstart.nvim/commit/a8f539562a8c5d822dd5c0ca1803d963c60ad544
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
