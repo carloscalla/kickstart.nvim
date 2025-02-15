@@ -5,6 +5,7 @@ return { -- Main LSP Configuration
     -- Mason must be loaded before its dependents so we need to set it up here.
     -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
     { 'williamboman/mason.nvim', opts = {} },
+    -- { 'williamboman/mason.nvim', config = true },
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -383,6 +384,7 @@ return { -- Main LSP Configuration
     }
 
     -- You can press `g?` for help in this menu.
+    -- require('mason').setup()
     --
     -- `mason` had to be setup earlier: to configure its options see the
     -- `dependencies` table for `nvim-lspconfig` above.
