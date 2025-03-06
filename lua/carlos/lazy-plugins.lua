@@ -1,6 +1,6 @@
 -- [[ Configure and install plugins ]]
 --
--- Use `opts = {}` to force a plugin to be loaded.
+-- Use `opts = {}` to automatically pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
 require('lazy').setup({
 
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
