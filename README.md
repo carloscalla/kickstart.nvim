@@ -21,7 +21,7 @@ If you are experiencing issues, please make sure you have the latest versions.
 
 ### Install External Dependencies
 
-> **NOTE** > [Backup](#FAQ) your previous configuration (if any exists)
+> [!NOTE] > [Backup](#FAQ) your previous configuration (if any exists)
 
 External Requirements:
 
@@ -36,7 +36,7 @@ External Requirements:
   - If you want to write Golang, you will need `go`
   - etc.
 
-> **NOTE**
+> [!NOTE]
 > See [Install Recipes](#Install-Recipes) for additional Windows and Linux specific notes
 > and quick install snippets
 
@@ -56,7 +56,7 @@ Neovim's configurations are located under the following paths, depending on your
 so that you have your own copy that you can modify, then install by cloning the
 fork to your machine using one of the commands below, depending on your OS.
 
-> **NOTE**
+> [!NOTE]
 > Your fork's URL will be something like this:
 > `https://github.com/<your_github_username>/kickstart.nvim.git`
 
@@ -66,7 +66,7 @@ too - it's ignored in the kickstart repo to make maintenance easier, but it's
 
 #### Clone kickstart.nvim
 
-> **NOTE**
+> [!NOTE]
 > If following the recommended step above (i.e., forking the repo), replace
 > `nvim-lua` with `<your_github_username>` in the commands below
 
