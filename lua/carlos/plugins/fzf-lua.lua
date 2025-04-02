@@ -76,7 +76,7 @@ return {
       require('fzf-lua').grep_curbuf {
         winopts = {
           height = 0.3,
-          width = 0.3,
+          width = 0.8,
           preview = {
             hidden = 'hidden',
           },
@@ -86,6 +86,11 @@ return {
         },
       }
     end, { desc = 'Grep current buffer' })
+    vim.keymap.set('n', '<leader>sh', require('fzf-lua').helptags, { desc = 'Help tags' })
+    vim.keymap.set('n', '<leader>sk', require('fzf-lua').keymaps, { desc = 'Keymaps' })
+    vim.keymap.set('n', '<leader>sd', require('fzf-lua').diagnostics_document, { desc = 'Document diagnostics' })
+    vim.keymap.set('n', '<leader>sD', require('fzf-lua').diagnostics_workspace, { desc = 'Workspace diagnostics' })
+
     vim.keymap.set('n', '<leader>:', require('fzf-lua').command_history, { desc = 'Command History' })
     -- vim.keymap.set({ 'n', 'x' }, '<leader>cA', function()
     --   require('fzf-lua').lsp_code_actions {
@@ -102,6 +107,7 @@ return {
     --     },
     --   }
     -- end, { desc = 'LSP Code Actions' })
+    vim.keymap.set('n', '<leader>gs', require('fzf-lua').git_status, { desc = 'Git Status' })
     vim.keymap.set('n', '<leader>gC', require('fzf-lua').git_commits, { desc = 'Git Commits' })
     vim.keymap.set('n', '<leader>gc', require('fzf-lua').git_bcommits, { desc = 'Git Buffer Commits' })
     vim.keymap.set('n', '<leader>gB', require('fzf-lua').git_branches, { desc = 'Git Branches' })
