@@ -28,8 +28,8 @@ return { -- Main LSP Configuration
         -- Jump to the definition of the word under your cursor.
         --  This is where a variable was first declared, or where a function is defined, etc.
         --  To jump back, press <C-t>.
-        map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-        map('<leader>gd', function()
+        -- map('<leader>gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+        map('gd', function()
           require('fzf-lua').lsp_definitions {
             winopts = {
               height = 0.7,
@@ -213,8 +213,8 @@ return { -- Main LSP Configuration
 
         -- Set the root directory for the LSP to be the root of the git repository (priority if exists) to avoid running multiple processes
         root_dir = function(...)
-          -- return require('lspconfig.util').root_pattern('.git', 'tsconfig.json', 'jsconfig.json', 'package.json')(...)
-          return require('lspconfig.util').root_pattern '.git'(...)
+          return require('lspconfig.util').root_pattern('.git', 'tsconfig.json', 'jsconfig.json', 'package.json')(...)
+          -- return require('lspconfig.util').root_pattern '.git'(...)
         end,
         on_attach = function(client, bufnr)
           vim.keymap.set('n', '<leader>cR', function()

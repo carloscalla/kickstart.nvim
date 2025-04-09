@@ -26,4 +26,7 @@ return {
       },
     },
   },
+  keys = {
+    { '<leader>Ot', '<cmd>ObsidianToday<cr>', desc = 'Obsidian Today' },
+  },
 }
