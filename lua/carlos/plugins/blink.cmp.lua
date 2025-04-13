@@ -63,20 +63,21 @@ return { -- Autocompletion
       --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 
       ['<C-h>'] = { 'show', 'show_documentation', 'hide_documentation' },
-      ['<C-l>'] = { 'cancel' },
+      ['<C-l>'] = { 'cancel', 'show' },
       ['<C-e>'] = { 'hide' },
-      -- ['<Tab>'] = { 'select_and_accept' },
-      ['<Tab>'] = {
-        function(cmp)
-          if cmp.snippet_active() then
-            return cmp.accept()
-          else
-            return cmp.select_and_accept()
-          end
-        end,
-        'snippet_forward',
-        'fallback',
-      },
+      ['<Tab>'] = { 'select_and_accept' },
+      -- ['<Tab>'] = {
+      --   function(cmp)
+      --     if cmp.snippet_active() then
+      --       return cmp.accept()
+      --     else
+      --       return cmp.select_and_accept()
+      --     end
+      --   end,
+      --   'snippet_forward',
+      --   'fallback',
+      -- },
+      ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
       ['<C-y>'] = { 'select_and_accept' },
 
       ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
@@ -87,6 +88,7 @@ return { -- Autocompletion
 
       ['<C-j>'] = { 'snippet_forward', 'fallback' },
       ['<C-k>'] = { 'snippet_backward', 'fallback' },
+      -- ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
     },
 
     appearance = {
@@ -107,6 +109,12 @@ return { -- Autocompletion
         },
       },
       menu = { max_height = 20 },
+      accept = {
+        -- experimental auto-brackets support
+        auto_brackets = {
+          enabled = true,
+        },
+      },
     },
 
     sources = {
@@ -121,6 +129,9 @@ return { -- Autocompletion
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         -- snippets = { score_offset = -50 },
+        lsp = {
+          async = true,
+        },
       },
     },
 
