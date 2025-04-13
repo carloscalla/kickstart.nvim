@@ -1,5 +1,5 @@
 return {
-  'epwalsh/obsidian.nvim',
+  'obsidian-nvim/obsidian.nvim',
   version = '*', -- recommended, use latest release instead of latest commit
   lazy = true,
   -- ft = 'markdown',
@@ -14,9 +14,10 @@ return {
   },
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope.nvim',
-    'hrsh7th/nvim-cmp',
+    'ibhagwan/fzf-lua',
     'nvim-treesitter/nvim-treesitter',
+    'saghen/blink.cmp',
+    -- 'hrsh7th/nvim-cmp',
   },
   opts = {
     workspaces = {
@@ -25,9 +26,36 @@ return {
         path = '~/carlos/obsidian-vaults/personal/',
       },
     },
+    -- Optional, completion of wiki links, local markdown links, and tags.
+    completion = {
+      -- Enables completion using nvim_cmp
+      nvim_cmp = false,
+      -- Enables completion using blink.cmp
+      blink = true,
+      -- Trigger completion at 2 chars.
+      min_chars = 1,
+    },
+    picker = {
+      -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', 'mini.pick' or 'snacks.pick'.
+      name = 'fzf-lua',
+      -- Optional, configure key mappings for the picker. These are the defaults.
+      -- Not all pickers support all mappings.
+      note_mappings = {
+        -- Create a new note from your query.
+        new = '<C-x>',
+        -- Insert a link to the selected note.
+        insert_link = '<C-l>',
+      },
+      tag_mappings = {
+        -- Add tag(s) to current note.
+        tag_note = '<C-x>',
+        -- Insert a tag at the current location.
+        insert_tag = '<C-l>',
+      },
+    },
   },
   keys = {
     { '<leader>Ot', '<cmd>ObsidianToday<cr>', desc = 'Obsidian Today' },
-    { '<leader>Oy', '<cmd>ObsidianYesterday<cr>', desc = 'Obsidian Today' },
+    { '<leader>Oy', '<cmd>ObsidianYesterday<cr>', desc = 'Obsidian Yesterday' },
   },
 }

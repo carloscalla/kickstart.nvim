@@ -1,5 +1,6 @@
 return {
   'petertriho/cmp-git',
+  enabled = false,
   dependencies = { 'hrsh7th/nvim-cmp' },
   opts = {
     -- options go here
