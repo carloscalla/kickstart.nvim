@@ -65,7 +65,8 @@ return { -- Autocompletion
       ['<C-h>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<C-l>'] = { 'cancel', 'show' },
       ['<C-e>'] = { 'hide' },
-      ['<Tab>'] = { 'select_and_accept' },
+      ['<C-y>'] = { 'select_and_accept' },
+
       -- ['<Tab>'] = {
       --   function(cmp)
       --     if cmp.snippet_active() then
@@ -77,8 +78,8 @@ return { -- Autocompletion
       --   'snippet_forward',
       --   'fallback',
       -- },
+      ['<Tab>'] = { 'select_and_accept', 'fallback' },
       ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
-      ['<C-y>'] = { 'select_and_accept' },
 
       ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
       ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
