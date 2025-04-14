@@ -75,8 +75,20 @@ return { -- Autocompletion
       ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
 
       ['<C-j>'] = { 'snippet_forward', 'fallback' },
-      ['<C-k>'] = { 'snippet_backward', 'fallback' },
+      -- ['<C-k>'] = { 'snippet_backward', 'fallback' },
       -- ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
+      ['<C-k>'] = {
+        function(cmp)
+          if cmp.snippet_active() then
+            return cmp.snippet_backward()
+          else
+            return nil
+          end
+        end,
+        'show_signature',
+        'hide_signature',
+        'fallback',
+      },
     },
 
     appearance = {
