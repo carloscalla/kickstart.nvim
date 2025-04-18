@@ -21,8 +21,9 @@ vim.api.nvim_create_autocmd('User', {
 local detail = false
 return {
   'stevearc/oil.nvim',
+  lazy = false,
   opts = {
-    default_file_explorer = false,
+    default_file_explorer = true,
     win_options = {
       winbar = '%!v:lua.get_oil_winbar()',
     },
