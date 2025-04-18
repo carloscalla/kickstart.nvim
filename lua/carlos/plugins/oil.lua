@@ -18,6 +18,7 @@ vim.api.nvim_create_autocmd('User', {
   end,
 })
 
+local detail = false
 return {
   'stevearc/oil.nvim',
   opts = {
@@ -26,8 +27,24 @@ return {
       winbar = '%!v:lua.get_oil_winbar()',
     },
     float = {
-      win_options = {
-        winbar = '',
+      get_win_title = function()
+        return 'Oil'
+      end,
+      max_width = 120,
+      max_height = 40,
+    },
+
+    keymaps = {
+      ['gd'] = {
+        desc = 'Toggle file detail view',
+        callback = function()
+          detail = not detail
+          if detail then
+            require('oil').set_columns { 'icon', 'permissions', 'size', 'mtime' }
+          else
+            require('oil').set_columns { 'icon' }
+          end
+        end,
       },
     },
   },
@@ -41,6 +58,13 @@ return {
         require('oil').toggle_float()
       end,
       { desc = 'Toggle Oil float' },
+    },
+    {
+      '<leader>-',
+      function()
+        require('oil').open()
+      end,
+      { desc = 'Toggle Oil' },
     },
   },
 }
