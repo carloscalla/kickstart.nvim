@@ -18,15 +18,15 @@ return {
   end,
   init = function()
     vim.api.nvim_create_user_command('GhPrToTeam', function()
-      vim.cmd [[ Octo pr search is:open review-requested:@me ]]
+      vim.cmd [[ Octo search is:pr is:open review-requested:@me ]]
     end, { desc = 'Github open PRs assigned to me or my team' })
 
     vim.api.nvim_create_user_command('GhPrToMe', function()
-      vim.cmd [[ Octo pr search is:open user-review-requested:@me ]]
+      vim.cmd [[ Octo search is:pr is:open user-review-requested:@me ]]
     end, { desc = 'Github open PRs assigned to me' })
 
     vim.api.nvim_create_user_command('GhPrByMe', function()
-      vim.cmd [[ Octo pr search is:open author:@me ]]
+      vim.cmd [[ Octo search is:pr is:open author:@me ]]
     end, { desc = 'Github open PRs created by me' })
   end,
 }
