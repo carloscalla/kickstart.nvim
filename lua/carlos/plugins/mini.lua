@@ -26,6 +26,12 @@ return { -- Collection of various small independent plugins/modules
       },
     }
 
+    -- require('mini.files').setup {
+    --   options = {
+    --     use_as_default_explorer = true,
+    --   },
+    -- }
+
     -- ... and there is more!
     --  Check out: https://github.com/echasnovski/mini.nvim
   end,
