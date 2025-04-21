@@ -102,14 +102,14 @@ return {
       desc = 'Snacks files',
     },
     {
-      '<leader>se',
+      '<leader>nt',
       function()
         Snacks.explorer.open { follow_file = false }
       end,
       desc = 'Snacks explorer',
     },
     {
-      '<leader>sr',
+      '<leader>fi',
       function()
         Snacks.explorer.reveal()
       end,
