@@ -3,18 +3,26 @@ return {
   -- optional for icon support
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
-    -- local actions = require 'fzf-lua.actions'
+    local actions = require 'fzf-lua.actions'
     -- calling `setup` is optional for customization
     require('fzf-lua').setup {
-      'telescope',
+      -- 'telescope',
       fzf_opts = { ['--layout'] = 'default' },
       keymap = {
         fzf = {
+          true,
           ['ctrl-j'] = 'half-page-down',
           ['ctrl-k'] = 'half-page-up',
+          ['ctrl-d'] = 'preview-page-down',
+          ['ctrl-u'] = 'preview-page-up',
+          ['alt-q'] = 'select-all+accept',
         },
         builtin = {
+          true,
           ['<C-o>'] = 'toggle-preview',
+          ['<C-/>'] = 'toggle-help',
+          ['<C-d>'] = 'preview-page-down',
+          ['<C-u>'] = 'preview-page-up',
         },
       },
       winopts = {
@@ -37,6 +45,7 @@ return {
             ['gif'] = { 'viu', '-b' },
           },
         },
+        codeaction = { toggle_behavior = 'extend' },
       },
       grep = {
         winopts = {
@@ -45,12 +54,13 @@ return {
           },
         },
       },
-      -- actions = {
-      --   files = {
-      --     ['ctrl-q'] = actions.file_sel_to_qf,
-      --     ['ctrl-l'] = actions.file_sel_to_ll,
-      --   },
-      -- },
+      actions = {
+        files = {
+          ['enter'] = actions.file_edit_or_qf,
+          ['ctrl-q'] = actions.file_sel_to_qf,
+          -- ['ctrl-l'] = actions.file_sel_to_ll,
+        },
+      },
       -- oldfiles = {
       --   include_current_session = true,
       --   cwd_only = true,
@@ -92,21 +102,25 @@ return {
     vim.keymap.set('n', '<leader>sD', require('fzf-lua').diagnostics_workspace, { desc = 'Workspace diagnostics' })
 
     vim.keymap.set('n', '<leader>:', require('fzf-lua').command_history, { desc = 'Command History' })
-    -- vim.keymap.set({ 'n', 'x' }, '<leader>cA', function()
-    --   require('fzf-lua').lsp_code_actions {
-    --     winopts = {
-    --       row = 0.5,
-    --       height = 15,
-    --       width = 100,
-    --       preview = {
-    --         hidden = 'hidden',
-    --       },
-    --     },
-    --     fzf_opts = {
-    --       ['--layout'] = 'reverse',
-    --     },
-    --   }
-    -- end, { desc = 'LSP Code Actions' })
+    vim.keymap.set({ 'n', 'x' }, '<leader>ca', function()
+      require('fzf-lua').lsp_code_actions {
+        winopts = {
+          row = 0.5,
+          -- height = 15,
+          -- width = 100,
+          height = 0.65,
+          width = 120,
+          preview = {
+            layout = 'vertical',
+            vertical = 'down:65%',
+            -- hidden = 'hidden',
+          },
+        },
+        fzf_opts = {
+          ['--layout'] = 'default',
+        },
+      }
+    end, { desc = 'LSP Code Actions' })
     vim.keymap.set('n', '<leader>gs', require('fzf-lua').git_status, { desc = 'Git Status' })
     vim.keymap.set('n', '<leader>gC', require('fzf-lua').git_commits, { desc = 'Git Commits' })
     vim.keymap.set('n', '<leader>gc', require('fzf-lua').git_bcommits, { desc = 'Git Buffer Commits' })
