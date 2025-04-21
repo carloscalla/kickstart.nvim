@@ -28,5 +28,9 @@ return {
     vim.api.nvim_create_user_command('GhPrByMe', function()
       vim.cmd [[ Octo search is:pr is:open author:@me ]]
     end, { desc = 'Github open PRs created by me' })
+
+    vim.api.nvim_create_user_command('GhPrInvolvesMe', function()
+      vim.cmd [[ Octo search is:pr is:open involves:@me -author:@me ]]
+    end, { desc = 'Github PRs involving me' })
   end,
 }
