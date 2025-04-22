@@ -26,13 +26,19 @@ return { -- Collection of various small independent plugins/modules
       },
     }
 
-    -- require('mini.files').setup {
-    --   options = {
-    --     use_as_default_explorer = true,
-    --   },
-    -- }
-
-    -- ... and there is more!
-    --  Check out: https://github.com/echasnovski/mini.nvim
+    require('mini.files').setup {
+      options = {
+        use_as_default_explorer = false,
+      },
+    }
   end,
+  keys = {
+    {
+      '<leader>fb',
+      function()
+        require('mini.files').open(vim.api.nvim_buf_get_name(0), true)
+      end,
+      desc = 'Open mini.files (Directory of Current File)',
+    },
+  },
 }
