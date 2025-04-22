@@ -4,16 +4,12 @@ return {
   event = { { event = 'BufReadCmd', pattern = 'octo://*' } },
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope.nvim',
-    -- 'ibhagwan/fzf-lua',
+    'ibhagwan/fzf-lua',
     'nvim-tree/nvim-web-devicons',
   },
   config = function()
     require('octo').setup {
-      -- FzF-lua throwing errors, specially with `search` command
       picker = 'fzf-lua',
-      -- picker = 'snacks',
-      -- picker = 'telescope',
       default_to_projects_v2 = true,
     }
   end,
