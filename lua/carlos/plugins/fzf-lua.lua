@@ -125,15 +125,5 @@ return {
     vim.keymap.set('n', '<leader>gC', require('fzf-lua').git_commits, { desc = 'Git Commits' })
     vim.keymap.set('n', '<leader>gc', require('fzf-lua').git_bcommits, { desc = 'Git Buffer Commits' })
     vim.keymap.set('n', '<leader>gB', require('fzf-lua').git_branches, { desc = 'Git Branches' })
-
-    --[[
-    NOTE: fzf_live is a more performant way to do live queries, can be files or grep
-
-    For files:
-    :FzF fzf_live or :lua require'fzf-lua'.fzf_live()
-
-    For grep:
-    :lua require'fzf-lua'.fzf_live("rg --column --line-number --no-heading --color=always --smart-case")
-    ]]
   end,
 }
