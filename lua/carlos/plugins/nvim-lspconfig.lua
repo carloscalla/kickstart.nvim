@@ -44,6 +44,19 @@ return { -- Main LSP Configuration
             },
           }
         end, '[G]oto [D]efinition')
+        map('gD', function()
+          require('fzf-lua').lsp_definitions {
+            jump1 = false,
+            winopts = {
+              height = 0.7,
+              width = 0.6,
+              preview = {
+                layout = 'vertical',
+                vertical = 'up:70%',
+              },
+            },
+          }
+        end, 'Preview Definition')
 
         -- Find references for the word under your cursor.
         -- map('<leader>gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
