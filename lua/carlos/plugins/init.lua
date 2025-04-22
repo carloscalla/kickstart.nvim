@@ -70,31 +70,12 @@ return {
     },
   },
 
-  -- Git related plugins
-  {
-    'tpope/vim-fugitive',
-    cmd = {
-      'Git',
-      'G',
-      'Gdiffsplit',
-      'Gvdiffsplit',
-      'Gedit',
-      'Gsplit',
-      'GMove',
-      'Gread',
-      'Gwrite',
-      'GDelete',
-      'GRemove',
-      'GMove',
-      'GRename',
-      'Ggrep',
-      'Glgrep',
-      -- 'GBrowse',
-    },
-  },
-  {
-    'tpope/vim-rhubarb',
-    cmd = 'GBrowse',
-    dependencies = { 'tpope/vim-fugitive' },
-  },
+  -- {
+  --
+  --   dir = '~/code/carlos/lua/scratch-buffer/',
+  --   name = 'screatch-buffer',
+  --   config = function()
+  --     require('scratch-buffer').setup()
+  --   end,
+  -- },
 }
