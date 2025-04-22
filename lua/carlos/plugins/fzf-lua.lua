@@ -1,10 +1,8 @@
 return {
   'ibhagwan/fzf-lua',
-  -- optional for icon support
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     local actions = require 'fzf-lua.actions'
-    -- calling `setup` is optional for customization
     require('fzf-lua').setup {
       -- 'telescope',
       fzf_opts = { ['--layout'] = 'default' },
@@ -34,15 +32,10 @@ return {
       previewers = {
         builtin = {
           extensions = {
-            -- ['png'] = { 'chafa', '{file}' },
-            -- ['svg'] = { 'chafa', '{file}' },
-            -- ['jpg'] = { 'chafa', '{file}' },
-            -- ['gif'] = { 'chafa', '{file}' },
-
             ['png'] = { 'viu', '-b' },
-            ['svg'] = { 'viu', '-b' },
             ['jpg'] = { 'viu', '-b' },
             ['gif'] = { 'viu', '-b' },
+            ['webp'] = { 'viu', '-b' },
           },
         },
         codeaction = { toggle_behavior = 'extend' },
@@ -58,13 +51,18 @@ return {
         files = {
           ['enter'] = actions.file_edit_or_qf,
           ['ctrl-q'] = actions.file_sel_to_qf,
-          -- ['ctrl-l'] = actions.file_sel_to_ll,
+          ['ctrl-l'] = actions.file_sel_to_ll,
         },
       },
-      -- oldfiles = {
-      --   include_current_session = true,
-      --   cwd_only = true,
-      -- },
+      lsp = {
+        code_actions = {
+          previewer = 'codeaction',
+        },
+      },
+      oldfiles = {
+        include_current_session = true,
+        cwd_only = true,
+      },
     }
 
     vim.keymap.set('n', '<leader>ff', require('fzf-lua').files, { desc = '[F]ind [F]iles' })
@@ -73,12 +71,7 @@ return {
     vim.keymap.set('n', '<leader>ls', require('fzf-lua').buffers, { desc = '[ ] Find existing buffers' })
     vim.keymap.set('n', '<leader>fw', require('fzf-lua').grep_cword, { desc = '[ ] Grep cword' })
     vim.keymap.set('n', '<leader>fW', require('fzf-lua').grep_cWORD, { desc = '[ ] Grep cWORD' })
-    vim.keymap.set('n', '<leader>fo', function()
-      require('fzf-lua').oldfiles {
-        cwd_only = true,
-        include_current_session = true,
-      }
-    end, { desc = '[ ] Old files' })
+    vim.keymap.set('n', '<leader>fo', require('fzf-lua').oldfiles, { desc = 'Old files' })
     vim.keymap.set('n', '<leader>rg', require('fzf-lua').grep, { desc = '[ ] Grep' })
     vim.keymap.set('v', '<leader>rg', require('fzf-lua').grep_visual, { desc = '[ ] Grep visual' })
     vim.keymap.set('n', '<leader>f/', require('fzf-lua').lines, { desc = '[ ] Grep visual' })
