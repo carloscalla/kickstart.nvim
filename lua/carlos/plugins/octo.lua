@@ -11,8 +11,9 @@ return {
   config = function()
     require('octo').setup {
       -- FzF-lua throwing errors, specially with `search` command
-      -- picker = 'fzf-lua',
-      picker = 'telescope',
+      picker = 'fzf-lua',
+      -- picker = 'snacks',
+      -- picker = 'telescope',
       default_to_projects_v2 = true,
     }
   end,
