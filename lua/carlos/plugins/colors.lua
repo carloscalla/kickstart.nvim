@@ -46,6 +46,12 @@ end
 
 return {
   {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup()
+    end,
+  },
+  {
     'ellisonleao/gruvbox.nvim',
     enabled = false,
     priority = 1000,
