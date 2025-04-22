@@ -29,14 +29,26 @@ return {
           layout = 'flex',
         },
       },
+      lines = {
+        winopts = {
+          preview = {
+            layout = 'vertical',
+            vertical = 'down:50%',
+          },
+        },
+      },
       previewers = {
         builtin = {
-          extensions = {
-            ['png'] = { 'viu', '-b' },
-            ['jpg'] = { 'viu', '-b' },
-            ['gif'] = { 'viu', '-b' },
-            ['webp'] = { 'viu', '-b' },
-          },
+          title_fnamemodify = function(s)
+            return vim.fn.fnamemodify(s, ':~:.')
+          end,
+          -- extensions = {
+          --   ['png'] = { 'viu', '-b' },
+          --   ['jpg'] = { 'viu', '-b' },
+          --   ['gif'] = { 'viu', '-b' },
+          --   ['webp'] = { 'viu', '-b' },
+          -- },
+          snacks_image = { enabled = true },
         },
         codeaction = { toggle_behavior = 'extend' },
       },
@@ -91,6 +103,10 @@ return {
     end, { desc = 'Grep current buffer' })
     vim.keymap.set('n', '<leader>sh', require('fzf-lua').helptags, { desc = 'Help tags' })
     vim.keymap.set('n', '<leader>sk', require('fzf-lua').keymaps, { desc = 'Keymaps' })
+    vim.keymap.set('n', '<leader>sn', function()
+      require('fzf-lua').files { cwd = vim.fn.stdpath 'config' }
+    end, { desc = 'Search Neovim files' })
+
     vim.keymap.set('n', '<leader>sd', require('fzf-lua').diagnostics_document, { desc = 'Document diagnostics' })
     vim.keymap.set('n', '<leader>sD', require('fzf-lua').diagnostics_workspace, { desc = 'Workspace diagnostics' })
 
