@@ -72,4 +72,19 @@ return {
   --     require('scratch-buffer').setup()
   --   end,
   -- },
+
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    ft = { 'markdown', 'norg', 'rmd', 'org', 'codecompanion' },
+    opts = {
+      completions = {
+        blink = {
+          enabled = true,
+        },
+      },
+    },
+  },
 }
