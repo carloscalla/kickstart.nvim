@@ -50,6 +50,7 @@ return {
       },
       lines = {
         winopts = {
+          width = 0.75,
           preview = {
             layout = 'vertical',
             vertical = 'up:60%',
@@ -67,7 +68,7 @@ return {
       },
       grep = {
         winopts = {
-          height = 0.90,
+          height = 0.87,
           width = 0.75,
           row = 0.40,
           col = 0.55,
