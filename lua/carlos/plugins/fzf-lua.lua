@@ -10,7 +10,7 @@ return {
     require 'snacks.image'
     require('fzf-lua').setup {
       -- 'telescope',
-      fzf_opts = { ['--layout'] = 'default' },
+      -- fzf_opts = { ['--layout'] = 'default' },
       keymap = {
         fzf = {
           true,
@@ -38,7 +38,7 @@ return {
         winopts = {
           preview = {
             layout = 'vertical',
-            vertical = 'down:50%',
+            vertical = 'up:60%',
           },
         },
       },
@@ -55,6 +55,7 @@ return {
         winopts = {
           preview = {
             layout = 'vertical',
+            vertical = 'up:60%',
           },
         },
       },
