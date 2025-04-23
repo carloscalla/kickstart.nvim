@@ -1,6 +1,9 @@
 return {
   'ibhagwan/fzf-lua',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+    'folke/snacks.nvim',
+  },
   config = function()
     local actions = require 'fzf-lua.actions'
     require('fzf-lua').setup {
@@ -13,7 +16,7 @@ return {
           ['ctrl-k'] = 'half-page-up',
           ['ctrl-d'] = 'preview-page-down',
           ['ctrl-u'] = 'preview-page-up',
-          ['alt-q'] = 'select-all+accept',
+          ['ctrl-q'] = 'select-all+accept',
         },
         builtin = {
           true,
@@ -62,8 +65,8 @@ return {
       actions = {
         files = {
           ['enter'] = actions.file_edit_or_qf,
-          ['ctrl-q'] = actions.file_sel_to_qf,
-          ['ctrl-l'] = actions.file_sel_to_ll,
+          ['alt-q'] = actions.file_sel_to_qf,
+          ['alt-l'] = actions.file_sel_to_ll,
         },
       },
       lsp = {
