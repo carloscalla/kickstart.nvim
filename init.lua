@@ -48,9 +48,6 @@ require 'carlos.lazy-plugins'
 -- https://github.com/nvim-lua/kickstart.nvim/commit/a8f539562a8c5d822dd5c0ca1803d963c60ad544
 --
 -- https://github.com/nvim-lua/kickstart.nvim/commit/abdbfce0f8610e8661ccf27c1ba13b8134b78673
---
--- skipping lsp remaps:
--- https://github.com/nvim-lua/kickstart.nvim/commit/1a5787bc573b35bd6a96ac998d46ff6460e534af
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
