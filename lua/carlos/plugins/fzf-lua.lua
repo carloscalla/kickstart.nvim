@@ -28,9 +28,23 @@ return {
           ['<C-u>'] = 'preview-page-up',
         },
       },
+      actions = {
+        files = {
+          true,
+          ['enter'] = actions.file_edit_or_qf,
+          ['alt-q'] = actions.file_sel_to_qf,
+          ['alt-l'] = actions.file_sel_to_ll,
+          ['ctrl-i'] = { fn = actions.toggle_ignore, reuse = true, header = false },
+          ['ctrl-h'] = { fn = actions.toggle_hidden, reuse = true, header = false },
+        },
+      },
       winopts = {
+        height = 0.75,
+        width = 0.85,
+        row = 0.45,
+        col = 0.55,
         preview = {
-          horizontal = 'right:50%',
+          horizontal = 'right:55%',
           layout = 'flex',
         },
       },
@@ -53,17 +67,14 @@ return {
       },
       grep = {
         winopts = {
+          height = 0.90,
+          width = 0.75,
+          row = 0.40,
+          col = 0.55,
           preview = {
             layout = 'vertical',
             vertical = 'up:60%',
           },
-        },
-      },
-      actions = {
-        files = {
-          ['enter'] = actions.file_edit_or_qf,
-          ['alt-q'] = actions.file_sel_to_qf,
-          ['alt-l'] = actions.file_sel_to_ll,
         },
       },
       lsp = {
@@ -115,8 +126,6 @@ return {
       require('fzf-lua').lsp_code_actions {
         winopts = {
           row = 0.5,
-          -- height = 15,
-          -- width = 100,
           height = 0.65,
           width = 120,
           preview = {
