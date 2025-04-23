@@ -6,6 +6,8 @@ return {
   },
   config = function()
     local actions = require 'fzf-lua.actions'
+    -- Force image module to load
+    require 'snacks.image'
     require('fzf-lua').setup {
       -- 'telescope',
       fzf_opts = { ['--layout'] = 'default' },
@@ -45,12 +47,6 @@ return {
           title_fnamemodify = function(s)
             return vim.fn.fnamemodify(s, ':~:.')
           end,
-          -- extensions = {
-          --   ['png'] = { 'viu', '-b' },
-          --   ['jpg'] = { 'viu', '-b' },
-          --   ['gif'] = { 'viu', '-b' },
-          --   ['webp'] = { 'viu', '-b' },
-          -- },
           snacks_image = { enabled = true },
         },
         codeaction = { toggle_behavior = 'extend' },
