@@ -22,7 +22,7 @@ return {
         },
         builtin = {
           true,
-          ['<C-p>'] = 'toggle-preview',
+          ['<C-o>'] = 'toggle-preview',
           ['<C-/>'] = 'toggle-help',
           ['<C-d>'] = 'preview-page-down',
           ['<C-u>'] = 'preview-page-up',
