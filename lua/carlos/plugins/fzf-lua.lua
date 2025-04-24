@@ -22,7 +22,7 @@ return {
         },
         builtin = {
           true,
-          ['<C-o>'] = 'toggle-preview',
+          ['<C-p>'] = 'toggle-preview',
           ['<C-/>'] = 'toggle-help',
           ['<C-d>'] = 'preview-page-down',
           ['<C-u>'] = 'preview-page-up',
@@ -34,8 +34,14 @@ return {
           ['enter'] = actions.file_edit_or_qf,
           ['alt-q'] = actions.file_sel_to_qf,
           ['alt-l'] = actions.file_sel_to_ll,
-          ['ctrl-i'] = { fn = actions.toggle_ignore, reuse = true, header = false },
-          ['ctrl-h'] = { fn = actions.toggle_hidden, reuse = true, header = false },
+          ['ctrl-s'] = actions.file_split,
+          ['ctrl-v'] = actions.file_vsplit,
+          ['alt-h'] = actions.toggle_hidden,
+          ['alt-i'] = actions.toggle_ignore,
+          -- ctrl-i can't be used because it conflicts with TAB
+          -- For more information see:
+          -- https://unix.stackexchange.com/questions/563469/conflict-ctrl-i-with-tab-in-normal-mode
+          -- ['ctrl-i'] = actions.toggle_ignore,
         },
       },
       winopts = {
