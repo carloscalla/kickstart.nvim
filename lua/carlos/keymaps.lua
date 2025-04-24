@@ -12,7 +12,8 @@ vim.cmd [[ nnoremap <expr> <CR> {-> v:hlsearch ? "<Cmd>nohlsearch<Bar>diffupdate
 -- I'm mapping <C-l> to switch windows below
 -- One can also use :mode to clear and redraw the screen or capital L, Ctrl+Shift+l
 
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+-- Commenting this because I set Oil as my default file explorer
+-- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
