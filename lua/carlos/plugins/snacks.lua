@@ -101,7 +101,7 @@ return {
     {
       '<leader>fi',
       function()
-        Snacks.explorer.reveal()
+        Snacks.explorer.open { follow_file = true }
       end,
       desc = 'Snacks explorer',
     },
