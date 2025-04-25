@@ -74,12 +74,5 @@ return { -- Fuzzy Finder (files, lsp, etc)
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
     pcall(require('telescope').load_extension 'emoji')
-
-    vim.keymap.set('n', '<leader>s/', function()
-      builtin.live_grep {
-        grep_open_files = true,
-        prompt_title = 'Live Grep in Open Files',
-      }
-    end, { desc = '[S]earch [/] in Open Files' })
   end,
 }
