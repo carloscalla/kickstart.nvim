@@ -5,7 +5,41 @@ return {
     'folke/snacks.nvim',
   },
   config = function()
+    local fast_event_aware_notify = function(msg, level, opts)
+      if vim.in_fast_event() then
+        vim.schedule(function()
+          vim.notify('[Fzf-lua] ' .. msg, level, opts)
+        end)
+      else
+        vim.notify('[Fzf-lua] ' .. msg, level, opts)
+      end
+    end
+
+    local function yank_and_notify(selected, opts, relative_path)
+      local cwd = opts._cwd
+      if relative_path then
+        opts._cwd = ''
+      end
+      local file = FzfLua.path.entry_to_file(selected[1], opts)
+      if relative_path then
+        opts._cwd = cwd
+      end
+      local reg
+      if vim.o.clipboard == 'unnamed' then
+        reg = [[*]]
+      elseif vim.o.clipboard == 'unnamedplus' then
+        reg = [[+]]
+      else
+        reg = [["]]
+      end
+      -- copy to the yank register regardless
+      vim.fn.setreg(reg, file.path)
+      vim.fn.setreg([[0]], file.path)
+      fast_event_aware_notify(string.format("file %s copied to register %s, use 'p' to paste.", file.path, reg), vim.log.levels.INFO, {})
+    end
+
     local actions = require 'fzf-lua.actions'
+
     require('fzf-lua').setup {
       keymap = {
         builtin = {
@@ -70,6 +104,25 @@ return {
           -- ctrl-i can't be used because it conflicts with TAB
           -- For more information see:
           -- https://unix.stackexchange.com/questions/563469/conflict-ctrl-i-with-tab-in-normal-mode
+
+          ['ctrl-y'] = {
+            fn = function(selected, opts)
+              if not selected[1] then
+                return
+              end
+              yank_and_notify(selected, opts, true)
+            end,
+            exec_silent = true,
+          },
+          ['alt-y'] = {
+            fn = function(selected, opts)
+              if not selected[1] then
+                return
+              end
+              yank_and_notify(selected, opts, false)
+            end,
+            exec_silent = true,
+          },
         },
       },
       winopts = {
