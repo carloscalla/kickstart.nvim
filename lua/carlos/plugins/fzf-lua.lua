@@ -112,6 +112,8 @@ return {
           },
         },
       },
+      -- Default winopts for all pickers.
+      -- Options set in each picker will merge and override these defaults.
       winopts = {
         height = 0.75,
         width = 0.85,
@@ -123,6 +125,15 @@ return {
         },
       },
       lines = {
+        winopts = {
+          width = 0.75,
+          preview = {
+            layout = 'vertical',
+            vertical = 'up:60%',
+          },
+        },
+      },
+      blines = {
         winopts = {
           width = 0.75,
           preview = {
@@ -145,7 +156,6 @@ return {
           height = 0.87,
           width = 0.75,
           row = 0.40,
-          col = 0.55,
           preview = {
             layout = 'vertical',
             vertical = 'up:60%',
@@ -173,20 +183,7 @@ return {
     vim.keymap.set('n', '<leader>rg', require('fzf-lua').grep, { desc = '[ ] Grep' })
     vim.keymap.set('v', '<leader>rg', require('fzf-lua').grep_visual, { desc = '[ ] Grep visual' })
     vim.keymap.set('n', '<leader>f/', require('fzf-lua').lines, { desc = '[ ] Grep visual' })
-    vim.keymap.set('n', '<leader>/', function()
-      require('fzf-lua').grep_curbuf {
-        winopts = {
-          height = 0.3,
-          width = 0.8,
-          preview = {
-            hidden = 'hidden',
-          },
-        },
-        fzf_opts = {
-          ['--layout'] = 'reverse',
-        },
-      }
-    end, { desc = 'Grep current buffer' })
+    vim.keymap.set('n', '<leader>/', require('fzf-lua').blines, { desc = 'Buffer lines' })
     vim.keymap.set('n', '<leader>sh', require('fzf-lua').helptags, { desc = 'Help tags' })
     vim.keymap.set('n', '<leader>sk', require('fzf-lua').keymaps, { desc = 'Keymaps' })
     vim.keymap.set('n', '<leader>sn', function()
@@ -200,7 +197,6 @@ return {
     vim.keymap.set({ 'n', 'x' }, '<leader>ca', function()
       require('fzf-lua').lsp_code_actions {
         winopts = {
-          row = 0.5,
           height = 0.65,
           width = 120,
           preview = {
@@ -208,9 +204,6 @@ return {
             vertical = 'down:65%',
             -- hidden = 'hidden',
           },
-        },
-        fzf_opts = {
-          ['--layout'] = 'default',
         },
       }
     end, { desc = 'LSP Code Actions' })
