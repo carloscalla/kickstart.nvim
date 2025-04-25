@@ -5,25 +5,10 @@ return {
     'folke/snacks.nvim',
   },
   config = function()
-    local fast_event_aware_notify = function(msg, level, opts)
-      if vim.in_fast_event() then
-        vim.schedule(function()
-          vim.notify('[Fzf-lua] ' .. msg, level, opts)
-        end)
-      else
-        vim.notify('[Fzf-lua] ' .. msg, level, opts)
-      end
-    end
-
     local function yank_and_notify(selected, opts, relative_path)
-      local cwd = opts._cwd
-      if relative_path then
-        opts._cwd = ''
-      end
       local file = FzfLua.path.entry_to_file(selected[1], opts)
-      if relative_path then
-        opts._cwd = cwd
-      end
+      local path_to_yank = relative_path and FzfLua.path.relative_to(file.path, vim.uv.cwd()) or file.path
+
       local reg
       if vim.o.clipboard == 'unnamed' then
         reg = [[*]]
@@ -33,9 +18,9 @@ return {
         reg = [["]]
       end
       -- copy to the yank register regardless
-      vim.fn.setreg(reg, file.path)
-      vim.fn.setreg([[0]], file.path)
-      fast_event_aware_notify(string.format("file %s copied to register %s, use 'p' to paste.", file.path, reg), vim.log.levels.INFO, {})
+      vim.fn.setreg(reg, path_to_yank)
+      vim.fn.setreg([[0]], path_to_yank)
+      FzfLua.utils.info(string.format("file %s copied to register %s, use 'p' to paste.", path_to_yank, reg))
     end
 
     local actions = require 'fzf-lua.actions'
@@ -113,7 +98,7 @@ return {
               yank_and_notify(selected, opts, true)
             end,
             exec_silent = true,
-            desc = 'yank-absolute-path',
+            desc = 'yank-relative-path',
           },
           ['alt-y'] = {
             fn = function(selected, opts)
@@ -123,7 +108,7 @@ return {
               yank_and_notify(selected, opts, false)
             end,
             exec_silent = true,
-            desc = 'yank-relative-path',
+            desc = 'yank-absolute-path',
           },
         },
       },
