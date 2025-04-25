@@ -113,6 +113,7 @@ return {
               yank_and_notify(selected, opts, true)
             end,
             exec_silent = true,
+            desc = 'yank-absolute-path',
           },
           ['alt-y'] = {
             fn = function(selected, opts)
@@ -122,6 +123,7 @@ return {
               yank_and_notify(selected, opts, false)
             end,
             exec_silent = true,
+            desc = 'yank-relative-path',
           },
         },
       },
