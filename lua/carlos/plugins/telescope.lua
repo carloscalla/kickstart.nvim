@@ -22,7 +22,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
   },
   config = function()
     local actions = require 'telescope.actions'
-    local open_with_trouble = require('trouble.sources.telescope').open
 
     require('telescope').setup {
       defaults = {
@@ -35,12 +34,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
         },
         mappings = {
           i = {
-            ['<c-t>'] = open_with_trouble,
             ['<c-g>'] = 'to_fuzzy_refine',
             ['<c-s>'] = actions.send_selected_to_qflist + actions.open_qflist,
           },
           n = {
-            ['<c-t>'] = open_with_trouble,
             ['<c-s>'] = actions.send_selected_to_qflist + actions.open_qflist,
           },
         },
