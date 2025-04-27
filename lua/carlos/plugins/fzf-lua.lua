@@ -174,6 +174,14 @@ return {
         include_current_session = true,
         cwd_only = true,
       },
+      quickfix = {
+        winopts = {
+          preview = {
+            layout = 'vertical',
+            vertical = 'up:60%',
+          },
+        },
+      },
     }
 
     vim.keymap.set('n', '<leader>ff', require('fzf-lua').files, { desc = '[F]ind [F]iles' })
