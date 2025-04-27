@@ -40,10 +40,6 @@ Via Homebrew:
 brew install git ripgrep lazygit ffmpeg fd imagemagick fzf gh font-ubuntu-mono-nerd-font ranger viu chafa
 ```
 
-> [!NOTE]
-> See [Install Recipes](#Install-Recipes) for additional Windows and Linux specific notes
-> and quick install snippets
-
 Neovim's configurations are located under the following paths, depending on your OS:
 
 | OS                   | PATH                                      |
@@ -131,73 +127,3 @@ information about extending and exploring Neovim.
     distribution that you would like to try out.
 - What if I want to "uninstall" this configuration:
   - See [lazy.nvim uninstall](https://lazy.folke.io/usage#-uninstalling) information
-
-### Install Recipes
-
-Below you can find OS specific install instructions for Neovim and dependencies.
-
-After installing all the dependencies continue with the [Install Kickstart](#Install-Kickstart) step.
-
-#### Windows Installation
-
-<details><summary>Windows with gcc/make using chocolatey</summary>
-Alternatively, one can install gcc and make which don't require changing the config,
-the easiest way is to use choco:
-
-1. install [chocolatey](https://chocolatey.org/install)
-   either follow the instructions on the page or use winget,
-   run in cmd as **admin**:
-
-```
-winget install --accept-source-agreements chocolatey.chocolatey
-```
-
-2. install all requirements using choco, exit the previous cmd and
-   open a new one so that choco path is set, and run in cmd as **admin**:
-
-```
-choco install -y neovim git ripgrep wget fd unzip gzip mingw make
-```
-
-</details>
-<details><summary>WSL (Windows Subsystem for Linux)</summary>
-
-```
-wsl --install
-wsl
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
-sudo apt update
-sudo apt install make gcc ripgrep unzip neovim
-```
-
-</details>
-
-#### Linux Install
-
-<details><summary>Ubuntu Install Steps</summary>
-
-```
-sudo add-apt-repository ppa:neovim-ppa/unstable -y
-sudo apt update
-sudo apt install make gcc ripgrep unzip neovim
-```
-
-</details>
-<details><summary>Debian Install Steps</summary>
-
-```
-sudo apt update
-sudo apt install make gcc ripgrep unzip git
-echo "deb https://deb.debian.org/debian unstable main" | sudo tee -a /etc/apt/sources.list
-sudo apt update
-sudo apt install -t unstable neovim
-```
-
-</details>
-<details><summary>Fedora Install Steps</summary>
-
-```
-sudo dnf install -y gcc make git ripgrep fd-find neovim
-```
-
-</details>
