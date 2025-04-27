@@ -6,6 +6,7 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
     'MunifTanjim/nui.nvim',
+    'folke/snacks.nvim',
   },
   config = function(_, opts)
     local function on_move(data)
