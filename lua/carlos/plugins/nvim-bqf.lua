@@ -1,17 +1,20 @@
 return {
-  'kevinhwang91/nvim-bqf',
-  ft = 'qf',
-  dependencies = {
+  {
+    'kevinhwang91/nvim-bqf',
+    ft = 'qf',
+    dependencies = {
+      { 'nvim-treesitter/nvim-treesitter' },
+    },
+    opts = {
+      preview = {
+        win_height = 20,
+      },
+    },
+  },
+  {
     'junegunn/fzf',
     build = function()
-      -- The following line is not working, I don't know why yet
-      -- It's not a problem since I install fzf through homebrew
-      -- vim.fn['fzf#install']()
+      vim.fn['fzf#install']()
     end,
-  },
-  opts = {
-    preview = {
-      win_height = 20,
-    },
   },
 }
