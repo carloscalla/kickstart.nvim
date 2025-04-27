@@ -96,4 +96,10 @@ return {
       }
     end,
   },
+  {
+    'previm/previm',
+    init = function()
+      vim.cmd [[ let g:previm_open_cmd = 'open -a Google\ Chrome']]
+    end,
+  },
 }
