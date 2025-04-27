@@ -31,6 +31,8 @@ return { -- Autocompletion
       opts = {},
     },
     'folke/lazydev.nvim',
+    { 'allaman/emoji.nvim', opts = { enable_cmp_integration = true } },
+    'saghen/blink.compat',
   },
   --- @module 'blink.cmp'
   --- @type blink.cmp.Config
@@ -121,10 +123,23 @@ return { -- Autocompletion
         'snippets',
         -- 'buffer',
         'lazydev',
+        'emoji',
       },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
         lsp = { async = true },
+        emoji = {
+          name = 'emoji',
+          module = 'blink.compat.source',
+          -- overwrite kind of suggestion
+          transform_items = function(_, items)
+            local kind = require('blink.cmp.types').CompletionItemKind.Text
+            for i = 1, #items do
+              items[i].kind = kind
+            end
+            return items
+          end,
+        },
       },
     },
 
