@@ -36,7 +36,7 @@ require 'carlos.lazy-bootstrap'
 require 'carlos.lazy-plugins'
 
 -- Up to date with:
---https://github.com/nvim-lua/kickstart.nvim/commit/d350db2449da40df003c40d440f909d74e2d4e70
+-- https://github.com/nvim-lua/kickstart.nvim/commit/d350db2449da40df003c40d440f909d74e2d4e70
 
 -- Except (all related to which key which I don't use):
 -- https://github.com/nvim-lua/kickstart.nvim/commit/ac78e7d9e77048fa7d5b0711f85aab93508e71a7
