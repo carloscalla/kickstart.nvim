@@ -34,6 +34,12 @@ External Requirements:
   - If you want to write Golang, you will need `go`
   - etc.
 
+Via Homebrew:
+
+```sh
+brew install git ripgrep lazygit ffmpeg fd imagemagick fzf gh font-ubuntu-mono-nerd-font ranger viu chafa
+```
+
 > [!NOTE]
 > See [Install Recipes](#Install-Recipes) for additional Windows and Linux specific notes
 > and quick install snippets
