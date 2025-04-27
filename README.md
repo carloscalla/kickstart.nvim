@@ -2,13 +2,11 @@
 
 ## Introduction
 
-A starting point for Neovim that is:
+My personal Neovim configuration.
 
-- Small
-- Single-file
-- Completely Documented
+A fork of [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 
-**NOT** a Neovim distribution, but instead a starting point for your configuration.
+**NOT** a Neovim distribution.
 
 ## Installation
 
@@ -68,7 +66,7 @@ too - it's ignored in the kickstart repo to make maintenance easier, but it's
 
 > [!NOTE]
 > If following the recommended step above (i.e., forking the repo), replace
-> `nvim-lua` with `<your_github_username>` in the commands below
+> `carloscalla` with `<your_github_username>` in the commands below
 
 <details><summary> Linux and Mac </summary>
 
@@ -83,13 +81,13 @@ git clone https://github.com/carloscalla/kickstart.nvim.git "${XDG_CONFIG_HOME:-
 If you're using `cmd.exe`:
 
 ```
-git clone https://github.com/nvim-lua/kickstart.nvim.git "%localappdata%\nvim"
+git clone https://github.com/carloscalla/kickstart.nvim.git "%localappdata%\nvim"
 ```
 
 If you're using `powershell.exe`
 
 ```
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${env:LOCALAPPDATA}\nvim"
+git clone https://github.com/carloscalla/kickstart.nvim.git "${env:LOCALAPPDATA}\nvim"
 ```
 
 </details>
@@ -107,72 +105,6 @@ the current plugin status. Hit `q` to close the window.
 
 Read through the `init.lua` file in your configuration folder for more
 information about extending and exploring Neovim.
-
-#### Examples of adding popularly requested plugins
-
-NOTE: You'll need to uncomment the line in the init.lua that turns on loading custom plugins.
-
-<details>
-  <summary>Adding autopairs</summary>
-
-This will automatically install [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs)
-and enable it on startup. For more information, see documentation for
-[lazy.nvim](https://github.com/folke/lazy.nvim).
-
-In the file: `lua/custom/plugins/autopairs.lua`, add:
-
-```lua
--- File: lua/custom/plugins/autopairs.lua
-
-return {
-  "windwp/nvim-autopairs",
-  -- Optional dependency
-  dependencies = { 'hrsh7th/nvim-cmp' },
-  config = function()
-    require("nvim-autopairs").setup {}
-    -- If you want to automatically add `(` after selecting a function or method
-    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-    local cmp = require('cmp')
-    cmp.event:on(
-      'confirm_done',
-      cmp_autopairs.on_confirm_done()
-    )
-  end,
-}
-```
-
-</details>
-<details>
-  <summary>Adding a file tree plugin</summary>
-
-This will install the tree plugin and add the command `:Neotree` for you.
-For more information, see the documentation at
-[neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim).
-
-In the file: `lua/custom/plugins/filetree.lua`, add:
-
-```lua
--- File: lua/custom/plugins/filetree.lua
-
-return {
-  "nvim-neo-tree/neo-tree.nvim",
-  version = "*",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-    "MunifTanjim/nui.nvim",
-  },
-  config = function ()
-    require('neo-tree').setup {}
-  end,
-}
-```
-
-</details>
-
-### Getting Started
-
-[The Only Video You Need to Get Started with Neovim](https://youtu.be/m8C0Cq9Uv9o)
 
 ### FAQ
 
@@ -193,16 +125,6 @@ return {
     distribution that you would like to try out.
 - What if I want to "uninstall" this configuration:
   - See [lazy.nvim uninstall](https://lazy.folke.io/usage#-uninstalling) information
-- Why is the kickstart `init.lua` a single file? Wouldn't it make sense to split it into multiple files?
-  - The main purpose of kickstart is to serve as a teaching tool and a reference
-    configuration that someone can easily use to `git clone` as a basis for their own.
-    As you progress in learning Neovim and Lua, you might consider splitting `init.lua`
-    into smaller parts. A fork of kickstart that does this while maintaining the
-    same functionality is available here:
-    - [kickstart-modular.nvim](https://github.com/dam9000/kickstart-modular.nvim)
-  - Discussions on this topic can be found here:
-    - [Restructure the configuration](https://github.com/nvim-lua/kickstart.nvim/issues/218)
-    - [Reorganize init.lua into a multi-file setup](https://github.com/nvim-lua/kickstart.nvim/pull/473)
 
 ### Install Recipes
 
@@ -212,20 +134,6 @@ After installing all the dependencies continue with the [Install Kickstart](#Ins
 
 #### Windows Installation
 
-<details><summary>Windows with Microsoft C++ Build Tools and CMake</summary>
-Installation may require installing build tools and updating the run command for `telescope-fzf-native`
-
-See `telescope-fzf-native` documentation for [more details](https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation)
-
-This requires:
-
-- Install CMake and the Microsoft C++ Build Tools on Windows
-
-```lua
-{'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-```
-
-</details>
 <details><summary>Windows with gcc/make using chocolatey</summary>
 Alternatively, one can install gcc and make which don't require changing the config,
 the easiest way is to use choco:
