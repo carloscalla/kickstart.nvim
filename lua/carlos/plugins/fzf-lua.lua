@@ -148,6 +148,10 @@ return {
             return vim.fn.fnamemodify(s, ':~:.')
           end,
           snacks_image = { enabled = true },
+          extensions = {
+            ['svg'] = { 'chafa', '--format=symbols', '{file}' },
+            ['gif'] = { 'viu', '-b' },
+          },
         },
         codeaction = { toggle_behavior = 'extend' },
       },
