@@ -9,4 +9,9 @@ return {
       -- vim.fn['fzf#install']()
     end,
   },
+  opts = {
+    preview = {
+      win_height = 20,
+    },
+  },
 }
