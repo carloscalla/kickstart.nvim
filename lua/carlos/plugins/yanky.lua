@@ -1,5 +1,8 @@
 return {
   'gbprod/yanky.nvim',
+  dependencies = {
+    'folke/snacks.nvim',
+  },
   opts = {
     highlight = {
       timer = 200,
@@ -9,7 +12,7 @@ return {
     {
       '<leader>y',
       function()
-        require('telescope').extensions.yank_history.yank_history {}
+        Snacks.picker.yanky()
       end,
       desc = 'Open Yank History',
     },
