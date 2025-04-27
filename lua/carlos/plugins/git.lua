@@ -22,6 +22,9 @@ return {
     dependencies = {
       'tpope/vim-rhubarb', -- Adds GitHub support to fugitive
     },
+    keys = {
+      { '<leader>gg', '<cmd>Git<cr>', desc = 'Git' },
+    },
   },
   { 'sindrets/diffview.nvim' },
   {
