@@ -53,7 +53,7 @@
   "previm": { "branch": "master", "commit": "8d414bf9b38d2a7c65a313775e26c03a0169f67f" },
   "ranger.nvim": { "branch": "main", "commit": "fd2cc999f3ef88f7cdcbcad5f26000c52b16c489" },
   "refactoring.nvim": { "branch": "master", "commit": "2be7ea3f10b7e59658f5abf6dffc50b5d61964d6" },
-  "render-markdown.nvim": { "branch": "main", "commit": "40fff90caccb4a1c902681f0440806ee9ae95d0b" },
+  "render-markdown.nvim": { "branch": "main", "commit": "bff12b4655d1537cf0f10859fcd63ef2cec65010" },
   "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
   "solarized-osaka.nvim": { "branch": "main", "commit": "f796014c14b1910e08d42cc2077fef34f08e0295" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
