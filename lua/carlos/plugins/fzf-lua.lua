@@ -195,6 +195,7 @@ return {
     vim.keymap.set('v', '<leader>rg', require('fzf-lua').grep_visual, { desc = '[ ] Grep visual' })
     vim.keymap.set('n', '<leader>f/', require('fzf-lua').lines, { desc = '[ ] Grep visual' })
     vim.keymap.set('n', '<leader>/', require('fzf-lua').blines, { desc = 'Buffer lines' })
+    vim.keymap.set('n', '<leader>fq', require('fzf-lua').quickfix_stack, { desc = 'Quickfix stack' })
     vim.keymap.set('n', '<leader>sh', require('fzf-lua').helptags, { desc = 'Help tags' })
     vim.keymap.set('n', '<leader>sk', require('fzf-lua').keymaps, { desc = 'Keymaps' })
     vim.keymap.set('n', '<leader>sn', function()
