@@ -86,5 +86,6 @@ vim.cmd [[packadd cfilter]]
 
 if vim.fn.executable 'rg' == 1 then
   vim.o.grepprg = 'rg --vimgrep --no-heading --smart-case'
-  -- vim.o.grepformat = '%f:%l:%m'
+  -- Default grep format for quickfix window when grepprg is available
+  -- vim.o.grepformat = '%f:%l:%c:%m'
 end
