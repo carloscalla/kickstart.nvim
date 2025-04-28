@@ -22,13 +22,6 @@ return {
     end,
   },
   -- { 'tpope/vim-commentary' },
-  {
-    'nvim-pack/nvim-spectre',
-    cmd = 'Spectre',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-  },
 
   -- {
   --
