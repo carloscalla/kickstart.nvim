@@ -10,7 +10,7 @@ return {
   },
   keys = {
     {
-      '<leader>y',
+      '<leader>yy',
       function()
         Snacks.picker.yanky()
       end,

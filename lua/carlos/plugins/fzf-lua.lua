@@ -201,8 +201,8 @@ return {
       require('fzf-lua').files { cwd = vim.fn.stdpath 'config' }
     end, { desc = 'Search Neovim files' })
 
-    vim.keymap.set('n', '<leader>sd', require('fzf-lua').diagnostics_document, { desc = 'Document diagnostics' })
-    vim.keymap.set('n', '<leader>sD', require('fzf-lua').diagnostics_workspace, { desc = 'Workspace diagnostics' })
+    vim.keymap.set('n', '<leader>fd', require('fzf-lua').diagnostics_document, { desc = 'Document diagnostics' })
+    vim.keymap.set('n', '<leader>fD', require('fzf-lua').diagnostics_workspace, { desc = 'Workspace diagnostics' })
 
     vim.keymap.set('n', '<leader>:', require('fzf-lua').command_history, { desc = 'Command History' })
     vim.keymap.set({ 'n', 'x' }, '<leader>ca', function()

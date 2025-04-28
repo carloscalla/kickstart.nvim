@@ -4,9 +4,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Disable vim-surround default mappings
--- vim.g.surround_no_mappings = true
-
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 

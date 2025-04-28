@@ -1,5 +1,6 @@
 return { -- Collection of various small independent plugins/modules
   'echasnovski/mini.nvim',
+  lazy = false,
   config = function()
     -- Better Around/Inside textobjects
     --
@@ -16,14 +17,18 @@ return { -- Collection of various small independent plugins/modules
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup {
       mappings = {
-        add = 'gsa', -- Add surrounding in Normal and Visual modes
-        delete = 'gsd', -- Delete surrounding
+        add = '', -- Add surrounding in Normal and Visual modes
+        delete = '', -- Delete surrounding
         find = 'gsf', -- Find surrounding (to the right)
         find_left = 'gsF', -- Find surrounding (to the left)
         highlight = 'gsh', -- Highlight surrounding
-        replace = 'gsr', -- Replace surrounding
+        replace = '', -- Replace surrounding
         update_n_lines = 'gsn', -- Update `n_lines`
+        suffix_last = 'l', -- Suffix to search with "prev" method
+        suffix_next = 'n', -- Suffix to search with "next" method
       },
+      -- Number of lines within which surrounding is searched
+      n_lines = 30,
     }
 
     require('mini.files').setup {
