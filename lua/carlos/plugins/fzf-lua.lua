@@ -145,7 +145,8 @@ return {
       previewers = {
         builtin = {
           title_fnamemodify = function(s)
-            return vim.fn.fnamemodify(s, ':~:.')
+            local relative_path = vim.fn.fnamemodify(s, ':~:.')
+            return vim.fn.pathshorten(relative_path, 3)
           end,
           snacks_image = { enabled = true },
           extensions = {
