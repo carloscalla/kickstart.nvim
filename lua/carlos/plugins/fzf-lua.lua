@@ -207,19 +207,6 @@ return {
     vim.keymap.set('n', '<leader>fD', require('fzf-lua').diagnostics_workspace, { desc = 'Workspace diagnostics' })
 
     vim.keymap.set('n', '<leader>:', require('fzf-lua').command_history, { desc = 'Command History' })
-    vim.keymap.set({ 'n', 'x' }, '<leader>ca', function()
-      require('fzf-lua').lsp_code_actions {
-        winopts = {
-          height = 0.65,
-          width = 120,
-          preview = {
-            layout = 'vertical',
-            vertical = 'down:65%',
-            -- hidden = 'hidden',
-          },
-        },
-      }
-    end, { desc = 'LSP Code Actions' })
     vim.keymap.set('n', '<leader>gs', require('fzf-lua').git_status, { desc = 'Git Status' })
     vim.keymap.set('n', '<leader>gC', require('fzf-lua').git_commits, { desc = 'Git Commits' })
     vim.keymap.set('n', '<leader>gc', require('fzf-lua').git_bcommits, { desc = 'Git Buffer Commits' })
