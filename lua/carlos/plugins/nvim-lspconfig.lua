@@ -404,7 +404,7 @@ return { -- Main LSP Configuration
                 diagnostics = {},
               },
             }
-          end, { buffer = bufnr, desc = 'Format' })
+          end, { buffer = bufnr, desc = 'Organize Imports' })
         end,
       },
     }

@@ -23,7 +23,7 @@ return {
     vim.api.nvim_create_user_command('PersistenceSelect', function()
       require('persistence').select()
     end, {
-      desc = 'Restore the session for the current directory',
+      desc = 'Select a session to load',
     })
 
     vim.api.nvim_create_user_command('PersistenceStop', function()
