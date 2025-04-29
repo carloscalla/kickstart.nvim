@@ -32,8 +32,6 @@ return {
         },
       },
     }
-
-    vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
   end,
   keys = {
     { '<leader>nt', ':Neotree float toggle<CR>', 'n' },
