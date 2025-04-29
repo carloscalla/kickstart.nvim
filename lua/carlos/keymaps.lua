@@ -73,8 +73,8 @@ vim.keymap.set('x', '<leader>p', [["_dP]])
 vim.keymap.set('v', '<leader>d', [["_d]])
 vim.keymap.set('n', '<leader>d', [["_d]])
 
-vim.keymap.set('n', ']c', '<cmd>cnext<CR>zz')
-vim.keymap.set('n', '[c', '<cmd>cprev<CR>zz')
+vim.keymap.set('n', ']q', '<cmd>cnext<CR>zz')
+vim.keymap.set('n', '[q', '<cmd>cprev<CR>zz')
 vim.keymap.set('n', ']l', '<cmd>lnext<CR>zz')
 vim.keymap.set('n', '[l', '<cmd>lprev<CR>zz')
 
