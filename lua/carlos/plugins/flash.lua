@@ -8,8 +8,7 @@ return {
         enabled = false,
       },
       char = {
-        enabled = false,
-
+        enabled = true,
         multi_line = true,
         autohide = false,
         jump_labels = true,
