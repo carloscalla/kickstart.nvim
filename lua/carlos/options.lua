@@ -54,7 +54,7 @@ vim.o.softtabstop = 2
 vim.o.expandtab = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.o.scrolloff = 2
+vim.o.scrolloff = 5
 
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
