@@ -110,9 +110,13 @@ return { -- Main LSP Configuration
 
         -- Opens a popup that displays documentation about the word under your cursor
         --  See `:help K` for why this keymap.
-        map('K', vim.lsp.buf.hover, 'Hover Documentation')
+        map('K', function()
+          vim.lsp.buf.hover { border = 'single' }
+        end, 'Hover Documentation')
 
-        map('gK', vim.lsp.buf.signature_help, 'Signature help')
+        map('gK', function()
+          vim.lsp.buf.signature_help { border = 'single' }
+        end, 'Signature help')
 
         -- WARN: This is not Goto Definition, this is Goto Declaration.
         --  For example, in C this would take you to the header.
@@ -176,7 +180,7 @@ return { -- Main LSP Configuration
     -- See :help vim.diagnostic.Opts
     vim.diagnostic.config {
       severity_sort = true,
-      float = { border = 'rounded', source = 'if_many' },
+      float = { border = 'single', source = 'if_many' },
       underline = { severity = vim.diagnostic.severity.ERROR },
       signs = vim.g.have_nerd_font and {
         text = {
