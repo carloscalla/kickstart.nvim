@@ -37,5 +37,6 @@ return {
     { '<leader>nt', ':Neotree float toggle<CR>', 'n' },
     { '<leader>nb', ':Neotree float buffers<CR>', 'n' },
     { '<leader>fi', ':Neotree float reveal<CR>', 'n' },
+    { '<leader>ng', ':Neotree float git_status<CR>', 'n' },
   },
 }
