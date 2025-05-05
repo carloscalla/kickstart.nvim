@@ -128,6 +128,10 @@ return {
         fg = '#9fabad',
       })
 
+      hl('FzfLuaBorder', {
+        fg = '#18687a',
+      })
+
       vim.cmd [[ hi Visual cterm=NONE gui=NONE ]]
     end,
   },
