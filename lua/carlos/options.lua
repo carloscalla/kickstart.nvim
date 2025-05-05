@@ -65,7 +65,6 @@ vim.opt.confirm = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.o.list = true
--- vim.o.listchars = 'eol:↩,tab:<·>'
 vim.o.listchars = 'eol:↩,tab:|·'
 
 -- Configure how new splits should be opened
