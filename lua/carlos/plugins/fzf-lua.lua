@@ -119,9 +119,11 @@ return {
         width = 0.85,
         row = 0.45,
         col = 0.55,
+        border = 'single',
         preview = {
           horizontal = 'right:55%',
           layout = 'flex',
+          border = 'single',
         },
       },
       lines = {
