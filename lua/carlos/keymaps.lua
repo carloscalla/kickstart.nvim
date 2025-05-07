@@ -67,8 +67,8 @@ vim.keymap.set('n', '<leader>wq', '<C-W>q')
 vim.keymap.set('n', '<leader>wo', '<C-W>o')
 vim.keymap.set('n', '<C-q>', '<C-W>q')
 
-vim.keymap.set('n', '<Up>', '3<C-y>')
-vim.keymap.set('n', '<Down>', '3<C-e>')
+vim.keymap.set('n', '<Up>', '5<C-y>')
+vim.keymap.set('n', '<Down>', '5<C-e>')
 
 vim.keymap.set('x', '<leader>p', [["_dP]])
 vim.keymap.set('v', '<leader>d', [["_d]])
