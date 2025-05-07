@@ -2,6 +2,8 @@ return {
   'nvim-neo-tree/neo-tree.nvim',
   -- version = '*',
   branch = 'v3.x',
+  -- Not lazy loading also gets rid of the problem when it opens the file in the first window
+  lazy = false, -- neo-tree will lazily load itself
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
