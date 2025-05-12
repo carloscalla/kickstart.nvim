@@ -1,7 +1,7 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
-vim.opt.hlsearch = true
+vim.o.hlsearch = true
 
 -- Clears hlsearch after doing a search, otherwise just does normal <CR> stuff
 -- Use <C-L> neovim builtin mapping for clearing

@@ -8,44 +8,44 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
--- See `:help vim.opt`
+-- See `:help vim.o`
 -- For more options, you can see `:help option-list`
 
 -- Make line numbers default
-vim.opt.number = true
+vim.o.number = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = 'a'
+vim.o.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
+vim.o.showmode = false
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
+  vim.o.clipboard = 'unnamedplus'
 end)
 
 -- Enable break indent
-vim.opt.breakindent = true
+vim.o.breakindent = true
 
 -- Save undo history
-vim.opt.undofile = true
+vim.o.undofile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = 'yes'
+vim.o.signcolumn = 'yes'
 
 -- Decrease update time
-vim.opt.updatetime = 250
+vim.o.updatetime = 250
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+vim.o.inccommand = 'split'
 
 vim.o.wildmenu = true
 vim.o.tabstop = 2
@@ -59,13 +59,18 @@ vim.o.scrolloff = 5
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
-vim.opt.confirm = true
+vim.o.confirm = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
+--
+-- Notice listchars is set using `vim.opt` instead of `vim.o`.
+-- It is very similar to `vim.o` but offers an interface for conveniently interacting with tables.
+--  See `:help lua-options`
+--  and `:help lua-options-guide`
 vim.o.list = true
-vim.o.listchars = 'eol:↩,tab:|·'
+vim.opt.listchars = 'eol:↩,tab:|·'
 
 -- Configure how new splits should be opened
 vim.o.splitbelow = true
