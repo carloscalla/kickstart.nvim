@@ -233,7 +233,8 @@ return { -- Main LSP Configuration
       -- But for many setups, the LSP (`ts_ls`) will work just fine
       ts_ls = {
         -- Disabling ts_ls in favor of vtsls
-        enabled = false,
+        -- This doesn't seem to work anymore
+        -- enabled = false,
         -- Default
         -- root_dir = root_pattern('tsconfig.json', 'jsconfig.json', 'package.json', '.git'),
 
@@ -430,7 +431,7 @@ return { -- Main LSP Configuration
     --
 
     -- Ensure the following LSPs are installed
-    local ensure_installed = {
+    local lsp = {
       'clangd',
       'gopls',
       'rust_analyzer',
@@ -448,6 +449,8 @@ return { -- Main LSP Configuration
       'pyright',
       'ruff',
     }
+
+    local ensure_installed = vim.tbl_values(lsp)
 
     -- You can press `g?` for help in this menu.
     -- require('mason').setup()
@@ -471,6 +474,7 @@ return { -- Main LSP Configuration
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {
+      automatic_enable = lsp,
       ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
       automatic_installation = false,
       handlers = {
