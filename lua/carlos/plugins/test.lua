@@ -1,29 +1,30 @@
 return {
-  'nvim-neotest/neotest',
-  dependencies = {
-    'nvim-neotest/nvim-nio',
-    'nvim-lua/plenary.nvim',
-    'antoinemadec/FixCursorHold.nvim',
-    'nvim-treesitter/nvim-treesitter',
-    'nvim-neotest/neotest-jest',
-    'marilari88/neotest-vitest',
-  },
-  config = function()
-    require('neotest').setup {
-      adapters = {
-        require 'neotest-jest' {
-          jestCommand = 'npm test --',
-          jestConfigFile = 'custom.jest.config.ts',
-          env = { CI = true },
-          cwd = function(path)
-            return vim.fn.getcwd()
-          end,
+  {
+    'nvim-neotest/neotest',
+    dependencies = {
+      'nvim-neotest/nvim-nio',
+      'nvim-lua/plenary.nvim',
+      'antoinemadec/FixCursorHold.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-neotest/neotest-jest',
+      'marilari88/neotest-vitest',
+    },
+    config = function()
+      require('neotest').setup {
+        adapters = {
+          require 'neotest-jest' {
+            jestCommand = 'npm test --',
+            jestConfigFile = 'custom.jest.config.ts',
+            env = { CI = true },
+            cwd = function(path)
+              return vim.fn.getcwd()
+            end,
+          },
+          require 'neotest-vitest',
         },
-        require 'neotest-vitest',
-      },
-    }
-  end,
-  keys = {
+      }
+    end,
+    keys = {
     -- stylua: ignore start
     { '<leader>tf', function() require('neotest').run.run(vim.fn.expand '%') end,      desc = 'Run File' },
     { '<leader>tr', function() require('neotest').run.run() end,                       desc = 'Run Nearest' },
@@ -33,13 +34,14 @@ return {
     { '<leader>tS', function() require('neotest').run.stop() end,                      desc = 'Stop' },
     { '<leader>tw', function() require('neotest').watch.toggle() end,                  desc = 'Toggle Watch' },
     { '<leader>tW', function() require('neotest').watch.toggle(vim.fn.expand '%') end, desc = 'Toggle Watch File' },
-    -- stylua: ignore end
-    {
-      '<leader>to',
-      function()
-        require('neotest').output.open { enter = true, auto_close = true }
-      end,
-      desc = 'Show Output',
+      -- stylua: ignore end
+      {
+        '<leader>to',
+        function()
+          require('neotest').output.open { enter = true, auto_close = true }
+        end,
+        desc = 'Show Output',
+      },
     },
   },
   {
