@@ -35,4 +35,20 @@ return {
     { '<leader>tw', function() require('neotest').watch.toggle() end, desc = 'Toggle Watch' },
     { '<leader>tW', function() require('neotest').watch.toggle(vim.fn.expand '%') end, desc = 'Toggle Watch File' },
   },
+  {
+    'vim-test/vim-test',
+    dependencies = {
+      'akinsho/toggleterm.nvim',
+    },
+    cmd = {
+      'TestNearest',
+      'TestFile',
+      'TestSuite',
+      'TestLast',
+      'TestVisit',
+    },
+    init = function()
+      vim.cmd [[let test#strategy = "toggleterm"]]
+    end,
+  },
 }
