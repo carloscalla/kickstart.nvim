@@ -4,8 +4,8 @@ return { -- Main LSP Configuration
     -- Automatically install LSPs and related tools to stdpath for Neovim
     -- Mason must be loaded before its dependents so we need to set it up here.
     -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-    { 'mason-org/mason.nvim', opts = {} },
-    'mason-org/mason-lspconfig.nvim',
+    { 'mason-org/mason.nvim', version = '1.*', opts = {} },
+    { 'mason-org/mason-lspconfig.nvim', version = '1.*' },
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
     -- Useful status updates for LSP.
@@ -233,8 +233,7 @@ return { -- Main LSP Configuration
       -- But for many setups, the LSP (`ts_ls`) will work just fine
       ts_ls = {
         -- Disabling ts_ls in favor of vtsls
-        -- This doesn't seem to work anymore
-        -- enabled = false,
+        enabled = false,
         -- Default
         -- root_dir = root_pattern('tsconfig.json', 'jsconfig.json', 'package.json', '.git'),
 
@@ -474,7 +473,7 @@ return { -- Main LSP Configuration
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {
-      automatic_enable = lsp,
+      -- automatic_enable = lsp,
       ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
       automatic_installation = false,
       handlers = {
@@ -488,6 +487,11 @@ return { -- Main LSP Configuration
         end,
       },
     }
+
+    -- for server_name, config in pairs(servers_config) do
+    --   print('Setting up ' .. server_name)
+    --   vim.lsp.config(server_name, config)
+    -- end
 
     -- Set up the LSP for vtsls
     -- require('lspconfig.configs').vtsls = require('vtsls').lspconfig -- set default server config, optional but recommended
