@@ -28,7 +28,7 @@ return {
       event_handlers = opts.event_handlers,
       window = {
         mappings = {
-          ['h'] = 'close_node',
+          -- ['h'] = 'close_node',
           ['s'] = 'open_split',
           ['v'] = 'open_vsplit',
         },
