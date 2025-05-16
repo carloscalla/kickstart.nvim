@@ -242,7 +242,10 @@ return { -- Main LSP Configuration
 
       vtsls = {
         -- Set the root directory for the LSP to be the root of the git repository (priority if exists) to avoid running multiple processes
-        -- root_markers = { '.git' },
+        root_dir = function(bufnr, cb)
+          local lsp_root_dir = require('lspconfig.util').root_pattern('.git', 'tsconfig.json', 'package.json', 'jsconfig.json')(vim.fn.expand '%:p')
+          cb(lsp_root_dir)
+        end,
 
         on_attach = function(client, bufnr)
           vim.keymap.set('n', '<leader>cR', function()
@@ -282,6 +285,7 @@ return { -- Main LSP Configuration
             enableMoveToFileCodeAction = true,
             autoUseWorkspaceTsdk = true,
             experimental = {
+              -- maxInlayHintLength = 30,
               completion = {
                 enableServerSideFuzzyMatch = true,
               },
