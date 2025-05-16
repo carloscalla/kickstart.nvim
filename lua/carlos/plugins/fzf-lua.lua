@@ -126,6 +126,17 @@ return {
           border = 'single',
         },
       },
+      files = {
+        winopts = {
+          row = 1,
+          col = 0,
+          width = 1,
+          height = 0.45,
+          preview = {
+            hidden = true,
+          },
+        },
+      },
       lines = {
         winopts = {
           width = 0.75,
