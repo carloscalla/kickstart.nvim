@@ -407,6 +407,7 @@ return { -- Main LSP Configuration
       'dockerls',
       'pyright',
       'ruff',
+      'kotlin_language_server',
     }
 
     local ensure_installed = vim.tbl_values(lsp)
