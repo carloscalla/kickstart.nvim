@@ -17,7 +17,6 @@ return {
     'ibhagwan/fzf-lua',
     'nvim-treesitter/nvim-treesitter',
     'saghen/blink.cmp',
-    -- 'hrsh7th/nvim-cmp',
   },
   opts = {
     workspaces = {

@@ -3,17 +3,12 @@ return { -- Main LSP Configuration
   dependencies = {
     -- Automatically install LSPs and related tools to stdpath for Neovim
     -- Mason must be loaded before its dependents so we need to set it up here.
-    -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-    { 'mason-org/mason.nvim', version = '1.*', opts = {} },
-    { 'mason-org/mason-lspconfig.nvim', version = '1.*' },
+    { 'mason-org/mason.nvim', opts = {} },
+    { 'mason-org/mason-lspconfig.nvim' },
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
     -- Useful status updates for LSP.
-    -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
     { 'j-hui/fidget.nvim', opts = {} },
-
-    -- Allows extra capabilities provided by nvim-cmp
-    -- 'hrsh7th/cmp-nvim-lsp',
 
     -- Allows extra capabilities provided by blink.cmp
     'saghen/blink.cmp',
@@ -22,9 +17,28 @@ return { -- Main LSP Configuration
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
       callback = function(event)
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+
         local map = function(keys, func, desc, mode)
           mode = mode or 'n'
           vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+        end
+
+        if client and client.name == 'eslint' then
+          map('<leader>co', function()
+            local cur_bufnr = vim.api.nvim_get_current_buf()
+
+            client:exec_cmd({
+              title = 'Fix all Eslint errors for current buffer',
+              command = 'eslint.applyAllFixes',
+              arguments = {
+                {
+                  uri = vim.uri_from_bufnr(cur_bufnr),
+                  version = vim.lsp.util.buf_versions[cur_bufnr],
+                },
+              },
+            }, { bufnr = cur_bufnr })
+          end, 'Organize Imports')
         end
 
         -- Jump to the definition of the word under your cursor.
@@ -139,7 +153,6 @@ return { -- Main LSP Configuration
         --    See `:help CursorHold` for information about when this is executed
         --
         -- When you move your cursor, the highlights will be cleared (the second autocommand).
-        local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
           local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
           vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
@@ -206,10 +219,6 @@ return { -- Main LSP Configuration
 
     -- LSP servers and clients are able to communicate to each other what features they support.
     --  By default, Neovim doesn't support everything that is in the LSP specification.
-    --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
-    --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
-    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-    -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     -- When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
     -- So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
@@ -230,55 +239,12 @@ return { -- Main LSP Configuration
       -- Some languages (like typescript) have entire language plugins that can be useful:
       --    https://github.com/pmizio/typescript-tools.nvim
       --
-      -- But for many setups, the LSP (`ts_ls`) will work just fine
-      ts_ls = {
-        -- Disabling ts_ls in favor of vtsls
-        enabled = false,
-        -- Default
-        -- root_dir = root_pattern('tsconfig.json', 'jsconfig.json', 'package.json', '.git'),
-
-        -- From folke dot files
-        -- root_dir = function(...)
-        --   return require('lspconfig.util').root_pattern '.git'(...)
-        -- end,
-
-        -- Set the root directory for the LSP to be the root of the git repository (priority if exists) to avoid running multiple processes
-        root_dir = function(...)
-          return require('lspconfig.util').root_pattern('.git', 'tsconfig.json', 'jsconfig.json', 'package.json')(...)
-          -- return require('lspconfig.util').root_pattern '.git'(...)
-        end,
-        on_attach = function(client, bufnr)
-          vim.keymap.set('n', '<leader>cR', function()
-            vim.lsp.buf.code_action {
-              apply = true,
-              context = {
-                only = { 'source.removeUnused.ts' },
-                diagnostics = {},
-              },
-            }
-          end, { buffer = bufnr, desc = 'Remove Unused Imports' })
-
-          vim.keymap.set('n', '<leader>cM', function()
-            vim.lsp.buf.code_action {
-              apply = true,
-              context = {
-                only = { 'source.addMissingImports.ts' },
-                diagnostics = {},
-              },
-            }
-          end, { buffer = bufnr, desc = 'Add missing imports' })
-        end,
-        settings = {
-          completions = {
-            completeFunctionCalls = true,
-          },
-        },
-      },
 
       vtsls = {
         -- Set the root directory for the LSP to be the root of the git repository (priority if exists) to avoid running multiple processes
-        root_dir = function(...)
-          return require('lspconfig.util').root_pattern('.git', 'tsconfig.json', 'jsconfig.json', 'package.json')(...)
+        root_dir = function(bufnr, cb)
+          local lsp_root_dir = require('lspconfig.util').root_pattern('.git', 'tsconfig.json', 'package.json', 'jsconfig.json')(vim.fn.expand '%:p')
+          cb(lsp_root_dir)
         end,
 
         on_attach = function(client, bufnr)
@@ -319,6 +285,7 @@ return { -- Main LSP Configuration
             enableMoveToFileCodeAction = true,
             autoUseWorkspaceTsdk = true,
             experimental = {
+              -- maxInlayHintLength = 30,
               completion = {
                 enableServerSideFuzzyMatch = true,
               },
@@ -392,13 +359,6 @@ return { -- Main LSP Configuration
           -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
           workingDirectories = { mode = 'auto' },
         },
-        on_attach = function(client, bufnr)
-          vim.keymap.set('n', '<leader>co', '<cmd>EslintFixAll<cr>', { buffer = bufnr, desc = 'Organize Imports' })
-          -- vim.api.nvim_create_autocmd('BufWritePre', {
-          --   buffer = bufnr,
-          --   command = 'EslintFixAll',
-          -- })
-        end,
       },
 
       ruff = {
@@ -447,6 +407,7 @@ return { -- Main LSP Configuration
       'dockerls',
       'pyright',
       'ruff',
+      'kotlin_language_server',
     }
 
     local ensure_installed = vim.tbl_values(lsp)
@@ -470,33 +431,29 @@ return { -- Main LSP Configuration
       'goimports',
       'gofumpt',
     })
+
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {
-      -- automatic_enable = lsp,
+      automatic_enable = lsp,
       ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-      automatic_installation = false,
-      handlers = {
-        function(server_name)
-          local server = servers_config[server_name] or {}
-          -- This handles overriding only values explicitly passed
-          -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for ts_ls)
-          server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-          require('lspconfig')[server_name].setup(server)
-        end,
-      },
     }
 
-    -- for server_name, config in pairs(servers_config) do
-    --   print('Setting up ' .. server_name)
-    --   vim.lsp.config(server_name, config)
-    -- end
+    for _, server in ipairs(lsp) do
+      local config = servers_config[server]
 
-    -- Set up the LSP for vtsls
-    -- require('lspconfig.configs').vtsls = require('vtsls').lspconfig -- set default server config, optional but recommended
+      if config then
+        config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
+        vim.lsp.config(server, config)
+      else
+        -- If the server is not in the config, just set the capabilities
+        vim.lsp.config(server, {
+          capabilities = capabilities,
+        })
+      end
+    end
 
-    -- If the lsp setup is taken over by other plugin, it is the same to call the counterpart setup function
-    -- require('lspconfig').vtsls.setup { --[[ your custom server config here ]] }
+    -- Done by mason-lspconfig
+    -- vim.lsp.enable(lsp)
   end,
 }
