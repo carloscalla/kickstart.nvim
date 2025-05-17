@@ -83,28 +83,45 @@ return {
       },
     },
     gitbrowse = {},
+    indent = {
+      enabled = false,
+      animate = {
+        enabled = false,
+      },
+    },
   },
-  -- keys = {
-  --   {
-  --     '<leader>sf',
-  --     function()
-  --       Snacks.picker.files()
-  --     end,
-  --     desc = 'Snacks files',
-  --   },
-  --   {
-  --     '<leader>nt',
-  --     function()
-  --       Snacks.explorer.open { follow_file = false }
-  --     end,
-  --     desc = 'Snacks explorer',
-  --   },
-  --   {
-  --     '<leader>fi',
-  --     function()
-  --       Snacks.explorer.open { follow_file = true }
-  --     end,
-  --     desc = 'Snacks explorer',
-  --   },
-  -- },
+  keys = {
+    --   {
+    --     '<leader>sf',
+    --     function()
+    --       Snacks.picker.files()
+    --     end,
+    --     desc = 'Snacks files',
+    --   },
+    --   {
+    --     '<leader>nt',
+    --     function()
+    --       Snacks.explorer.open { follow_file = false }
+    --     end,
+    --     desc = 'Snacks explorer',
+    --   },
+    --   {
+    --     '<leader>fi',
+    --     function()
+    --       Snacks.explorer.open { follow_file = true }
+    --     end,
+    --     desc = 'Snacks explorer',
+    --   },
+    {
+      '<leader>ti',
+      function()
+        if Snacks.indent.enabled then
+          Snacks.indent.disable()
+        else
+          Snacks.indent.enable()
+        end
+      end,
+      desc = 'Toggle Snacks indent',
+    },
+  },
 }
