@@ -1,6 +1,7 @@
 return {
   'ThePrimeagen/harpoon',
   branch = 'harpoon2',
+  lazy = false,
   opts = {
     menu = {
       width = vim.api.nvim_win_get_width(0) - 4,
@@ -38,5 +39,12 @@ return {
       })
     end
     return keys
+  end,
+  config = function(_, opts)
+    local harpoon = require 'harpoon'
+    harpoon.setup(opts)
+
+    local harpoon_extensions = require 'harpoon.extensions'
+    harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
   end,
 }
