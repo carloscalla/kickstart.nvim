@@ -224,5 +224,42 @@ return {
     vim.keymap.set('n', '<leader>gC', require('fzf-lua').git_commits, { desc = 'Git Commits' })
     vim.keymap.set('n', '<leader>gc', require('fzf-lua').git_bcommits, { desc = 'Git Buffer Commits' })
     vim.keymap.set('n', '<leader>gB', require('fzf-lua').git_branches, { desc = 'Git Branches' })
+
+    vim.keymap.set('n', '<leader>fh', function()
+      local harpoon = require 'harpoon'
+      local fzf = require 'fzf-lua'
+      local list = harpoon:list()
+      local items = {}
+      for i = 1, list:length() do
+        local item = list:get(i)
+        if item and item.value and item.value ~= '' then
+          table.insert(items, string.format('%d: %s', i, item.value)) -- skip empty lines if deletion didn't work properly
+        end
+      end
+      fzf.fzf_exec(items, {
+        prompt = 'Harpoon Files> ',
+        winopts = {
+          width = 1,
+          height = 15,
+          row = 1,
+          col = 0,
+        },
+        actions = {
+          ['default'] = function(selected)
+            local idx = tonumber(selected[1]:match '^(%d+):')
+            if idx then
+              list:select(idx)
+            end
+          end,
+          ['ctrl-d'] = function(selected)
+            local idx = tonumber(selected[1]:match '^(%d+):')
+            if idx then
+              local item = list:get(idx)
+              list:remove(item)
+            end
+          end,
+        },
+      })
+    end, { desc = 'FzfLua Harpoon' })
   end,
 }
