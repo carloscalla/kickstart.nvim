@@ -1,6 +1,9 @@
 return {
-  'ThePrimeagen/harpoon',
-  branch = 'harpoon2',
+  'carloscalla/harpoon',
+  branch = 'harpoon2_with_devicons',
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+  },
   opts = {
     menu = {
       width = vim.api.nvim_win_get_width(0) - 4,
@@ -37,6 +40,17 @@ return {
         desc = 'Harpoon to File ' .. i,
       })
     end
+
+    for i = 1, 5 do
+      table.insert(keys, {
+        '<leader>h' .. i,
+        function()
+          require('harpoon'):list():replace_at(i)
+        end,
+        desc = 'Harpoon replace to File ' .. i,
+      })
+    end
+
     return keys
   end,
   config = function(_, opts)
