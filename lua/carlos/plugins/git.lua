@@ -84,6 +84,7 @@ return {
         map('n', '<leader>hu', gitsigns.stage_hunk, { desc = 'git [u]ndo stage hunk' })
         map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'git [R]eset buffer' })
         map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'git [p]review hunk' })
+        map('n', '<leader>hP', gitsigns.preview_hunk_inline, { desc = 'git [p]review hunk inline' })
         map('n', '<leader>hb', function()
           gitsigns.blame_line { full = true }
         end, { desc = 'git [b]lame line' })
@@ -93,7 +94,6 @@ return {
         end, { desc = 'git [D]iff against last commit' })
         -- Toggles
         -- map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
-        -- map('n', '<leader>tD', gitsigns.preview_hunk_inline, { desc = '[T]oggle git show [D]eleted' })
 
         -- Text object
         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
