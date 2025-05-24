@@ -26,6 +26,7 @@ return {
     local actions = require 'fzf-lua.actions'
 
     require('fzf-lua').setup {
+      fzf_opts = { ['--cycle'] = true },
       keymap = {
         builtin = {
           -- from detaults
