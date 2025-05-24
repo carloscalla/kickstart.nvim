@@ -1,13 +1,10 @@
 return {
   'carloscalla/harpoon',
-  branch = 'harpoon2_with_devicons',
+  branch = 'harpoon2_custom',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
   },
   opts = {
-    menu = {
-      width = vim.api.nvim_win_get_width(0) - 4,
-    },
     settings = {
       save_on_toggle = true,
     },
@@ -25,7 +22,7 @@ return {
         '<leader>ht',
         function()
           local harpoon = require 'harpoon'
-          harpoon.ui:toggle_quick_menu(harpoon:list())
+          harpoon.ui:toggle_quick_menu(harpoon:list(), { height_in_lines = 10 })
         end,
         desc = 'Harpoon Quick Menu',
       },
@@ -58,6 +55,6 @@ return {
     harpoon.setup(opts)
 
     local harpoon_extensions = require 'harpoon.extensions'
-    harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
+    harpoon:extend(harpoon_extensions.builtins.highlights())
   end,
 }
