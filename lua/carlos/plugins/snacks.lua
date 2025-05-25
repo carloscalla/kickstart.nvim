@@ -4,27 +4,28 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
-    {
-      image = {
-        enabled = true,
-        -- define these here, so that we don't need to load the image module
-        formats = {
-          'png',
-          'jpg',
-          'jpeg',
-          'gif',
-          'bmp',
-          'webp',
-          'tiff',
-          'heic',
-          'avif',
-          'mp4',
-          'mov',
-          'avi',
-          'mkv',
-          'webm',
-          'pdf',
-        },
+    image = {
+      enabled = true,
+      -- define these here, so that we don't need to load the image module
+      formats = {
+        'png',
+        'jpg',
+        'jpeg',
+        'gif',
+        'bmp',
+        'webp',
+        'tiff',
+        'heic',
+        'avif',
+        'mp4',
+        'mov',
+        'avi',
+        'mkv',
+        'webm',
+        'pdf',
+      },
+      doc = {
+        enabled = false,
       },
     },
     explorer = {
