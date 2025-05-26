@@ -17,6 +17,8 @@ return { -- Main LSP Configuration
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
       callback = function(event)
+        require('carlos.plugins.conform')._set_gq_keymap(event)
+
         local client = vim.lsp.get_client_by_id(event.data.client_id)
 
         local map = function(keys, func, desc, mode)

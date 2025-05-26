@@ -74,4 +74,25 @@ return { -- Autoformat
       go = { 'goimports', 'gofumpt' },
     },
   },
+  _set_gq_keymap = function(e)
+    -- priortize LSP formatting as `gq`
+    local lsp_clients = vim.lsp.get_clients { bufnr = e.buf }
+    local lsp_keymap_set = function(m, c)
+      vim.keymap.set(m, 'gq', function()
+        vim.lsp.buf.format { async = true, bufnr = e.buf }
+      end, {
+        silent = true,
+        buffer = e.buf,
+        desc = string.format('format document [LSP:%s]', c.name),
+      })
+    end
+    vim.tbl_map(function(c)
+      if c:supports_method('textDocument/rangeFormatting', { bufnr = e.buf }) then
+        lsp_keymap_set('x', c)
+      end
+      if c:supports_method('textDocument/formatting', { bufnr = e.buf }) then
+        lsp_keymap_set('n', c)
+      end
+    end, lsp_clients)
+  end,
 }
