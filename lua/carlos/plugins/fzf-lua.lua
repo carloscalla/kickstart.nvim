@@ -162,7 +162,7 @@ return {
             local relative_path = vim.fn.fnamemodify(s, ':~:.')
             return vim.fn.pathshorten(relative_path, 3)
           end,
-          snacks_image = { enabled = true },
+          snacks_image = { enabled = true, render_inline = false },
           extensions = {
             ['svg'] = { 'chafa', '--format=symbols', '{file}' },
             ['gif'] = { 'viu', '-b' },
