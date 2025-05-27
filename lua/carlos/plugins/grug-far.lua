@@ -14,16 +14,8 @@ return {
       function()
         require('grug-far').open()
       end,
-      mode = { 'n' },
+      mode = { 'n', 'v' },
       desc = 'Grug Far',
-    },
-    {
-      '<leader>gf',
-      function()
-        require('grug-far').with_visual_selection()
-      end,
-      mode = { 'v' },
-      desc = 'Grug Far selection',
     },
   },
 }
