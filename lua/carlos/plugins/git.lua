@@ -26,7 +26,14 @@ return {
       { '<leader>gg', '<cmd>Git<cr>', desc = 'Git' },
     },
   },
-  { 'sindrets/diffview.nvim' },
+  {
+    'sindrets/diffview.nvim',
+    lazy = false,
+    keys = {
+      { '<leader>dvo', '<cmd>DiffviewOpen<cr>', desc = 'DiffviewOpen' },
+      { '<leader>dvc', '<cmd>DiffviewClose<cr>', desc = 'DiffviewClose' },
+    },
+  },
   {
     'lewis6991/gitsigns.nvim', -- Adds git related signs to the gutter, as well as utilities for managing changes
     opts = {
