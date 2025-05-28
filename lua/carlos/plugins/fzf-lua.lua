@@ -25,6 +25,17 @@ return {
 
     local actions = require 'fzf-lua.actions'
 
+    local winopts_ivy = {
+      row = 1,
+      col = 0,
+      width = 1,
+      height = 0.45,
+      title_pos = 'left',
+      preview = {
+        hidden = true,
+      },
+    }
+
     require('fzf-lua').setup {
       fzf_opts = { ['--cycle'] = true },
       keymap = {
@@ -128,15 +139,7 @@ return {
         },
       },
       files = {
-        winopts = {
-          row = 1,
-          col = 0,
-          width = 1,
-          height = 0.45,
-          preview = {
-            hidden = true,
-          },
-        },
+        winopts = winopts_ivy,
       },
       lines = {
         winopts = {
@@ -186,6 +189,7 @@ return {
         },
       },
       oldfiles = {
+        winopts = winopts_ivy,
         include_current_session = true,
         cwd_only = true,
       },
