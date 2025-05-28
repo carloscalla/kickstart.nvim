@@ -50,7 +50,8 @@ return { -- Main LSP Configuration
           require('fzf-lua').lsp_definitions {
             winopts = {
               height = 0.7,
-              width = 0.6,
+              -- width = 0.6,
+              width = 150,
               preview = {
                 layout = 'vertical',
                 vertical = 'up:70%',
@@ -63,7 +64,8 @@ return { -- Main LSP Configuration
             jump1 = false,
             winopts = {
               height = 0.7,
-              width = 0.6,
+              -- width = 0.6,
+              width = 150,
               preview = {
                 layout = 'vertical',
                 vertical = 'up:70%',
@@ -76,7 +78,8 @@ return { -- Main LSP Configuration
         map('grr', function()
           require('fzf-lua').lsp_references {
             winopts = {
-              width = 0.7,
+              -- width = 0.75,
+              width = 170,
               preview = {
                 layout = 'vertical',
                 vertical = 'up:55%',

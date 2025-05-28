@@ -26,11 +26,14 @@ return {
     local actions = require 'fzf-lua.actions'
 
     local winopts_ivy = {
-      row = 1,
-      col = 0,
-      width = 1,
-      height = 0.45,
-      title_pos = 'left',
+      -- row = 1,
+      -- col = 0,
+      -- width = 1,
+      -- height = 0.45,
+      row = vim.o.lines - vim.o.cmdheight - 30 - 3,
+      col = 0.5,
+      width = 200,
+      height = 30,
       preview = {
         hidden = true,
       },
@@ -132,6 +135,7 @@ return {
         row = 0.45,
         col = 0.55,
         border = 'single',
+        title_pos = 'left',
         preview = {
           horizontal = 'right:55%',
           layout = 'flex',
@@ -143,7 +147,8 @@ return {
       },
       lines = {
         winopts = {
-          width = 0.75,
+          -- width = 0.75,
+          width = 170,
           preview = {
             layout = 'vertical',
             vertical = 'up:60%',
@@ -152,7 +157,8 @@ return {
       },
       blines = {
         winopts = {
-          width = 0.75,
+          -- width = 0.75,
+          width = 170,
           preview = {
             layout = 'vertical',
             vertical = 'up:60%',
@@ -176,7 +182,8 @@ return {
       grep = {
         winopts = {
           height = 0.87,
-          width = 0.75,
+          -- width = 0.75,
+          width = 170,
           preview = {
             layout = 'vertical',
             vertical = 'up:60%',
@@ -184,6 +191,9 @@ return {
         },
       },
       lsp = {
+        winopts = {
+          width = 170,
+        },
         code_actions = {
           previewer = 'codeaction',
         },
@@ -195,6 +205,7 @@ return {
       },
       quickfix = {
         winopts = {
+          width = 170,
           preview = {
             layout = 'vertical',
             vertical = 'up:60%',
