@@ -31,8 +31,8 @@ return {
       -- width = 1,
       -- height = 0.45,
       row = vim.o.lines - vim.o.cmdheight - 30 - 3,
-      col = 0.5,
-      width = 200,
+      col = 0.53,
+      width = 230,
       height = 30,
       preview = {
         hidden = true,
@@ -200,7 +200,6 @@ return {
       },
       buffers = {
         winopts = vim.tbl_deep_extend('force', {}, winopts_ivy, {
-          width = 230,
           preview = {
             hidden = false,
           },
