@@ -11,6 +11,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
 
   { import = 'carlos.plugins' },
+  -- { import = 'juanchi.plugins' },
 
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 }, {
