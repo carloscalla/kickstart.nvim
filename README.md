@@ -37,7 +37,14 @@ External Requirements:
 Via Homebrew:
 
 ```sh
-brew install git ripgrep lazygit ffmpeg fd imagemagick fzf gh font-ubuntu-mono-nerd-font ranger viu chafa
+brew install --cask font-ubuntu-mono-nerd-font
+brew install git ripgrep lazygit ffmpeg fd imagemagick fzf gh ranger viu chafa bat
+```
+
+extra optional:
+
+```sh
+brew install go
 ```
 
 Neovim's configurations are located under the following paths, depending on your OS:
