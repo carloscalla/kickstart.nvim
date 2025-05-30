@@ -397,7 +397,6 @@ return { -- Main LSP Configuration
     -- Ensure the following LSPs are installed
     local lsp = {
       'clangd',
-      'gopls',
       'rust_analyzer',
       -- 'ts_ls',
       'vtsls',
@@ -414,6 +413,10 @@ return { -- Main LSP Configuration
       'ruff',
       'kotlin_language_server',
     }
+
+    if vim.fn.executable 'go' == 1 then
+      table.insert(lsp, 'gopls')
+    end
 
     local ensure_installed = vim.tbl_values(lsp)
 
@@ -433,9 +436,12 @@ return { -- Main LSP Configuration
       'prettier',
       'ktlint',
       'markdownlint',
-      'goimports',
-      'gofumpt',
     })
+
+    if vim.fn.executable 'go' == 1 then
+      table.insert(ensure_installed, 'goimports')
+      table.insert(ensure_installed, 'gofumpt')
+    end
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
