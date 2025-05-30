@@ -10,12 +10,14 @@ return {
       function()
         require('treesj').toggle()
       end,
+      desc = 'Toggle split/join',
     },
     {
       '<leader>M',
       function()
         require('treesj').toggle { split = { recursive = true } }
       end,
+      desc = 'Toggle split/join recursively',
     },
   },
 }

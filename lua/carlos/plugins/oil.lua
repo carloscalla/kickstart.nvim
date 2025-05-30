@@ -68,7 +68,7 @@ return {
       function()
         require('oil').open()
       end,
-      { desc = 'Toggle Oil' },
+      { desc = 'Open Oil' },
     },
   },
 }

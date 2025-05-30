@@ -36,9 +36,9 @@ return {
     }
   end,
   keys = {
-    { '<leader>nt', ':Neotree float toggle<CR>', 'n' },
-    { '<leader>nb', ':Neotree float buffers<CR>', 'n' },
-    { '<leader>fi', ':Neotree float reveal<CR>', 'n' },
-    { '<leader>ng', ':Neotree float git_status<CR>', 'n' },
+    { '<leader>nt', ':Neotree float toggle<CR>', desc = 'Toggle Neo-tree' },
+    { '<leader>nb', ':Neotree float buffers<CR>', desc = 'Neo-tree buffers' },
+    { '<leader>fi', ':Neotree float reveal<CR>', desc = 'Neo-tree reveal current file' },
+    { '<leader>ng', ':Neotree float git_status<CR>', desc = 'Neo-tree git status' },
   },
 }

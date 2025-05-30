@@ -8,8 +8,8 @@ return {
       }
     end,
     keys = {
-      { '<leader>tt', '<Cmd>ToggleTerm<CR>' },
-      { '<leader>tn', '<Cmd>TermNew<CR>' },
+      { '<leader>tt', '<Cmd>ToggleTerm<CR>', desc = 'Toggle Terminal' },
+      { '<leader>tn', '<Cmd>TermNew<CR>', desc = 'New Terminal' },
     },
   },
 }
