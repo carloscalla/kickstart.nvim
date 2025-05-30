@@ -198,6 +198,14 @@ return {
           previewer = 'codeaction',
         },
       },
+      buffers = {
+        winopts = vim.tbl_deep_extend('force', {}, winopts_ivy, {
+          width = 230,
+          preview = {
+            hidden = false,
+          },
+        }),
+      },
       oldfiles = {
         winopts = winopts_ivy,
         include_current_session = true,
