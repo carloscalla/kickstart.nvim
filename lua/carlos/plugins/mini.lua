@@ -36,6 +36,8 @@ return { -- Collection of various small independent plugins/modules
         use_as_default_explorer = false,
       },
     }
+
+    require('mini.diff').setup {}
   end,
   keys = {
     {
@@ -44,6 +46,13 @@ return { -- Collection of various small independent plugins/modules
         require('mini.files').open(vim.api.nvim_buf_get_name(0), true)
       end,
       desc = 'Open mini.files (Directory of Current File)',
+    },
+    {
+      '<leader>id',
+      function()
+        require('mini.diff').toggle_overlay(vim.api.nvim_get_current_buf())
+      end,
+      desc = 'Toggle mini.diff overlay',
     },
   },
 }
