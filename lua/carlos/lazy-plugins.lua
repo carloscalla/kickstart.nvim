@@ -12,6 +12,8 @@ require('lazy').setup({
 
   { import = 'carlos.plugins' },
   -- { import = 'juanchi.plugins' },
+
+  { import = 'extras.plugins.copilot' },
   { import = 'extras.plugins.avante' },
 
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
