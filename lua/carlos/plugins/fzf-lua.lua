@@ -40,7 +40,7 @@ return {
     }
 
     require('fzf-lua').setup {
-      fzf_opts = { ['--cycle'] = true },
+      -- fzf_opts = { ['--cycle'] = true },
       keymap = {
         builtin = {
           -- from detaults
