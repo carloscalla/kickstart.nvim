@@ -46,7 +46,7 @@ return { -- Autocompletion
       -- <c-k>: Toggle signature help
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
-      preset = 'default',
+      preset = 'none',
 
       -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
       --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
@@ -56,41 +56,32 @@ return { -- Autocompletion
       ['<C-e>'] = { 'hide' },
       ['<C-y>'] = { 'select_and_accept' },
 
-      -- ['<Tab>'] = {
-      --   function(cmp)
-      --     if cmp.snippet_active() then
-      --       return cmp.accept()
-      --     else
-      --       return cmp.select_and_accept()
-      --     end
-      --   end,
-      --   'snippet_forward',
-      --   'fallback',
-      -- },
-      ['<Tab>'] = { 'select_and_accept', 'fallback' },
-      ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
-
       ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
       ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
 
       ['<C-u>'] = { 'scroll_documentation_up', 'fallback' },
       ['<C-d>'] = { 'scroll_documentation_down', 'fallback' },
 
-      ['<C-j>'] = { 'snippet_forward', 'fallback' },
-      -- ['<C-k>'] = { 'snippet_backward', 'fallback' },
-      -- ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
-      ['<C-k>'] = {
-        function(cmp)
-          if cmp.snippet_active() then
-            return cmp.snippet_backward()
-          else
-            return nil
-          end
-        end,
-        'show_signature',
-        'hide_signature',
-        'fallback',
-      },
+      ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
+
+      ['<Tab>'] = { 'snippet_forward', 'fallback' },
+      ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+
+      -- ['<Tab>'] = { 'select_and_accept', 'fallback' },
+
+      -- ['<C-j>'] = { 'snippet_forward', 'fallback' },
+      -- ['<C-k>'] = {
+      --   function(cmp)
+      --     if cmp.snippet_active() then
+      --       return cmp.snippet_backward()
+      --     else
+      --       return nil
+      --     end
+      --   end,
+      --   'show_signature',
+      --   'hide_signature',
+      --   'fallback',
+      -- },
     },
 
     appearance = {
