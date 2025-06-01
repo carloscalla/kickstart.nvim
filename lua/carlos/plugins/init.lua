@@ -43,6 +43,7 @@ return {
     ---@type render.md.UserConfig
     ft = { 'markdown', 'norg', 'rmd', 'org', 'codecompanion' },
     opts = {
+      file_types = { 'markdown', 'norg', 'rmd', 'org', 'codecompanion' },
       completions = {
         blink = {
           enabled = true,
