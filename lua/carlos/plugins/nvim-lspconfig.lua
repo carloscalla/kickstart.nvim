@@ -40,7 +40,7 @@ return { -- Main LSP Configuration
                 },
               },
             }, { bufnr = cur_bufnr })
-          end, 'Organize Imports')
+          end, 'EsLint: Fix all')
         end
 
         -- Jump to the definition of the word under your cursor.
