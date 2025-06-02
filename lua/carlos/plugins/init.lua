@@ -25,7 +25,6 @@ return {
       vim.cmd [[let g:undotree_DiffpanelHeight = 15]]
     end,
   },
-  -- { 'tpope/vim-commentary' },
 
   -- {
   --
