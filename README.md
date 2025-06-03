@@ -38,13 +38,13 @@ Via Homebrew:
 
 ```sh
 brew install --cask font-ubuntu-mono-nerd-font
-brew install git ripgrep lazygit ffmpeg fd imagemagick fzf gh ranger viu chafa bat
+brew install git fd ripgrep tree-sitter lazygit imagemagick fzf gh ranger viu chafa bat
 ```
 
 extra optional:
 
 ```sh
-brew install go
+brew install go ffmpeg
 ```
 
 Neovim's configurations are located under the following paths, depending on your OS:
