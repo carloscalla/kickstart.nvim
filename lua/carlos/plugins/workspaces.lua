@@ -5,7 +5,7 @@ return {
     require('workspaces').setup {
       hooks = {
         -- open = 'FzfLua files',
-        open = 'Oil',
+        open = 'Oil .',
       },
     }
   end,
