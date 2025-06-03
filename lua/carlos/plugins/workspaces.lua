@@ -8,4 +8,14 @@ return {
       },
     }
   end,
+  keys = {
+    {
+      '<leader>sl',
+      function()
+        require('workspaces').open()
+      end,
+      mode = 'n',
+      desc = 'Workspaces open',
+    },
+  },
 }
