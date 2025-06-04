@@ -82,6 +82,11 @@ return {
             },
           },
         },
+        lines = {
+          layout = {
+            preset = 'ivy_split',
+          },
+        },
       },
     },
     gitbrowse = {},
