@@ -41,6 +41,10 @@ return {
 
     require('fzf-lua').setup {
       -- fzf_opts = { ['--cycle'] = true },
+      fzf_colors = {
+        ['hl+'] = { 'fg', 'FzfLuaFzfMatch' },
+        ['hl'] = { 'fg', 'FzfLuaFzfMatch' },
+      },
       keymap = {
         builtin = {
           -- from detaults
