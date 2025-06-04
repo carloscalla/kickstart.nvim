@@ -4,8 +4,10 @@ return {
   config = function()
     require('workspaces').setup {
       hooks = {
-        -- open = 'FzfLua files',
-        open = 'Oil .',
+        open = function()
+          vim.cmd '%bd'
+          vim.notify(vim.uv.cwd() or '', vim.log.levels.INFO, { title = 'workspaces.nvim' })
+        end,
       },
     }
   end,
