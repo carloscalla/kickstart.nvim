@@ -1,7 +1,18 @@
 return {
   'stevearc/overseer.nvim',
   cmd = { 'OverseerRun' },
-  opts = {},
+  opts = {
+    task_list = {
+      max_height = 30,
+      min_height = 15,
+      bindings = {
+        ['<C-h>'] = false,
+        ['<C-j>'] = false,
+        ['<C-u>'] = 'ScrollOutputUp',
+        ['<C-d>'] = 'ScrollOutputDown',
+      },
+    },
+  },
   keys = {
     {
       '<leader>or',
