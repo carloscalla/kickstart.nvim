@@ -4,9 +4,9 @@ return {
   config = function()
     require('workspaces').setup {
       hooks = {
-        open = function()
+        open = function(name, path)
           vim.cmd '%bd'
-          vim.notify(vim.uv.cwd() or '', vim.log.levels.INFO, { title = 'workspaces.nvim' })
+          vim.notify(string.format('Workspace [%s -> %s] opened', name, path), vim.log.levels.INFO, { title = 'workspaces.nvim' })
         end,
       },
     }
