@@ -108,14 +108,13 @@ return {
     config = function()
       require('solarized-osaka').setup {
         transparent = true,
+        terminal_colors = true,
         styles = {
           comments = { italic = false },
           keywords = { italic = false },
           functions = { italic = false },
           variables = { italic = false },
         },
-        on_colors = function(colors) end,
-        on_highlights = function(highlights, colors) end,
       }
 
       vim.cmd [[colorscheme solarized-osaka]]
