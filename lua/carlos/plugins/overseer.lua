@@ -21,5 +21,12 @@ return {
       end,
       desc = 'Overseer: Open',
     },
+    {
+      '<leader>ot',
+      function()
+        require('overseer').toggle()
+      end,
+      desc = 'Overseer: Toggle',
+    },
   },
 }
