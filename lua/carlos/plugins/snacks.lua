@@ -82,7 +82,7 @@ return {
             },
           },
         },
-        lines = {
+        files = {
           layout = {
             preset = 'ivy_split',
           },
