@@ -47,6 +47,11 @@ return {
           end
         end,
       },
+      ['<C-l>'] = false,
+      ['<C-h>'] = false,
+      ['<C-v>'] = { 'actions.select', opts = { vertical = true } },
+      ['<C-s>'] = { 'actions.select', opts = { horizontal = true } },
+      ['<C-x>'] = 'actions.refresh',
     },
   },
   -- Optional dependencies
