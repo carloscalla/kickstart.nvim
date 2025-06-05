@@ -7,6 +7,10 @@ return {
         open = function(name, path)
           vim.cmd '%bd'
           vim.notify(string.format('Workspace [%s -> %s] opened', name, path), vim.log.levels.INFO, { title = 'workspaces.nvim' })
+          local ok, oil = pcall(require, 'oil')
+          if ok then
+            oil.open()
+          end
         end,
       },
     }
