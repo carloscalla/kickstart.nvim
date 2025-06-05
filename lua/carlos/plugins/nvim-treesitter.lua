@@ -46,11 +46,11 @@ return { -- Highlight, edit, and navigate code
         lookahead = true,
         include_surrounding_whitespace = false,
         keymaps = {
-          ['aF'] = {
+          ['af'] = {
             query = '@function.outer',
             desc = 'select around a function',
           },
-          ['iF'] = {
+          ['if'] = {
             query = '@function.inner',
             desc = 'select inner part of a function',
           },
