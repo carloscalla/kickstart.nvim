@@ -19,6 +19,9 @@ return {
     'saghen/blink.cmp',
   },
   opts = {
+    ui = {
+      enable = false, -- disabling in favor of render-markdown.nvim
+    },
     workspaces = {
       {
         name = 'carlos',
