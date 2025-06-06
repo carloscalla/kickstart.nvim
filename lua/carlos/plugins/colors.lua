@@ -140,13 +140,32 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
-      style = 'night',
+      style = 'moon', -- 'storm', 'night', 'day', 'moon'
       transparent = true,
       terminal_colors = true,
       styles = {
         comments = { italic = false },
         keywords = { italic = false },
       },
+      on_colors = function(colors)
+        -- setting bg colors from night style
+        -- remove if you prefer the default colors
+        colors.bg = '#1a1b26'
+        colors.bg_dark = '#16161e'
+        colors.bg_dark1 = '#0C0E14'
+        colors.bg_float = '#16161e'
+        colors.bg_highlight = '#292e42'
+        colors.bg_popup = '#16161e'
+        colors.bg_search = '#3d59a1'
+        colors.bg_sidebar = '#16161e'
+        colors.bg_statusline = '#16161e'
+        colors.bg_visual = '#283457'
+      end,
+      on_highlights = function(_hl, c)
+        _hl.WinSeparator = {
+          fg = c.bg_highlight,
+        }
+      end,
     },
     config = function(_, opts)
       require('tokyonight').setup(opts)
