@@ -3,6 +3,7 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
     'folke/snacks.nvim',
+    'roginfarrer/fzf-lua-lazy.nvim',
   },
   config = function()
     local function yank_and_notify(selected, opts, relative_path)
@@ -235,7 +236,7 @@ return {
     vim.keymap.set('n', '<leader>rg', require('fzf-lua').grep, { desc = 'Grep' })
     vim.keymap.set('v', '<leader>rg', require('fzf-lua').grep_visual, { desc = 'Grep visual' })
     vim.keymap.set('n', '<leader>f/', require('fzf-lua').lines, { desc = 'Lines (Open buffers)' })
-    vim.keymap.set('n', '<leader>/', require('fzf-lua').blines, { desc = 'Buffer lines' })
+    -- vim.keymap.set('n', '<leader>/', require('fzf-lua').blines, { desc = 'Buffer lines' })
     vim.keymap.set('n', '<leader>fq', require('fzf-lua').quickfix_stack, { desc = 'Quickfix stack' })
     vim.keymap.set('n', '<leader>sh', require('fzf-lua').helptags, { desc = 'Search help tags' })
     vim.keymap.set('n', '<leader>sk', require('fzf-lua').keymaps, { desc = 'Search keymaps' })

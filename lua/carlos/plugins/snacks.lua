@@ -130,5 +130,12 @@ return {
       end,
       desc = 'Toggle Snacks indent',
     },
+    {
+      '<leader>/',
+      function()
+        Snacks.picker.lines()
+      end,
+      desc = 'Buffer lines',
+    },
   },
 }
