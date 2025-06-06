@@ -142,13 +142,14 @@ return {
     opts = {
       style = 'night',
       transparent = true,
-      terminal_colo = true,
+      terminal_colors = true,
       styles = {
         comments = { italic = false },
         keywords = { italic = false },
       },
     },
-    init = function()
+    config = function(_, opts)
+      require('tokyonight').setup(opts)
       vim.cmd [[colorscheme tokyonight]]
     end,
   },
