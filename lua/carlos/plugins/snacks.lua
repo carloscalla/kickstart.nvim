@@ -35,6 +35,9 @@ return {
     picker = {
       enabled = true,
       ui_select = true,
+      layout = {
+        cycle = false,
+      },
       win = {
         input = {
           keys = {
