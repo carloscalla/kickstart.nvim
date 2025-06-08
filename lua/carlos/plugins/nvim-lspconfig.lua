@@ -15,7 +15,7 @@ return { -- Main LSP Configuration
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
-      group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
+      group = vim.api.nvim_create_augroup('neoBim-lsp-attach', { clear = true }),
       callback = function(event)
         require('carlos.plugins.conform')._set_gq_keymap(event)
 
@@ -162,7 +162,7 @@ return { -- Main LSP Configuration
         --
         -- When you move your cursor, the highlights will be cleared (the second autocommand).
         -- if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
-        --   local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
+        --   local highlight_augroup = vim.api.nvim_create_augroup('neoBim-lsp-highlight', { clear = false })
         --   vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
         --     buffer = event.buf,
         --     group = highlight_augroup,
@@ -176,10 +176,10 @@ return { -- Main LSP Configuration
         --   })
         --
         --   vim.api.nvim_create_autocmd('LspDetach', {
-        --     group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
+        --     group = vim.api.nvim_create_augroup('neoBim-lsp-detach', { clear = true }),
         --     callback = function(event2)
         --       vim.lsp.buf.clear_references()
-        --       vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+        --       vim.api.nvim_clear_autocmds { group = 'neoBim-lsp-highlight', buffer = event2.buf }
         --     end,
         --   })
         -- end
@@ -450,7 +450,7 @@ return { -- Main LSP Configuration
 
     require('mason-lspconfig').setup {
       automatic_enable = lsp,
-      ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+      ensure_installed = {}, -- explicitly set to an empty table (neoBim populates installs via mason-tool-installer)
     }
 
     for _, server in ipairs(lsp) do

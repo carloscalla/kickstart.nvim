@@ -20,7 +20,7 @@
 =====================================================================
 =====================================================================
 
-If you experience any errors while trying to install kickstart, run `:checkhealth` for more info.
+If you experience any errors while trying to install neoBim, run `:checkhealth` for more info.
 --]]
 
 require 'carlos.options'
