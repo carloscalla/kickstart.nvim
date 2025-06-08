@@ -46,6 +46,11 @@ return {
           },
         },
       },
+      formatters = {
+        file = {
+          truncate = 999,
+        },
+      },
       sources = {
         explorer = {
           auto_close = true,
@@ -85,6 +90,9 @@ return {
         files = {
           layout = {
             preset = 'ivy_split',
+            layout = {
+              height = 20,
+            },
           },
         },
       },
