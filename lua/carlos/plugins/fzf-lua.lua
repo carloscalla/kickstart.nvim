@@ -318,7 +318,7 @@ return {
       desc = 'Quickfix stack',
     },
     {
-      ' <leader>sh',
+      '<leader>sh',
       function()
         require('fzf-lua').helptags()
       end,
