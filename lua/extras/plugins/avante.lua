@@ -1,7 +1,8 @@
 return {
   {
     'yetone/avante.nvim',
-    event = 'VeryLazy',
+    -- event = 'VeryLazy',
+    lazy = true,
     version = false, -- Never set this value to "*"! Never!
     opts = {
       provider = 'copilot',
@@ -27,7 +28,7 @@ return {
       {
         -- support for image pasting
         'HakonHarnes/img-clip.nvim',
-        event = 'VeryLazy',
+        -- event = 'VeryLazy',
         opts = {
           -- recommended settings
           default = {
@@ -40,6 +41,14 @@ return {
             use_absolute_path = true,
           },
         },
+      },
+    },
+    keys = {
+      {
+        '<leader>aa',
+        '<Cmd>AvanteAsk<CR>',
+        desc = 'avante: ask',
+        mode = { 'n', 'v' },
       },
     },
   },
