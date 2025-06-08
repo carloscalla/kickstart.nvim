@@ -138,12 +138,12 @@ return {
       end,
       desc = 'Toggle Snacks indent',
     },
-    -- {
-    --   '<leader>/',
-    --   function()
-    --     Snacks.picker.lines()
-    --   end,
-    --   desc = 'Buffer lines',
-    -- },
+    {
+      '<leader>sf',
+      function()
+        Snacks.picker.files()
+      end,
+      desc = 'Snacks files',
+    },
   },
 }
