@@ -403,7 +403,10 @@ return {
         end
         fzf.fzf_exec(items, {
           prompt = 'Harpoon Files> ',
-          winopts = winopts_ivy,
+          winopts = {
+            height = 15,
+            width = 0.8,
+          },
           actions = {
             ['default'] = function(selected)
               local idx = tonumber(selected[1]:match '^(%d+):')
