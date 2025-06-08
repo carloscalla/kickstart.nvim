@@ -31,15 +31,22 @@ return {
 
     local actions = require 'fzf-lua.actions'
 
-    local winopts_ivy = {
+    local winopts_files = {
+      -- ivy
       -- row = 1,
       -- col = 0,
       -- width = 1,
       -- height = 0.45,
-      row = vim.o.lines - vim.o.cmdheight - 30 - 3,
-      col = 0.53,
-      width = 230,
-      height = 30,
+
+      -- ivy showing status line
+      -- row = vim.o.lines - vim.o.cmdheight - 30 - 3,
+      -- col = 0.53,
+      -- width = 230,
+      -- height = 30,
+
+      width = 180,
+      height = 40,
+
       preview = {
         hidden = true,
       },
@@ -153,7 +160,7 @@ return {
         },
       },
       files = {
-        winopts = winopts_ivy,
+        winopts = winopts_files,
       },
       lines = {
         winopts = {
@@ -209,14 +216,14 @@ return {
         },
       },
       buffers = {
-        winopts = vim.tbl_deep_extend('force', {}, winopts_ivy, {
+        winopts = vim.tbl_deep_extend('force', {}, winopts_files, {
           preview = {
             hidden = false,
           },
         }),
       },
       oldfiles = {
-        winopts = winopts_ivy,
+        winopts = winopts_files,
         include_current_session = true,
         cwd_only = true,
       },
