@@ -5,7 +5,12 @@ return {
     'folke/snacks.nvim',
     'roginfarrer/fzf-lua-lazy.nvim',
   },
+  cmd = { 'FzfLua', 'PluginsReadme' },
   config = function()
+    vim.api.nvim_create_user_command('PluginsReadme', function()
+      require('fzf-lua-lazy').search()
+    end, { desc = 'Search plugins READMEs' })
+
     local function yank_and_notify(selected, opts, relative_path)
       local file = FzfLua.path.entry_to_file(selected[1], opts)
       local path_to_yank = relative_path and FzfLua.path.relative_to(file.path, vim.uv.cwd()) or file.path
@@ -225,64 +230,198 @@ return {
         },
       },
     }
-
-    vim.keymap.set('n', '<leader>ff', require('fzf-lua').files, { desc = '[f]ind [f]iles' })
-    vim.keymap.set('n', '<leader>pf', require('fzf-lua').live_grep_glob, { desc = '[p]roject [f]ind' })
-    vim.keymap.set('n', '<leader>fr', require('fzf-lua').resume, { desc = '[f]zflua [r]esume' })
-    vim.keymap.set('n', '<leader>ls', require('fzf-lua').buffers, { desc = 'List open buffers' })
-    vim.keymap.set('n', '<leader>fw', require('fzf-lua').grep_cword, { desc = 'Grep cword' })
-    vim.keymap.set('n', '<leader>fW', require('fzf-lua').grep_cWORD, { desc = 'Grep cWORD' })
-    vim.keymap.set('n', '<leader>fo', require('fzf-lua').oldfiles, { desc = 'Old files' })
-    vim.keymap.set('n', '<leader>rg', require('fzf-lua').grep, { desc = 'Grep' })
-    vim.keymap.set('v', '<leader>rg', require('fzf-lua').grep_visual, { desc = 'Grep visual' })
-    vim.keymap.set('n', '<leader>f/', require('fzf-lua').lines, { desc = 'Lines (Open buffers)' })
-    -- vim.keymap.set('n', '<leader>/', require('fzf-lua').blines, { desc = 'Buffer lines' })
-    vim.keymap.set('n', '<leader>fq', require('fzf-lua').quickfix_stack, { desc = 'Quickfix stack' })
-    vim.keymap.set('n', '<leader>sh', require('fzf-lua').helptags, { desc = 'Search help tags' })
-    vim.keymap.set('n', '<leader>sk', require('fzf-lua').keymaps, { desc = 'Search keymaps' })
-    vim.keymap.set('n', '<leader>sn', function()
-      require('fzf-lua').files { cwd = vim.fn.stdpath 'config' }
-    end, { desc = '[s]earch [n]eovim files' })
-
-    vim.keymap.set('n', '<leader>fd', require('fzf-lua').diagnostics_document, { desc = 'Document diagnostics' })
-    vim.keymap.set('n', '<leader>fD', require('fzf-lua').diagnostics_workspace, { desc = 'Workspace diagnostics' })
-
-    vim.keymap.set('n', '<leader>:', require('fzf-lua').command_history, { desc = 'Command History' })
-    vim.keymap.set('n', '<leader>gs', require('fzf-lua').git_status, { desc = 'Git Status' })
-    vim.keymap.set('n', '<leader>gC', require('fzf-lua').git_commits, { desc = 'Git Commits' })
-    vim.keymap.set('n', '<leader>gc', require('fzf-lua').git_bcommits, { desc = 'Git Buffer Commits' })
-    vim.keymap.set('n', '<leader>gB', require('fzf-lua').git_branches, { desc = 'Git Branches' })
-
-    vim.keymap.set('n', '<leader>fh', function()
-      local harpoon = require 'harpoon'
-      local fzf = require 'fzf-lua'
-      local list = harpoon:list()
-      local items = {}
-      for i = 1, list:length() do
-        local item = list:get(i)
-        if item and item.value and item.value ~= '' then
-          table.insert(items, string.format('%d: %s', i, item.value)) -- skip empty lines if deletion didn't work properly
-        end
-      end
-      fzf.fzf_exec(items, {
-        prompt = 'Harpoon Files> ',
-        winopts = winopts_ivy,
-        actions = {
-          ['default'] = function(selected)
-            local idx = tonumber(selected[1]:match '^(%d+):')
-            if idx then
-              list:select(idx)
-            end
-          end,
-          ['ctrl-d'] = function(selected)
-            local idx = tonumber(selected[1]:match '^(%d+):')
-            if idx then
-              local item = list:get(idx)
-              list:remove(item)
-            end
-          end,
-        },
-      })
-    end, { desc = 'FzfLua Harpoon' })
   end,
+  keys = {
+    {
+      '<leader>ff',
+      function()
+        require('fzf-lua').files()
+      end,
+      desc = '[f]ind [f]iles',
+    },
+    {
+      '<leader>pf',
+      function()
+        require('fzf-lua').live_grep_glob()
+      end,
+      desc = '[p]roject [f]ind',
+    },
+    {
+      '<leader>fr',
+      function()
+        require('fzf-lua').resume()
+      end,
+      desc = '[f]zflua [r]esume',
+    },
+    {
+      '<leader>ls',
+      function()
+        require('fzf-lua').buffers()
+      end,
+      desc = 'List open buffers',
+    },
+    {
+      '<leader>fw',
+      function()
+        require('fzf-lua').grep_cword()
+      end,
+      desc = 'Grep cword',
+    },
+    {
+      '<leader>fW',
+      function()
+        require('fzf-lua').grep_cWORD()
+      end,
+      desc = 'Grep cWORD',
+    },
+    {
+      '<leader>fo',
+      function()
+        require('fzf-lua').oldfiles()
+      end,
+      desc = 'Old files',
+    },
+    {
+      '<leader>rg',
+      function()
+        require('fzf-lua').grep()
+      end,
+      desc = 'Grep',
+    },
+    {
+      '<leader>rg',
+      function()
+        require('fzf-lua').grep_visual()
+      end,
+      mode = 'v',
+      desc = 'Grep visual',
+    },
+    {
+      '<leader>f/',
+      function()
+        require('fzf-lua').lines()
+      end,
+      desc = 'Lines (Open buffers)',
+    },
+    {
+      '<leader>/',
+      function()
+        require('fzf-lua').blines()
+      end,
+      desc = 'Buffer lines',
+    },
+    {
+      '<leader>fq',
+      function()
+        require('fzf-lua').quickfix_stack()
+      end,
+      desc = 'Quickfix stack',
+    },
+    {
+      ' <leader>sh',
+      function()
+        require('fzf-lua').helptags()
+      end,
+      desc = 'Search help tags',
+    },
+    {
+      '<leader>sk',
+      function()
+        require('fzf-lua').keymaps()
+      end,
+      desc = 'Search keymaps',
+    },
+    {
+      '<leader>sn',
+      function()
+        require('fzf-lua').files { cwd = vim.fn.stdpath 'config' }
+      end,
+      desc = '[s]earch [n]eovim files',
+    },
+    {
+      '<leader>fd',
+      function()
+        require('fzf-lua').diagnostics_document()
+      end,
+      desc = 'Document diagnostics',
+    },
+    {
+      '<leader>fD',
+      function()
+        require('fzf-lua').diagnostics_workspace()
+      end,
+      desc = 'Workspace diagnostics',
+    },
+
+    {
+      '<leader>:',
+      function()
+        require('fzf-lua').command_history()
+      end,
+      desc = 'Command History',
+    },
+    {
+      '<leader>gs',
+      function()
+        require('fzf-lua').git_status()
+      end,
+      desc = 'Git Status',
+    },
+    {
+      '<leader>gC',
+      function()
+        require('fzf-lua').git_commits()
+      end,
+      desc = 'Git Commits',
+    },
+    {
+      '<leader>gc',
+      function()
+        require('fzf-lua').git_bcommits()
+      end,
+      desc = 'Git Buffer Commits',
+    },
+    {
+      '<leader>gB',
+      function()
+        require('fzf-lua').git_branches()
+      end,
+      desc = 'Git Branches',
+    },
+    {
+      '<leader>fh',
+      function()
+        local harpoon = require 'harpoon'
+        local fzf = require 'fzf-lua'
+        local list = harpoon:list()
+        local items = {}
+        for i = 1, list:length() do
+          local item = list:get(i)
+          if item and item.value and item.value ~= '' then
+            table.insert(items, string.format('%d: %s', i, item.value)) -- skip empty lines if deletion didn't work properly
+          end
+        end
+        fzf.fzf_exec(items, {
+          prompt = 'Harpoon Files> ',
+          winopts = winopts_ivy,
+          actions = {
+            ['default'] = function(selected)
+              local idx = tonumber(selected[1]:match '^(%d+):')
+              if idx then
+                list:select(idx)
+              end
+            end,
+            ['ctrl-d'] = function(selected)
+              local idx = tonumber(selected[1]:match '^(%d+):')
+              if idx then
+                local item = list:get(idx)
+                list:remove(item)
+              end
+            end,
+          },
+        })
+      end,
+      desc = 'FzfLua Harpoon',
+    },
+  },
 }
