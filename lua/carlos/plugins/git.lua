@@ -28,7 +28,6 @@ return {
   },
   {
     'sindrets/diffview.nvim',
-    lazy = false,
     keys = {
       { '<leader>dvo', '<cmd>DiffviewOpen<cr>', desc = 'DiffviewOpen' },
       { '<leader>dvc', '<cmd>DiffviewClose<cr>', desc = 'DiffviewClose' },
