@@ -102,7 +102,7 @@ return {
   },
   {
     'craftzdog/solarized-osaka.nvim',
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
@@ -136,7 +136,7 @@ return {
   },
   {
     'folke/tokyonight.nvim',
-    enabled = false,
+    enabled = true,
     lazy = false,
     priority = 1000,
     opts = {
@@ -150,16 +150,18 @@ return {
       on_colors = function(colors)
         -- setting bg colors from night style
         -- remove if you prefer the default colors
-        colors.bg = '#1a1b26'
-        colors.bg_dark = '#16161e'
-        colors.bg_dark1 = '#0C0E14'
-        colors.bg_float = '#16161e'
-        colors.bg_highlight = '#292e42'
-        colors.bg_popup = '#16161e'
-        colors.bg_search = '#3d59a1'
-        colors.bg_sidebar = '#16161e'
-        colors.bg_statusline = '#16161e'
-        colors.bg_visual = '#283457'
+
+        -- colors.bg = '#1a1b26'
+        -- colors.bg_dark = '#16161e'
+        -- colors.bg_dark1 = '#0C0E14'
+        -- colors.bg_float = '#16161e'
+        -- colors.bg_highlight = '#292e42'
+        -- colors.bg_popup = '#16161e'
+        -- colors.bg_search = '#3d59a1'
+        -- colors.bg_sidebar = '#16161e'
+        -- colors.bg_statusline = '#16161e'
+
+        -- colors.bg_visual = '#283457'
       end,
       on_highlights = function(_hl, c)
         _hl.WinSeparator = {
