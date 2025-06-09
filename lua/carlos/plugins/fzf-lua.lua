@@ -240,6 +240,13 @@ return {
   end,
   keys = {
     {
+      '<leader>f?',
+      function()
+        require('fzf-lua').builtin()
+      end,
+      desc = 'fzf-lua builtin',
+    },
+    {
       '<leader>ff',
       function()
         require('fzf-lua').files()
