@@ -15,6 +15,7 @@ return { -- Collection of various small independent plugins/modules
     -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
     -- - sd'   - [S]urround [D]elete [']quotes
     -- - sr)'  - [S]urround [R]eplace [)] [']
+    ---[[
     require('mini.surround').setup {
       mappings = {
         add = '', -- Add surrounding in Normal and Visual modes
@@ -30,6 +31,7 @@ return { -- Collection of various small independent plugins/modules
       -- Number of lines within which surrounding is searched
       n_lines = 30,
     }
+    --]]
 
     require('mini.files').setup {
       options = {
@@ -38,6 +40,8 @@ return { -- Collection of various small independent plugins/modules
     }
 
     require('mini.diff').setup {}
+
+    require('mini.move').setup {}
   end,
   keys = {
     {
