@@ -133,6 +133,14 @@ return { -- Autocompletion
       },
     },
 
+    cmdline = {
+      enabled = true,
+      completion = {
+        menu = { auto_show = true },
+        list = { selection = { preselect = false, auto_insert = true } },
+      },
+    },
+
     snippets = { preset = 'luasnip' },
 
     -- See :h blink-cmp-config-fuzzy for more information
