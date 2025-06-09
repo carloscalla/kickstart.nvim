@@ -70,6 +70,11 @@ return { -- Highlight, edit, and navigate code
             query = '@comment.inner',
             desc = 'select inner part of a comment',
           },
+          ['as'] = {
+            query = '@local.scope',
+            query_group = 'locals',
+            desc = 'Select language scope',
+          },
         },
       },
     },
