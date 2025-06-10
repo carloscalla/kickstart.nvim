@@ -106,4 +106,16 @@ return {
       end,
     },
   },
+  {
+    'NeogitOrg/neogit',
+    -- enabled = false,
+    cmd = 'Neogit',
+    dependencies = {
+      'nvim-lua/plenary.nvim', -- required
+      'sindrets/diffview.nvim', -- optional - Diff integration
+
+      -- Only one of these is needed.
+      'ibhagwan/fzf-lua', -- optional
+    },
+  },
 }
