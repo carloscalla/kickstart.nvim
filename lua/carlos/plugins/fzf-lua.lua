@@ -431,11 +431,21 @@ return {
             table.insert(items, string.format('%d: %s', i, item.value)) -- skip empty lines if deletion didn't work properly
           end
         end
+
+        local min_h, max_h = 0.1, 0.70
+        local h = (#items + 4) / vim.o.lines
+        if h < min_h then
+          h = min_h
+        elseif h > max_h then
+          h = max_h
+        end
+
         fzf.fzf_exec(items, {
           prompt = 'Harpoon Files> ',
           winopts = {
-            height = 15,
+            -- height = 15,
             width = 0.8,
+            height = h,
           },
           actions = {
             ['default'] = function(selected)
