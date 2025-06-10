@@ -4,6 +4,7 @@ return {
     'nvim-tree/nvim-web-devicons',
     'folke/snacks.nvim',
     'roginfarrer/fzf-lua-lazy.nvim',
+    'nvim-lua/plenary.nvim',
   },
   cmd = { 'FzfLua', 'PluginsReadme' },
   config = function()
@@ -252,6 +253,21 @@ return {
         require('fzf-lua').files()
       end,
       desc = '[f]ind [f]iles',
+    },
+    {
+      '<leader>fF',
+      function()
+        local Path = require 'plenary.path'
+        local current_file_path = Path:new(vim.fn.expand '%:p')
+        local nearest_package_json = current_file_path:find_upwards 'package.json'
+
+        if nearest_package_json and nearest_package_json:exists() then
+          require('fzf-lua').files { cwd = vim.fn.fnamemodify(nearest_package_json:absolute(), ':h:p') }
+        else
+          vim.notify(string.format "[Fzf-lua]: Can't find a parent package.json", vim.log.levels.ERROR, { title = 'Fzf-lua custom' })
+        end
+      end,
+      desc = '[f]ind [F]iles in nearest package.json dir', -- useful when working with monorepos
     },
     {
       '<leader>pf',
