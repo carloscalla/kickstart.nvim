@@ -253,6 +253,13 @@ return {
           },
         },
       },
+      git = {
+        status = {
+          actions = {
+            ['ctrl-s'] = { fn = actions.git_stage_unstage, reload = true },
+          },
+        },
+      },
     }
   end,
   keys = {
