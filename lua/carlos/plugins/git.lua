@@ -117,5 +117,8 @@ return {
       -- Only one of these is needed.
       'ibhagwan/fzf-lua', -- optional
     },
+    opts = {
+      kind = 'floating',
+    },
   },
 }
