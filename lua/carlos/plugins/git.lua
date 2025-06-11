@@ -119,6 +119,9 @@ return {
     },
     opts = {
       kind = 'floating',
+      commit_editor = {
+        staged_diff_split_kind = 'split_above',
+      },
     },
     keys = {
       { '<leader>ng', '<cmd>Neogit<cr>', desc = 'Neogit' },
