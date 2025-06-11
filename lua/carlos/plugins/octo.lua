@@ -15,20 +15,23 @@ return {
     }
   end,
   init = function()
+    -- The following commands search PRs in the current repository.
+    -- It searches for the current .git root directory
+    -- To search for account wide PRs, use `:Octo search is:pr` command instead of `:Octo pr search`.
     vim.api.nvim_create_user_command('GhPrToTeam', function()
-      vim.cmd [[ Octo search is:pr is:open review-requested:@me ]]
+      vim.cmd [[ Octo pr search is:open review-requested:@me ]]
     end, { desc = 'Github open PRs assigned to me or my team' })
 
     vim.api.nvim_create_user_command('GhPrToMe', function()
-      vim.cmd [[ Octo search is:pr is:open user-review-requested:@me ]]
+      vim.cmd [[ Octo pr search is:open user-review-requested:@me ]]
     end, { desc = 'Github open PRs assigned to me' })
 
     vim.api.nvim_create_user_command('GhPrByMe', function()
-      vim.cmd [[ Octo search is:pr is:open author:@me ]]
+      vim.cmd [[ Octo pr search is:open author:@me ]]
     end, { desc = 'Github open PRs created by me' })
 
     vim.api.nvim_create_user_command('GhPrInvolvesMe', function()
-      vim.cmd [[ Octo search is:pr is:open involves:@me -author:@me ]]
+      vim.cmd [[ Octo pr search is:open involves:@me -author:@me ]]
     end, { desc = 'Github PRs involving me' })
   end,
 }
