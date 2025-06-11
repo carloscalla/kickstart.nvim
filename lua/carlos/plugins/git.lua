@@ -120,5 +120,8 @@ return {
     opts = {
       kind = 'floating',
     },
+    keys = {
+      { '<leader>ng', '<cmd>Neogit<cr>', desc = 'Neogit' },
+    },
   },
 }
