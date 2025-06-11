@@ -148,5 +148,12 @@ return {
       end,
       desc = 'Snacks files',
     },
+    {
+      '<leader>si',
+      function()
+        Snacks.image.hover()
+      end,
+      desc = 'Snacks image (float)',
+    },
   },
 }
