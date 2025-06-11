@@ -1,4 +1,15 @@
-return {
+local files_picker_width = 200
+local files_picker_padding = 13
+
+local calc_files_picker_width = function()
+  if vim.o.columns - files_picker_width > files_picker_padding then
+    return files_picker_width
+  else
+    return vim.o.columns - files_picker_padding
+  end
+end
+
+local M = {
   'ibhagwan/fzf-lua',
   dependencies = {
     'nvim-tree/nvim-web-devicons',
@@ -61,7 +72,7 @@ return {
       -- width = 230,
       -- height = 30,
 
-      width = 180,
+      width = 200,
       height = 40,
 
       preview = {
@@ -177,7 +188,11 @@ return {
         },
       },
       files = {
-        winopts = winopts_files,
+        winopts = vim.tbl_deep_extend('force', {}, winopts_files, {
+          preview = {
+            horizontal = 'right:60%',
+          },
+        }),
       },
       lines = {
         winopts = {
@@ -273,19 +288,21 @@ return {
     {
       '<leader>ff',
       function()
-        require('fzf-lua').files()
+        local width = calc_files_picker_width()
+        require('fzf-lua').files { winopts = { width = width } }
       end,
       desc = '[f]ind [f]iles',
     },
     {
       '<leader>fF',
       function()
+        local width = calc_files_picker_width()
         local Path = require 'plenary.path'
         local current_file_path = Path:new(vim.fn.expand '%:p')
         local nearest_package_json = current_file_path:find_upwards 'package.json'
 
         if nearest_package_json and nearest_package_json:exists() then
-          require('fzf-lua').files { cwd = vim.fn.fnamemodify(nearest_package_json:absolute(), ':h:p') }
+          require('fzf-lua').files { cwd = vim.fn.fnamemodify(nearest_package_json:absolute(), ':h:p'), winopts = { width = width } }
         else
           vim.notify(string.format "[Fzf-lua]: Can't find a parent package.json", vim.log.levels.ERROR, { title = 'Fzf-lua custom' })
         end
@@ -309,7 +326,8 @@ return {
     {
       '<leader>ls',
       function()
-        require('fzf-lua').buffers()
+        local width = calc_files_picker_width()
+        require('fzf-lua').buffers { winopts = { width = width } }
       end,
       desc = 'List open buffers',
     },
@@ -330,7 +348,8 @@ return {
     {
       '<leader>fo',
       function()
-        require('fzf-lua').oldfiles()
+        local width = calc_files_picker_width()
+        require('fzf-lua').oldfiles { winopts = { width = width } }
       end,
       desc = 'Old files',
     },
@@ -491,3 +510,5 @@ return {
     },
   },
 }
+
+return M
