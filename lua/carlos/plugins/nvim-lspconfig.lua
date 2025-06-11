@@ -114,6 +114,7 @@ return { -- Main LSP Configuration
         -- map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
         map('<leader>ca', function()
           require('fzf-lua').lsp_code_actions {
+            silent = true,
             winopts = {
               height = 0.65,
               width = 120,
