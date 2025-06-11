@@ -3,13 +3,29 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
     'folke/snacks.nvim',
-    'roginfarrer/fzf-lua-lazy.nvim',
+    {
+      'roginfarrer/fzf-lua-lazy.nvim',
+      opts = {
+        mappings = {
+          open_in_browser = 'ctrl-b',
+        },
+      },
+    },
     'nvim-lua/plenary.nvim',
   },
   cmd = { 'FzfLua', 'PluginsReadme' },
   config = function()
     vim.api.nvim_create_user_command('PluginsReadme', function()
-      require('fzf-lua-lazy').search()
+      require('fzf-lua-lazy').search {
+        winopts = {
+          height = 0.7,
+          width = 180,
+          preview = {
+            horizontal = 'right:78%',
+            layout = 'flex',
+          },
+        },
+      }
     end, { desc = 'Search plugins READMEs' })
 
     local function yank_and_notify(selected, opts, relative_path)
