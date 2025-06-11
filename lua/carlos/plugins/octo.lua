@@ -9,7 +9,8 @@ return {
   },
   config = function()
     require('octo').setup {
-      picker = 'fzf-lua',
+      -- picker = 'fzf-lua',
+      picker = 'snacks',
       default_to_projects_v2 = true,
     }
   end,
