@@ -1,4 +1,17 @@
 -- Git related plugins
+
+local _is_diffview_open = function()
+  return package.loaded.diffview and require('diffview.lib').get_current_view()
+end
+
+local _toggle_diffview = function()
+  if _is_diffview_open() then
+    vim.cmd 'DiffviewClose'
+  else
+    vim.cmd 'DiffviewOpen'
+  end
+end
+
 return {
   {
     'tpope/vim-fugitive',
@@ -28,9 +41,17 @@ return {
   },
   {
     'sindrets/diffview.nvim',
+    cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
     keys = {
-      { '<leader>dvo', '<cmd>DiffviewOpen<cr>', desc = 'DiffviewOpen' },
-      { '<leader>dvc', '<cmd>DiffviewClose<cr>', desc = 'DiffviewClose' },
+      -- { '<leader>dvo', '<cmd>DiffviewOpen<cr>', desc = 'DiffviewOpen' },
+      -- { '<leader>dvc', '<cmd>DiffviewClose<cr>', desc = 'DiffviewClose' },
+      {
+        '<leader>gd',
+        function()
+          _toggle_diffview()
+        end,
+        desc = 'Diffview toggle',
+      },
     },
   },
   {
