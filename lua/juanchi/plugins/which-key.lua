@@ -2,7 +2,21 @@ return {
   'folke/which-key.nvim',
   event = 'VimEnter',
   opts = {
-    delay = 0,
+    ---@type false | "classic" | "modern" | "helix"
+    preset = 'classic',
+    -- delay = 0,
+    spec = {
+      { '<leader>O', group = 'Obsidian' },
+      { '<leader>a', group = 'Avante' },
+      { '<leader>f', group = 'FzfLua' },
+      { '<leader>g', group = 'Git/GrugFar' },
+      { '<leader>h', group = 'Harpoon' },
+      { '<leader>n', group = 'Neotree/Neogit' },
+      { '<leader>o', group = 'Oil/Overseer' },
+      { '<leader>s', group = 'Search/Snacks' },
+      { '<leader>t', group = 'Toggle/Test' },
+      { '<leader>w', group = 'Window' },
+    },
     icons = {
       mappings = vim.g.have_nerd_font,
       keys = vim.g.have_nerd_font and {} or {
@@ -46,21 +60,4 @@ return {
       desc = 'Buffer Local Keymaps (which-key)',
     },
   },
-  config = function(_, opts)
-    local wk = require 'which-key'
-    wk.setup(opts)
-
-    wk.add {
-      { '<leader>O', group = 'Obsidian' },
-      { '<leader>a', group = 'Avante' },
-      { '<leader>f', group = 'FzfLua' },
-      { '<leader>g', group = 'Git/GrugFar' },
-      { '<leader>h', group = 'Harpoon' },
-      { '<leader>n', group = 'Neotree/Neogit' },
-      { '<leader>o', group = 'Oil/Overseer' },
-      { '<leader>s', group = 'Search/Snacks' },
-      { '<leader>t', group = 'Toggle/Test' },
-      { '<leader>w', group = 'Window' },
-    }
-  end,
 }
