@@ -66,14 +66,14 @@ return {
       function()
         require('oil').toggle_float()
       end,
-      { desc = 'Toggle Oil float' },
+      desc = 'Toggle Oil float',
     },
     {
       '<leader>-',
       function()
         require('oil').open()
       end,
-      { desc = 'Open Oil' },
+      desc = 'Oil',
     },
   },
 }
