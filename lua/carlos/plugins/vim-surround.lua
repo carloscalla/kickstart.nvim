@@ -5,8 +5,8 @@ return {
     vim.g.surround_no_mappings = true
   end,
   config = function()
-    local function map(mode, l, r)
-      vim.keymap.set(mode, l, r)
+    local function map(mode, l, r, opts)
+      vim.keymap.set(mode, l, r, opts)
     end
 
     -- Test with gs prefix
@@ -36,16 +36,16 @@ return {
     -- imap <C-G>s <Plug>Isurround
     -- imap <C-G>S <Plug>ISurround
 
-    map('n', '<leader>ds', '<Plug>Dsurround')
-    map('n', '<leader>cs', '<Plug>Csurround')
-    map('n', '<leader>cS', '<Plug>CSurround')
-    map('n', '<leader>ys', '<Plug>Ysurround')
-    map('n', '<leader>yS', '<Plug>YSurround')
-    map('n', '<leader>yss', '<Plug>Yssurround')
-    map('n', '<leader>ySs', '<Plug>YSsurround')
-    map('n', '<leader>ySS', '<Plug>YSsurround')
-    map('x', '<leader>S', '<Plug>VSurround')
-    map('x', '<leader>gS', '<Plug>VgSurround')
+    map('n', '<leader>ds', '<Plug>Dsurround', { desc = 'Delete surrounding' })
+    map('n', '<leader>cs', '<Plug>Csurround', { desc = 'Change surrounding' })
+    map('n', '<leader>cS', '<Plug>CSurround', { desc = 'Change surrounding (new line)' })
+    map('n', '<leader>ys', '<Plug>Ysurround', { desc = 'Add surrounding' })
+    map('n', '<leader>yS', '<Plug>YSurround', { desc = 'Add surrounding (new line)' })
+    map('n', '<leader>yss', '<Plug>Yssurround', { desc = 'Add line surrounding' })
+    map('n', '<leader>ySs', '<Plug>YSsurround', { desc = 'Add line surrounding (new line)' })
+    map('n', '<leader>ySS', '<Plug>YSsurround', { desc = 'Add line surrounding (new line)' })
+    map('x', '<leader>S', '<Plug>VSurround', { desc = 'Visual mode surround' })
+    map('x', '<leader>gS', '<Plug>VgSurround', { desc = 'Visual mode surround' })
     -- map('i', '<C-S>', '<Plug>Isurround')
     -- map('i', '<C-G>s', '<Plug>Isurround')
     -- map('i', '<C-G>S', '<Plug>ISurround')
