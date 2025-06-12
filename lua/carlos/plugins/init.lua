@@ -61,6 +61,7 @@ return {
   },
   {
     'previm/previm',
+    ft = { 'mkd', 'markdown', 'mmd', 'mermaid', 'rst', 'textile', 'asciidoc', 'plantuml', 'html' },
     init = function()
       vim.cmd [[ let g:previm_open_cmd = 'open -a Google\ Chrome']]
     end,
