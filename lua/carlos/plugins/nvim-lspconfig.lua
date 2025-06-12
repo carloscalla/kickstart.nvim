@@ -17,9 +17,14 @@ return { -- Main LSP Configuration
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('neoBim-lsp-attach', { clear = true }),
       callback = function(event)
-        require('carlos.plugins.conform')._set_gq_keymap(event)
-
         local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+        if not client or client.name == 'GitHub Copilot' then
+          -- If Copilot is attached we don't want to set the keymaps and config below
+          return
+        end
+
+        require('carlos.plugins.conform')._set_gq_keymap(event)
 
         local map = function(keys, func, desc, mode)
           mode = mode or 'n'
