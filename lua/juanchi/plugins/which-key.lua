@@ -46,4 +46,13 @@ return {
       desc = 'Buffer Local Keymaps (which-key)',
     },
   },
+  config = function(_, opts)
+    local wk = require 'which-key'
+    wk.setup(opts)
+
+    wk.add {
+      { '<leader>w', group = 'Window' },
+      { '<leader>t', group = 'Toggle or Test' },
+    }
+  end,
 }
