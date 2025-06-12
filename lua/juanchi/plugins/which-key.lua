@@ -51,12 +51,13 @@ return {
     wk.setup(opts)
 
     wk.add {
+      { '<leader>O', group = 'Obsidian' },
       { '<leader>a', group = 'Avante' },
       { '<leader>f', group = 'FzfLua' },
       { '<leader>g', group = 'Git/GrugFar' },
       { '<leader>h', group = 'Harpoon' },
+      { '<leader>n', group = 'Neotree/Neogit' },
       { '<leader>o', group = 'Oil/Overseer' },
-      { '<leader>O', group = 'Obsidian' },
       { '<leader>s', group = 'Search/Snacks' },
       { '<leader>t', group = 'Toggle/Test' },
       { '<leader>w', group = 'Window' },
