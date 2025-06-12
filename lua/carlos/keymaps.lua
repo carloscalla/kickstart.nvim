@@ -52,7 +52,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
-vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>')
+vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', { desc = "Change cwd to current file's directory" })
 
 vim.keymap.set('n', '<leader>wh', '<C-W>h', { desc = 'Go to the left window' })
 vim.keymap.set('n', '<leader>wj', '<C-W>j', { desc = 'Go to the down window' })
@@ -71,14 +71,14 @@ vim.keymap.set('n', '<C-q>', '<C-W>q', { desc = 'Close current window' })
 vim.keymap.set('n', '<Up>', '5<C-y>')
 vim.keymap.set('n', '<Down>', '5<C-e>')
 
-vim.keymap.set('x', '<leader>p', [["_dP]])
-vim.keymap.set('v', '<leader>d', [["_d]])
-vim.keymap.set('n', '<leader>d', [["_d]])
+vim.keymap.set('x', '<leader>p', [["_dP]], { desc = 'Paste using the black hole register' })
+vim.keymap.set('v', '<leader>d', [["_d]], { desc = 'Delete using the black hole register' })
+vim.keymap.set('n', '<leader>d', [["_d]], { desc = 'Delete using the black hole register' })
 
-vim.keymap.set('n', ']q', '<cmd>cnext<CR>zz')
-vim.keymap.set('n', '[q', '<cmd>cprev<CR>zz')
-vim.keymap.set('n', ']l', '<cmd>lnext<CR>zz')
-vim.keymap.set('n', '[l', '<cmd>lprev<CR>zz')
+vim.keymap.set('n', ']q', '<cmd>cnext<CR>zz', { desc = 'Go to next quickfix item' })
+vim.keymap.set('n', '[q', '<cmd>cprev<CR>zz', { desc = 'Go to previous quickfix item' })
+vim.keymap.set('n', ']l', '<cmd>lnext<CR>zz', { desc = 'Go to next location list item' })
+vim.keymap.set('n', '[l', '<cmd>lprev<CR>zz', { desc = 'Go to previous location list item' })
 
 -- Commenting them out since <CR> interferes with the search performed in this mapping
 -- Also I barely use this nowadays. Treesitter and textobjects have improved this experience a lot
