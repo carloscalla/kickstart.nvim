@@ -47,7 +47,7 @@ return {
       {
         '<leader>aa',
         '<Cmd>AvanteAsk<CR>',
-        desc = 'avante: ask',
+        desc = 'Avante: Ask',
         mode = { 'n', 'v' },
       },
     },

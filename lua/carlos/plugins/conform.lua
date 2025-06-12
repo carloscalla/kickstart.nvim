@@ -83,7 +83,7 @@ return { -- Autoformat
       end, {
         silent = true,
         buffer = e.buf,
-        desc = string.format('format document [LSP:%s]', c.name),
+        desc = string.format('Format document [LSP: %s]', c.name),
       })
     end
     vim.tbl_map(function(c)

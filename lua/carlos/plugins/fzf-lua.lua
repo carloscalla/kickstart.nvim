@@ -283,7 +283,7 @@ local M = {
       function()
         require('fzf-lua').builtin()
       end,
-      desc = 'fzf-lua builtin',
+      desc = 'FzfLua builtin',
     },
     {
       '<leader>ff',
@@ -291,7 +291,7 @@ local M = {
         local width = calc_files_picker_width()
         require('fzf-lua').files { winopts = { width = width } }
       end,
-      desc = '[f]ind [f]iles',
+      desc = 'Find files',
     },
     {
       '<leader>fF',
@@ -307,21 +307,21 @@ local M = {
           vim.notify(string.format "[Fzf-lua]: Can't find a parent package.json", vim.log.levels.ERROR, { title = 'Fzf-lua custom' })
         end
       end,
-      desc = '[f]ind [F]iles in nearest package.json dir', -- useful when working with monorepos
+      desc = 'Find files in nearest package.json dir', -- useful when working with monorepos
     },
     {
       '<leader>pf',
       function()
         require('fzf-lua').live_grep_glob()
       end,
-      desc = '[p]roject [f]ind',
+      desc = 'Project find',
     },
     {
       '<leader>fr',
       function()
         require('fzf-lua').resume()
       end,
-      desc = '[f]zflua [r]esume',
+      desc = 'FzfLua resume',
     },
     {
       '<leader>ls',
@@ -408,7 +408,7 @@ local M = {
       function()
         require('fzf-lua').files { cwd = vim.fn.stdpath 'config' }
       end,
-      desc = '[s]earch [n]eovim files',
+      desc = 'Search Neovim files',
     },
     {
       '<leader>fd',
@@ -437,28 +437,28 @@ local M = {
       function()
         require('fzf-lua').git_status()
       end,
-      desc = 'Git Status',
+      desc = 'Git status',
     },
     {
       '<leader>gC',
       function()
         require('fzf-lua').git_commits()
       end,
-      desc = 'Git Commits',
+      desc = 'Git commits',
     },
     {
       '<leader>gc',
       function()
         require('fzf-lua').git_bcommits()
       end,
-      desc = 'Git Buffer Commits',
+      desc = 'Git buffer commits',
     },
     {
       '<leader>gB',
       function()
         require('fzf-lua').git_branches()
       end,
-      desc = 'Git Branches',
+      desc = 'Git branches',
     },
     {
       '<leader>fh',
@@ -506,7 +506,7 @@ local M = {
           },
         })
       end,
-      desc = 'FzfLua Harpoon',
+      desc = 'FzfLua harpoon',
     },
   },
 }

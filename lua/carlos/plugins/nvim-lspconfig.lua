@@ -63,7 +63,7 @@ return { -- Main LSP Configuration
               },
             },
           }
-        end, '[G]oto [D]efinition')
+        end, 'Goto definition')
         map('gD', function()
           require('fzf-lua').lsp_definitions {
             jump1 = false,
@@ -77,7 +77,7 @@ return { -- Main LSP Configuration
               },
             },
           }
-        end, 'Preview Definition')
+        end, 'Preview definition')
 
         -- Find references for the word under your cursor.
         map('grr', function()
@@ -91,7 +91,7 @@ return { -- Main LSP Configuration
               },
             },
           }
-        end, '[G]oto [R]eferences')
+        end, 'Goto references')
 
         -- Jump to the implementation of the word under your cursor.
         --  Useful when your language has ways of declaring types without an actual implementation.
@@ -100,19 +100,19 @@ return { -- Main LSP Configuration
         -- Jump to the type of the word under your cursor.
         --  Useful when you're not sure what type a variable is and you want to see
         --  the definition of its *type*, not where it was *defined*.
-        map('grt', require('fzf-lua').lsp_typedefs, 'Type Definition')
+        map('grt', require('fzf-lua').lsp_typedefs, 'Type definition')
 
         -- Fuzzy find all the symbols in your current document.
         --  Symbols are things like variables, functions, types, etc.
-        map('<leader>fs', require('fzf-lua').lsp_document_symbols, 'Document Symbols')
+        map('<leader>fs', require('fzf-lua').lsp_document_symbols, 'Document symbols')
 
         -- Fuzzy find all the symbols in your current workspace.
         --  Similar to document symbols, except searches over your entire project.
-        map('<leader>fS', require('fzf-lua').lsp_live_workspace_symbols, 'Workspace Symbols')
+        map('<leader>fS', require('fzf-lua').lsp_live_workspace_symbols, 'Workspace symbols')
 
         -- Rename the variable under your cursor.
         --  Most Language Servers support renaming across files, etc.
-        map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
+        map('grn', vim.lsp.buf.rename, 'Rename')
 
         -- Execute a code action, usually your cursor needs to be on top of an error
         -- or a suggestion from your LSP for this to activate.
@@ -130,13 +130,13 @@ return { -- Main LSP Configuration
               },
             },
           }
-        end, 'LSP Code Actions', { 'n', 'x' })
+        end, 'Code actions', { 'n', 'x' })
 
         -- Opens a popup that displays documentation about the word under your cursor
         --  See `:help K` for why this keymap.
         map('K', function()
           vim.lsp.buf.hover { border = 'single' }
-        end, 'Hover Documentation')
+        end, 'Hover documentation')
 
         map('gK', function()
           vim.lsp.buf.signature_help { border = 'single' }
@@ -144,7 +144,7 @@ return { -- Main LSP Configuration
 
         -- WARN: This is not Goto Definition, this is Goto Declaration.
         --  For example, in C this would take you to the header.
-        map('grD', vim.lsp.buf.declaration, 'Goto Declaration')
+        map('grD', vim.lsp.buf.declaration, 'Goto declaration')
 
         -- The next block is replaced by vim-illuminate
         -- Leaving it commented out in case I want to switch back
@@ -185,7 +185,7 @@ return { -- Main LSP Configuration
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
           map('<leader>th', function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-          end, '[T]oggle Inlay [H]ints')
+          end, 'Toggle inlay hints')
         end
       end,
     })
@@ -258,7 +258,7 @@ return { -- Main LSP Configuration
                 diagnostics = {},
               },
             }
-          end, { buffer = bufnr, desc = 'Remove Unused Imports' })
+          end, { buffer = bufnr, desc = 'Remove unused imports' })
 
           vim.keymap.set('n', '<leader>cM', function()
             vim.lsp.buf.code_action {
@@ -278,7 +278,7 @@ return { -- Main LSP Configuration
                 diagnostics = {},
               },
             }
-          end, { buffer = bufnr, desc = 'Source Action' })
+          end, { buffer = bufnr, desc = 'Source actions' })
         end,
 
         settings = {
@@ -380,7 +380,7 @@ return { -- Main LSP Configuration
                 diagnostics = {},
               },
             }
-          end, { buffer = bufnr, desc = 'Organize Imports' })
+          end, { buffer = bufnr, desc = 'Organize imports' })
         end,
       },
     }
