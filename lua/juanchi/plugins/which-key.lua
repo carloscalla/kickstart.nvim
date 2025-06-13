@@ -3,8 +3,11 @@ return {
   event = 'VimEnter',
   opts = {
     ---@type false | "classic" | "modern" | "helix"
-    preset = 'classic',
-    -- delay = 0,
+    preset = 'helix',
+    ---@type number | fun(ctx: { keys: string, mode: string, plugin?: string }):number
+    delay = function(ctx)
+      return ctx.plugin and 0 or 300
+    end,
     spec = {
       { '<leader>O', group = 'Obsidian' },
       { '<leader>a', group = 'Avante' },
