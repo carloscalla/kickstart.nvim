@@ -9,8 +9,10 @@ return {
       save_on_toggle = true,
     },
   },
-  keys = function()
-    local keys = {
+  keys = function(_, keys)
+    keys = keys or {}
+
+    vim.list_extend(keys, {
       {
         '<leader>ha',
         function()
@@ -26,7 +28,7 @@ return {
         end,
         desc = 'Harpoon Quick Menu',
       },
-    }
+    })
 
     for i = 1, 5 do
       table.insert(keys, {
