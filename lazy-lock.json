@@ -14,6 +14,7 @@
   "emoji.nvim": { "branch": "main", "commit": "a79e45d35853bb6446638f4d74c6f778ddebd8e3" },
   "fidget.nvim": { "branch": "main", "commit": "d9ba6b7bfe29b3119a610892af67602641da778e" },
   "flash.nvim": { "branch": "main", "commit": "3c942666f115e2811e959eabbdd361a025db8b63" },
+  "flatten.nvim": { "branch": "main", "commit": "72527798e75b5e34757491947c2cb853ce21dc0e" },
   "fzf": { "branch": "master", "commit": "3b68dcdd81394f1ac9f743e1f74ff754f95eef9e" },
   "fzf-lua": { "branch": "main", "commit": "d155cc9648ba391f64876888ea0ae09a7aff469d" },
   "fzf-lua-lazy.nvim": { "branch": "main", "commit": "e813f5df261ff5b781204c108af8f071bf0e1b00" },

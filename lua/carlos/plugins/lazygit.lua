@@ -11,9 +11,13 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
+  -- Disabling temporarily to use toggleterm.nvim because it
+  -- integrates better with the edit action
+  --[[
   keys = {
     { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
   },
+  --]]
   config = function()
     vim.api.nvim_create_autocmd('FileType', {
       pattern = { 'lazygit' },
