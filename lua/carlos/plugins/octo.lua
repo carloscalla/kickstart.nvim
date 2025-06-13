@@ -8,6 +8,7 @@ return {
     'nvim-tree/nvim-web-devicons',
   },
   config = function()
+    print 'test noinsert'
     require('octo').setup {
       picker = 'fzf-lua',
       default_to_projects_v2 = true,
