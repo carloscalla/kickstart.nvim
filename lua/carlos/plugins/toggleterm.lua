@@ -28,11 +28,11 @@ return {
       { '<leader>tt', '<Cmd>ToggleTerm<CR>', desc = 'Toggle Terminal' },
       { '<leader>tn', '<Cmd>TermNew<CR>', desc = 'New Terminal' },
       {
-        '<leader>tG',
+        '<leader>G',
         function()
           _G.Toggleterm._gh_dash_toggle()
         end,
-        desc = 'Toggle gh dash',
+        desc = 'Github dash',
       },
     },
   },
