@@ -1,11 +1,12 @@
 return {
   {
     'akinsho/toggleterm.nvim',
-    config = function()
-      require('toggleterm').setup {
-        size = 30,
-        direction = 'horizontal',
-      }
+    opts = {
+      size = 30,
+      direction = 'horizontal',
+    },
+    config = function(_, opts)
+      require('toggleterm').setup { opts }
 
       local Terminal = require('toggleterm.terminal').Terminal
       local gh_dash = Terminal:new {
