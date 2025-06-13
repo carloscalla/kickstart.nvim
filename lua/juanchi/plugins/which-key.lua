@@ -14,7 +14,7 @@ return {
       { '<leader>n', group = 'Neotree/Neogit' },
       { '<leader>o', group = 'Oil/Overseer' },
       { '<leader>s', group = 'Search/Snacks' },
-      { '<leader>t', group = 'Toggle/Test' },
+      { '<leader>t', group = 'Toggle/Test/Terminal' },
       { '<leader>w', group = 'Window' },
     },
     icons = {
