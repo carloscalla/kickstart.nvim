@@ -36,7 +36,7 @@ require 'carlos.lazy-bootstrap'
 require 'carlos.lazy-plugins'
 
 -- Up to date with:
--- https://github.com/nvim-lua/kickstart.nvim/commit/6ba2408cdf5eb7a0e4b62c7d6fab63b64dd720f6
+-- https://github.com/nvim-lua/kickstart.nvim/commit/3338d3920620861f8313a2745fd5d2be39f39534
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
