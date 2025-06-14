@@ -91,15 +91,23 @@ return { -- Autocompletion
     },
 
     completion = {
+      list = {
+        selection = {
+          preselect = true,
+          auto_insert = true,
+        },
+      },
       documentation = {
         auto_show = true,
-        auto_show_delay_ms = 200,
+        auto_show_delay_ms = 300,
         window = {
-          max_width = 100,
+          max_width = 80,
           max_height = 30,
         },
       },
-      menu = { max_height = 20 },
+      menu = {
+        max_height = 17,
+      },
       accept = {
         -- experimental auto-brackets support
         auto_brackets = {
@@ -124,8 +132,13 @@ return { -- Autocompletion
         'git',
       },
       providers = {
-        lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-        lsp = { async = true },
+        lazydev = {
+          module = 'lazydev.integrations.blink',
+          score_offset = 100,
+        },
+        lsp = {
+          async = true,
+        },
         emoji = {
           name = 'emoji',
           module = 'blink.compat.source',
@@ -149,8 +162,15 @@ return { -- Autocompletion
     cmdline = {
       enabled = true,
       completion = {
-        menu = { auto_show = true },
-        list = { selection = { preselect = false, auto_insert = true } },
+        menu = {
+          auto_show = true,
+        },
+        list = {
+          selection = {
+            preselect = false,
+            auto_insert = true,
+          },
+        },
       },
     },
 
