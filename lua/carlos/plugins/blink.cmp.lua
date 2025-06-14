@@ -34,6 +34,7 @@ return { -- Autocompletion
     'folke/lazydev.nvim',
     { 'allaman/emoji.nvim', opts = { enable_cmp_integration = true } },
     'saghen/blink.compat',
+    { 'Kaiser-Yang/blink-cmp-git' },
   },
   --- @module 'blink.cmp'
   --- @type blink.cmp.Config
@@ -116,6 +117,7 @@ return { -- Autocompletion
         -- 'buffer',
         'lazydev',
         'emoji',
+        'git',
       },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
@@ -131,6 +133,11 @@ return { -- Autocompletion
             end
             return items
           end,
+        },
+        git = {
+          module = 'blink-cmp-git',
+          name = 'Git',
+          opts = {},
         },
       },
     },
