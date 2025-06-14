@@ -54,10 +54,10 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', { desc = "Change cwd to current file's directory" })
 
-vim.keymap.set('n', '<leader>wh', '<C-W>h', { desc = 'Go to the left window' })
-vim.keymap.set('n', '<leader>wj', '<C-W>j', { desc = 'Go to the down window' })
-vim.keymap.set('n', '<leader>wk', '<C-W>k', { desc = 'Go to the up window' })
-vim.keymap.set('n', '<leader>wl', '<C-W>l', { desc = 'Go to the right window' })
+-- vim.keymap.set('n', '<leader>wh', '<C-W>h', { desc = 'Go to the left window' })
+-- vim.keymap.set('n', '<leader>wj', '<C-W>j', { desc = 'Go to the down window' })
+-- vim.keymap.set('n', '<leader>wk', '<C-W>k', { desc = 'Go to the up window' })
+-- vim.keymap.set('n', '<leader>wl', '<C-W>l', { desc = 'Go to the right window' })
 vim.keymap.set('n', '<leader>ww', '<C-W>w', { desc = 'Move focus to the next window' })
 vim.keymap.set('n', '<leader>wx', '<C-W>x', { desc = 'Swap current window with the next one' })
 vim.keymap.set('n', '<leader>wL', '<C-W>L', { desc = 'Move window to far right' })
