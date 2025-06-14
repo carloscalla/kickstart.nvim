@@ -108,6 +108,10 @@ return { -- Autocompletion
       },
     },
 
+    ghost_text = {
+      enabled = false, -- Disable because I use ghost text for GitHub Copilot
+    },
+
     sources = {
       -- Remove 'buffer' if you don't want text completions, by default it's only enabled when LSP returns no items
       default = {
