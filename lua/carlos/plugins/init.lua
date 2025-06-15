@@ -25,16 +25,6 @@ return {
       vim.cmd [[let g:undotree_DiffpanelHeight = 15]]
     end,
   },
-
-  -- {
-  --
-  --   dir = '~/code/carlos/lua/scratch-buffer/',
-  --   name = 'screatch-buffer',
-  --   config = function()
-  --     require('scratch-buffer').setup()
-  --   end,
-  -- },
-
   {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
