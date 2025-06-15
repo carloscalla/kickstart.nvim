@@ -114,10 +114,9 @@ return { -- Autocompletion
           enabled = false,
         },
       },
-    },
-
-    ghost_text = {
-      enabled = false, -- Disable because I use ghost text for GitHub Copilot
+      ghost_text = {
+        enabled = false, -- Disable because I use ghost text for GitHub Copilot
+      },
     },
 
     sources = {
