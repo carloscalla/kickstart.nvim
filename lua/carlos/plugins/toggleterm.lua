@@ -65,7 +65,7 @@ return {
     -- Ensure that it runs first to minimize delay when opening file from terminal
     lazy = false,
     priority = 1001,
-    enabled = true,
+    enabled = false, -- Disabling because it breaks neotest :(
     opts = function()
       ---@type Terminal?
       local saved_terminal
