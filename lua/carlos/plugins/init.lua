@@ -26,6 +26,17 @@ return {
     end,
   },
   {
+    'rcarriga/nvim-notify',
+    lazy = false,
+    opts = {
+      top_down = false,
+    },
+    config = function(_, opts)
+      require('notify').setup(opts)
+      vim.notify = require 'notify'
+    end,
+  },
+  {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
     ---@module 'render-markdown'
