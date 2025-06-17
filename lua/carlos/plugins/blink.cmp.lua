@@ -34,7 +34,7 @@ return { -- Autocompletion
     'folke/lazydev.nvim',
     { 'allaman/emoji.nvim', opts = { enable_cmp_integration = true } },
     'saghen/blink.compat',
-    { 'Kaiser-Yang/blink-cmp-git' },
+    'Kaiser-Yang/blink-cmp-git',
   },
   --- @module 'blink.cmp'
   --- @type blink.cmp.Config
@@ -153,6 +153,10 @@ return { -- Autocompletion
         git = {
           module = 'blink-cmp-git',
           name = 'Git',
+          -- only enable this source when filetype is gitcommit, markdown, or 'octo'
+          enabled = function()
+            return vim.tbl_contains({ 'octo', 'gitcommit', 'markdown' }, vim.bo.filetype)
+          end,
           opts = {},
         },
       },
