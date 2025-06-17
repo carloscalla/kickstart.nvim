@@ -13,7 +13,8 @@ return {
   },
   -- Disabling temporarily to use toggleterm.nvim because it
   -- integrates better with the edit action
-  --[[
+  -- Re-enabling because I'm having problems with toggleterm running lazygit
+  ---[[
   keys = {
     { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
   },

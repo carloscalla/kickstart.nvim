@@ -25,19 +25,19 @@ return {
         gh_dash:toggle()
       end
 
-      local lazygit = Terminal:new {
-        cmd = 'lazygit',
-        dir = 'git_dir',
-        direction = 'float',
-        on_open = function(term)
-          vim.api.nvim_buf_set_keymap(term.bufnr, 't', '<Esc>', '<Esc>', { nowait = true })
-          vim.cmd [[ setlocal filetype=lazygit ]]
-        end,
-      }
-
-      _G.Toggleterm._lazygit_toggle = function()
-        lazygit:toggle()
-      end
+      -- local lazygit = Terminal:new {
+      --   cmd = 'lazygit',
+      --   dir = 'git_dir',
+      --   direction = 'float',
+      --   on_open = function(term)
+      --     vim.api.nvim_buf_set_keymap(term.bufnr, 't', '<Esc>', '<Esc>', { nowait = true })
+      --     vim.cmd [[ setlocal filetype=lazygit ]]
+      --   end,
+      -- }
+      --
+      -- _G.Toggleterm._lazygit_toggle = function()
+      --   lazygit:toggle()
+      -- end
     end,
     keys = {
       { '<leader>tt', '<Cmd>ToggleTerm<CR>', desc = 'Toggle Terminal' },
@@ -49,13 +49,13 @@ return {
         end,
         desc = 'Github dash',
       },
-      {
-        '<leader>lg',
-        function()
-          _G.Toggleterm._lazygit_toggle()
-        end,
-        desc = 'LazyGit Toggleterm',
-      },
+      -- {
+      --   '<leader>lg',
+      --   function()
+      --     _G.Toggleterm._lazygit_toggle()
+      --   end,
+      --   desc = 'LazyGit Toggleterm',
+      -- },
     },
   },
   {
