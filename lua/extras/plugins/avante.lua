@@ -12,18 +12,11 @@ return {
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
-      {
-        'stevearc/dressing.nvim',
-        opts = {
-          select = {
-            enabled = false,
-          },
-        },
-      },
       'nvim-lua/plenary.nvim',
       'MunifTanjim/nui.nvim',
       --- The below dependencies are optional,
       'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
+      'folke/snacks.nvim', -- for input provider snacks
       'zbirenbaum/copilot.lua', -- for providers='copilot'
       {
         -- support for image pasting

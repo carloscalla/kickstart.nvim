@@ -102,9 +102,16 @@ return {
     },
     gitbrowse = {},
     indent = {
-      enabled = false,
+      enabled = false, -- start disabled and toggle with a keybinding
       animate = {
         enabled = false,
+      },
+    },
+    input = {
+      enabled = true,
+      win = {
+        position = 'float',
+        row = 0.45,
       },
     },
   },
