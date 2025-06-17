@@ -1,5 +1,7 @@
 return {
   'kevinhwang91/nvim-ufo',
+  -- disabling to use native neovim foldexpr with treesitter until I find a way to not be confusing in diffs
+  enabled = false,
   dependencies = { 'kevinhwang91/promise-async' },
   config = function()
     vim.o.foldcolumn = '0'

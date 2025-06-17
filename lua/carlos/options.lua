@@ -83,6 +83,12 @@ vim.o.cursorline = false
 
 vim.o.termguicolors = true
 
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.wo.foldcolumn = '0'
+vim.o.foldlevelstart = 99
+vim.wo.foldenable = true
+
 -- Quickfix
 vim.cmd [[packadd cfilter]]
 
