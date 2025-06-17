@@ -83,6 +83,7 @@ vim.o.cursorline = false
 
 vim.o.termguicolors = true
 
+-- Enable folding with treesitter
 vim.wo.foldmethod = 'expr'
 vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.wo.foldcolumn = '0'
