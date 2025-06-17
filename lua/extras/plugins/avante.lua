@@ -51,9 +51,6 @@ return {
     opts = {
       file_types = { 'Avante' },
     },
-    opts_extend = {
-      'file_types',
-    },
   },
   {
     'saghen/blink.cmp',
@@ -74,9 +71,6 @@ return {
           },
         },
       },
-    },
-    opts_extend = {
-      'sources.default',
     },
   },
 }

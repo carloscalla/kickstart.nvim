@@ -50,6 +50,7 @@ return {
         },
       },
     },
+    opts_extend = { 'file_types' },
   },
   {
     'kosayoda/nvim-lightbulb',
