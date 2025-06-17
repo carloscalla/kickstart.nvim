@@ -72,6 +72,8 @@ vim.o.confirm = true
 vim.o.list = true
 vim.opt.listchars = 'eol:↩,tab:|·'
 
+vim.opt.fillchars = vim.opt.fillchars + 'diff: '
+
 -- Configure how new splits should be opened
 vim.o.splitbelow = true
 vim.o.splitright = true
