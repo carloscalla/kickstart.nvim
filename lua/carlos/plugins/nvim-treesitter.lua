@@ -92,6 +92,7 @@ return { -- Highlight, edit, and navigate code
       },
     },
   },
+  opts_extend = { 'ensure_installed' },
   config = function(_, opts)
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
