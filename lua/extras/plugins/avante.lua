@@ -1,11 +1,16 @@
 return {
   {
     'yetone/avante.nvim',
-    -- event = 'VeryLazy',
-    lazy = true,
+    event = 'VeryLazy',
+    -- lazy = true,
     version = false, -- Never set this value to "*"! Never!
     opts = {
       provider = 'copilot',
+      providers = {
+        copilot = {
+          model = 'claude-sonnet-4',
+        },
+      },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = 'make',
