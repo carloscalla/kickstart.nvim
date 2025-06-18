@@ -1,5 +1,24 @@
 -- [[ Configure and install plugins ]]
---
+
+local find_config_path = function()
+  local config = vim.fn.expand '$XDG_CONFIG_HOME'
+  if config and vim.fn.isdirectory(config) > 0 then
+    return config
+  elseif vim.fn.has 'win32' > 0 then
+    config = vim.fn.expand '~/AppData/Local'
+    if vim.fn.isdirectory(config) > 0 then
+      return config
+    end
+  else
+    config = vim.fn.expand '~/.config'
+    if vim.fn.isdirectory(config) > 0 then
+      return config
+    end
+  end
+end
+
+local custom_plugins_exists = vim.fn.isdirectory(find_config_path() .. '/nvim/lua/custom/plugins/') > 0
+
 -- Use `opts = {}` to automatically pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
 require('lazy').setup({
 
@@ -10,7 +29,7 @@ require('lazy').setup({
   { import = 'carlos.plugins' },
 
   -- Uncomment below line to add your plugins under `lua/custom/plugins/*.lua`
-  -- { import = 'custom.plugins' },
+  custom_plugins_exists and { import = 'custom.plugins' } or nil,
 
   -- Path `lua/custom/` is in the gitignore.
   -- Use it to add your own config, plugins or overrides.
