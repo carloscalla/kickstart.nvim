@@ -409,6 +409,7 @@ return { -- Main LSP Configuration
       'pyright',
       'ruff',
       'kotlin_language_server',
+      'tailwindcss',
     }
 
     if vim.fn.executable 'go' == 1 then
