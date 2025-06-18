@@ -29,3 +29,5 @@ vim.api.nvim_create_user_command('NearestPackagePath', function()
     vim.notify(string.format "Can't find a parent package.json", vim.log.levels.ERROR, { title = "Couldn't find ancestor package.json" })
   end
 end, { desc = 'Copy file name of current buffer to clipboard' })
+
+pcall(require, 'custom.usercmds')

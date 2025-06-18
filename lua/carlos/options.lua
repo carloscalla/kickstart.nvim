@@ -100,3 +100,5 @@ if vim.fn.executable 'rg' == 1 then
   -- Default grep format for quickfix window when grepprg is available
   -- vim.o.grepformat = '%f:%l:%c:%m'
 end
+
+pcall(require, 'custom.options')

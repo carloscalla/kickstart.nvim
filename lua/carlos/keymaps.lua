@@ -87,3 +87,5 @@ vim.keymap.set('n', '[l', '<cmd>lprev<CR>zz', { desc = 'Go to previous location 
 -- vim.keymap.set('n', '][', '/}<CR>b99]}')
 -- vim.keymap.set('n', ']]', 'j0[[%/{<CR>')
 -- vim.keymap.set('n', '[]', 'k$][%?}<CR>')
+
+pcall(require, 'custom.keymaps')
