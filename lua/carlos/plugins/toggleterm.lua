@@ -1,12 +1,32 @@
 return {
   {
     'akinsho/toggleterm.nvim',
-    opts = {
-      size = 30,
-      direction = 'horizontal',
-    },
+    cmd = { 'ToggleTerm', 'TermNew', 'TermExec', 'TermSelect' },
+    -- opts = {
+    --   size = function(term)
+    --     if term.direction == 'horizontal' then
+    --       return vim.o.lines * 0.37
+    --     elseif term.direction == 'vertical' then
+    --       return vim.o.columns * 0.37
+    --     end
+    --   end,
+    --   direction = 'horizontal',
+    -- },
     config = function(_, opts)
-      require('toggleterm').setup { opts }
+      -- For some reason this way of calling setup is not working.
+      -- I'm calling setup with opts directly in the setup function below.
+      -- require('toggleterm').setup { opts }
+
+      require('toggleterm').setup {
+        size = function(term)
+          if term.direction == 'horizontal' then
+            return vim.o.lines * 0.37
+          elseif term.direction == 'vertical' then
+            return vim.o.columns * 0.37
+          end
+        end,
+        direction = 'horizontal',
+      }
 
       _G.Toggleterm = _G.Toggleterm or {}
 
