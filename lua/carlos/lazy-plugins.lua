@@ -28,7 +28,8 @@ require('lazy').setup({
 
   { import = 'carlos.plugins' },
 
-  -- Uncomment below line to add your plugins under `lua/custom/plugins/*.lua`
+  -- Add your custom plugins under `lua/custom/plugins/*.lua`
+  -- they will be automatically loaded.
   custom_plugins_exists and { import = 'custom.plugins' } or nil,
 
   -- Path `lua/custom/` is in the gitignore.
