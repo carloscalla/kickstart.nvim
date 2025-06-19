@@ -48,7 +48,9 @@ return { -- Collection of various small independent plugins/modules
 
     require('mini.diff').setup {}
 
-    require('mini.move').setup {}
+    -- alt-j/k keybindings conflict with tmux esc delay causing neovim to swap lines
+    -- if <esc>-j/k is pressed quickly :(
+    -- require('mini.move').setup {}
   end,
   keys = {
     {
