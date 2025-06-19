@@ -86,4 +86,10 @@ return {
       { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>', desc = 'Move focus to the previous window/tmux pane' },
     },
   },
+  {
+    'danymat/neogen',
+    opts = {},
+    -- Uncomment next line if you want to follow only stable versions
+    -- version = "*"
+  },
 }
