@@ -50,7 +50,29 @@ return { -- Collection of various small independent plugins/modules
 
     -- alt-j/k keybindings conflict with tmux esc delay causing neovim to swap lines
     -- if <esc>-j/k is pressed quickly :(
-    -- require('mini.move').setup {}
+
+    require('mini.move').setup {
+      -- Module mappings. Use `''` (empty string) to disable one.
+      mappings = {
+        -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+        left = '',
+        right = '',
+        down = '<C-j>',
+        up = '<C-k>',
+
+        -- Move current line in Normal mode
+        line_left = '',
+        line_right = '',
+        line_down = '',
+        line_up = '',
+      },
+
+      -- Options which control moving behavior
+      options = {
+        -- Automatically reindent selection during linewise vertical move
+        reindent_linewise = true,
+      },
+    }
   end,
   keys = {
     {
