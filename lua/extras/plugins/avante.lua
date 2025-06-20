@@ -1,6 +1,7 @@
 return {
   {
     'yetone/avante.nvim',
+    build = 'make',
     event = 'VeryLazy',
     -- lazy = true,
     version = false, -- Never set this value to "*"! Never!
@@ -11,10 +12,12 @@ return {
           model = 'claude-sonnet-4',
         },
       },
+      windows = {
+        ask = {
+          start_insert = false,
+        },
+      },
     },
-    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    build = 'make',
-    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
       'nvim-lua/plenary.nvim',
@@ -41,14 +44,20 @@ return {
         },
       },
     },
-    keys = {
-      {
-        '<leader>aa',
-        '<Cmd>AvanteAsk<CR>',
-        desc = 'Avante: Ask',
-        mode = { 'n', 'v' },
-      },
-    },
+    -- keys = {
+    --   {
+    --     '<leader>aa',
+    --     '<Cmd>AvanteAsk<CR>',
+    --     desc = 'avante: ask',
+    --     mode = { 'n', 'v' },
+    --   },
+    --   {
+    --     '<leader>ae',
+    --     '<Cmd>AvanteEdit<CR>',
+    --     desc = 'avante: edit',
+    --     mode = { 'v' },
+    --   },
+    -- },
   },
   {
     'MeanderingProgrammer/render-markdown.nvim',
