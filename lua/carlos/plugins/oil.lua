@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd('User', {
 local detail = false
 return {
   'stevearc/oil.nvim',
-  lazy = false,
+  lazy = false, -- because we are replacing netrw with Oil
   opts = {
     default_file_explorer = true,
     win_options = {
