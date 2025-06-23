@@ -162,5 +162,12 @@ return {
       end,
       desc = 'Snacks image (float)',
     },
+    {
+      '<leader>su',
+      function()
+        Snacks.picker.undo()
+      end,
+      desc = 'Snacks undo',
+    },
   },
 }
