@@ -25,7 +25,14 @@ return {
       --- The below dependencies are optional,
       'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
       'folke/snacks.nvim', -- for input provider snacks
-      'zbirenbaum/copilot.lua', -- for providers='copilot'
+
+      -- for providers='copilot'
+      -- include any of the ones below in your custom config
+      -- If you face any problem in the loading order of the plugins, uncomment the one
+      -- you are using in this dependency list below
+
+      -- 'zbirenbaum/copilot.lua',
+      -- 'github/copilot.vim',
       {
         -- support for image pasting
         'HakonHarnes/img-clip.nvim',
