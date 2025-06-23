@@ -1,14 +1,9 @@
-vim.api.nvim_create_user_command('ToggleTSContext', function()
-  require('treesitter-context').toggle()
-end, {
-  desc = 'Toggle TreeSitter Context',
-})
-
 return {
   'nvim-treesitter/nvim-treesitter-context',
-  dependencies = {
-    'nvim-treesitter/nvim-treesitter',
-  },
+  event = { 'BufReadPre', 'BufNewFile' },
+  -- dependencies = {
+  --   'nvim-treesitter/nvim-treesitter',
+  -- },
   config = function()
     require('treesitter-context').setup {
       enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
@@ -24,5 +19,11 @@ return {
       zindex = 20, -- The Z-index of the context window
       on_attach = nil, -- (fun(buf: integer): boolean) return false to disable attaching
     }
+
+    vim.api.nvim_create_user_command('ToggleTSContext', function()
+      require('treesitter-context').toggle()
+    end, {
+      desc = 'Toggle TreeSitter Context',
+    })
   end,
 }
