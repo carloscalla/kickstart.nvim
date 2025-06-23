@@ -96,6 +96,9 @@ return {
   {
     'carloscalla/notepad.nvim',
     cmd = { 'Notepad' },
-    opts = {},
+    opts = {
+      position = 'left',
+      split_size = 0.3,
+    },
   },
 }
