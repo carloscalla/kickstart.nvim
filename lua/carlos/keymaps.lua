@@ -59,7 +59,7 @@ vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', { desc = "Change cwd 
 -- vim.keymap.set('n', '<leader>wj', '<C-W>j', { desc = 'Go to the down window' })
 -- vim.keymap.set('n', '<leader>wk', '<C-W>k', { desc = 'Go to the up window' })
 -- vim.keymap.set('n', '<leader>wl', '<C-W>l', { desc = 'Go to the right window' })
-vim.keymap.set('n', '<leader>w=', '<cmd>wincmd =', { desc = 'Make all windows same size' })
+vim.keymap.set('n', '<leader>w=', '<cmd>wincmd =<cr>', { desc = 'Make all windows same size' })
 vim.keymap.set('n', '<leader>ww', '<C-W>w', { desc = 'Move focus to the next window' })
 vim.keymap.set('n', '<leader>wx', '<C-W>x', { desc = 'Swap current window with the next one' })
 vim.keymap.set('n', '<leader>wL', '<C-W>L', { desc = 'Move window to far right' })
