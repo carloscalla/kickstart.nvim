@@ -1,5 +1,6 @@
 return { -- Main LSP Configuration
   'neovim/nvim-lspconfig',
+  event = { 'VeryLazy', 'BufReadPre', 'BufNewFile' },
   dependencies = {
     -- Automatically install LSPs and related tools to stdpath for Neovim
     -- Mason must be loaded before its dependents so we need to set it up here.
@@ -11,7 +12,7 @@ return { -- Main LSP Configuration
     { 'j-hui/fidget.nvim', opts = {} },
 
     -- Allows extra capabilities provided by blink.cmp
-    'saghen/blink.cmp',
+    -- 'saghen/blink.cmp',
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -224,7 +225,8 @@ return { -- Main LSP Configuration
 
     -- When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
     -- So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
-    local capabilities = require('blink.cmp').get_lsp_capabilities()
+    -- local capabilities = require('blink.cmp').get_lsp_capabilities()
+    -- The above is not needed anymore, it happens under the hood
 
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -452,13 +454,18 @@ return { -- Main LSP Configuration
       local config = servers_config[server]
 
       if config then
-        config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
+        if config.capabilities then
+          local capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+          config.capabilities = capabilities
+          -- config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
+        end
         vim.lsp.config(server, config)
-      else
-        -- If the server is not in the config, just set the capabilities
-        vim.lsp.config(server, {
-          capabilities = capabilities,
-        })
+        -- else
+        --   -- If the server is not in the config, just set the capabilities
+        --   -- vim.lsp.config(server, {
+        --   --   capabilities = capabilities,
+        --   -- })
+        --   vim.lsp.config(server, {})
       end
     end
 
