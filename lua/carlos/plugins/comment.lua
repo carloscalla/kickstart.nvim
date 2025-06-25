@@ -11,9 +11,6 @@ return {
   },
   {
     'JoosepAlviste/nvim-ts-context-commentstring',
-    -- dependencies = {
-    --   'nvim-treesitter/nvim-treesitter',
-    -- },
     lazy = true,
     opts = { enable_autocmd = false },
   },
