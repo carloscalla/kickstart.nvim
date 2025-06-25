@@ -1,8 +1,9 @@
 return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   branch = 'master',
-  event = { 'BufReadPre', 'BufNewFile', 'VeryLazy' },
-  lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
+  -- According to the docs treesitter doesn't support lazy loading
+  -- event = { 'BufReadPre', 'BufNewFile', 'VeryLazy' },
+  -- lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
