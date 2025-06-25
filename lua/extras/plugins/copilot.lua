@@ -1,5 +1,6 @@
 return {
   'github/copilot.vim',
+  event = { 'BufReadPost', 'BufNewFile', 'BufWritePost' },
   init = function()
     vim.g.copilot_no_tab_map = true
   end,

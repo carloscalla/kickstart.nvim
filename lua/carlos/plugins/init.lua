@@ -8,7 +8,7 @@ return {
   { 'tpope/vim-repeat', event = 'VeryLazy' },
   {
     'folke/todo-comments.nvim', -- Highlight todo, notes, etc in comments
-    event = 'VimEnter',
+    event = { 'BufReadPost', 'BufNewFile', 'BufWritePost' },
     -- Uses:
     -- 'nvim-lua/plenary.nvim',
     opts = {
