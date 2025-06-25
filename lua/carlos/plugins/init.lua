@@ -60,6 +60,7 @@ return {
   },
   {
     'kosayoda/nvim-lightbulb',
+    event = { 'BufReadPost', 'BufNewFile', 'BufWritePost' },
     config = function()
       require('nvim-lightbulb').setup {
         autocmd = { enabled = true },

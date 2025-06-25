@@ -1,5 +1,6 @@
 return {
   'tpope/vim-surround',
+  event = { 'BufReadPost', 'BufNewFile', 'BufWritePost' },
   init = function()
     -- Disable vim-surround default mappings
     vim.g.surround_no_mappings = true
