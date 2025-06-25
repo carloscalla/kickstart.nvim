@@ -18,12 +18,13 @@ return {
         },
       },
     },
+    -- Uses:
+    -- 'nvim-tree/nvim-web-devicons',
+    -- 'nvim-lua/plenary.nvim',
+    -- 'MunifTanjim/nui.nvim',
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
-      'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
       --- The below dependencies are optional,
-      'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
       'folke/snacks.nvim', -- for input provider snacks
 
       -- for providers='copilot'

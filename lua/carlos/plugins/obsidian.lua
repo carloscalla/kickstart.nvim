@@ -12,8 +12,9 @@ return {
       .. '/carlos/obsidian-vaults/personal/**.md',
     'BufNewFile ' .. vim.fn.expand '~' .. '/carlos/obsidian-vaults/personal/**.md',
   },
+  -- Uses:
+  -- 'nvim-lua/plenary.nvim',
   dependencies = {
-    'nvim-lua/plenary.nvim',
     'ibhagwan/fzf-lua',
     'nvim-treesitter/nvim-treesitter',
     'saghen/blink.cmp',

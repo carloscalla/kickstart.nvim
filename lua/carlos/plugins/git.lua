@@ -131,11 +131,10 @@ return {
     'NeogitOrg/neogit',
     -- enabled = false,
     cmd = 'Neogit',
+    -- Uses:
+    -- 'nvim-lua/plenary.nvim', -- required
     dependencies = {
-      'nvim-lua/plenary.nvim', -- required
       'sindrets/diffview.nvim', -- optional - Diff integration
-
-      -- Only one of these is needed.
       'ibhagwan/fzf-lua', -- optional
     },
     opts = {

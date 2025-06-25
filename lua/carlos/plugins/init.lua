@@ -1,12 +1,16 @@
 return {
+  -- Utils
+  { 'nvim-lua/plenary.nvim', lazy = true }, -- Useful lua functions used by lots of plugins
+  { 'nvim-tree/nvim-web-devicons', lazy = true }, -- Icons for Neovim plugins
+  { 'MunifTanjim/nui.nvim', lazy = true }, -- UI components for Neovim plugins
+
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   { 'tpope/vim-repeat', event = 'VeryLazy' },
   {
     'folke/todo-comments.nvim', -- Highlight todo, notes, etc in comments
     event = 'VimEnter',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
+    -- Uses:
+    -- 'nvim-lua/plenary.nvim',
     opts = {
       signs = false,
     },
@@ -38,7 +42,9 @@ return {
   },
   {
     'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+    -- Uses:
+    -- 'nvim-tree/nvim-web-devicons',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     ft = { 'markdown', 'norg', 'rmd', 'org', 'codecompanion' },

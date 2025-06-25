@@ -1,15 +1,14 @@
 return {
   'kdheepak/lazygit.nvim',
   lazy = true,
+  -- Uses:
+  -- 'nvim-lua/plenary.nvim',
   cmd = {
     'LazyGit',
     'LazyGitConfig',
     'LazyGitCurrentFile',
     'LazyGitFilter',
     'LazyGitFilterCurrentFile',
-  },
-  dependencies = {
-    'nvim-lua/plenary.nvim',
   },
   -- Disabling temporarily to use toggleterm.nvim because it
   -- integrates better with the edit action

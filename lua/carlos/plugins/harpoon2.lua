@@ -1,9 +1,8 @@
 return {
   'carloscalla/harpoon',
+  -- Uses:
+  -- 'nvim-tree/nvim-web-devicons',
   branch = 'harpoon2_custom',
-  dependencies = {
-    'nvim-tree/nvim-web-devicons',
-  },
   opts = {
     settings = {
       save_on_toggle = true,

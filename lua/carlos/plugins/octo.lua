@@ -2,10 +2,11 @@ return {
   'pwntester/octo.nvim',
   cmd = 'Octo',
   event = { { event = 'BufReadCmd', pattern = 'octo://*' } },
+  -- Uses:
+  -- 'nvim-lua/plenary.nvim',
+  -- 'nvim-tree/nvim-web-devicons',
   dependencies = {
-    'nvim-lua/plenary.nvim',
     'ibhagwan/fzf-lua',
-    'nvim-tree/nvim-web-devicons',
   },
   config = function()
     require('octo').setup {

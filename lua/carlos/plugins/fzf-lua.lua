@@ -11,8 +11,10 @@ end
 
 local M = {
   'ibhagwan/fzf-lua',
+  -- Uses:
+  -- 'nvim-tree/nvim-web-devicons',
+  -- 'nvim-lua/plenary.nvim',
   dependencies = {
-    'nvim-tree/nvim-web-devicons',
     'folke/snacks.nvim',
     {
       'roginfarrer/fzf-lua-lazy.nvim',
@@ -22,7 +24,6 @@ local M = {
         },
       },
     },
-    'nvim-lua/plenary.nvim',
   },
   cmd = { 'FzfLua', 'PluginsReadme' },
   config = function()

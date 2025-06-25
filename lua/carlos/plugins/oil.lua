@@ -22,6 +22,12 @@ local detail = false
 return {
   'stevearc/oil.nvim',
   lazy = false, -- because we are replacing netrw with Oil
+  -- Uses:
+  -- 'nvim-tree/nvim-web-devicons',
+  dependencies = {
+    'folke/snacks.nvim',
+  },
+  cmd = { 'Oil' },
   opts = {
     default_file_explorer = true,
     win_options = {
@@ -54,12 +60,6 @@ return {
       ['<C-x>'] = 'actions.refresh',
     },
   },
-  -- Optional dependencies
-  dependencies = {
-    'nvim-tree/nvim-web-devicons',
-    'folke/snacks.nvim',
-  },
-  cmd = { 'Oil' },
   keys = {
     {
       '<leader>of',
