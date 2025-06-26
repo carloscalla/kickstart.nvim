@@ -55,6 +55,10 @@ return {
           enabled = true,
         },
       },
+      code = {
+        width = 'block',
+        right_pad = 3,
+      },
     },
     opts_extend = { 'file_types' },
   },
