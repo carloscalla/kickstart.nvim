@@ -1,5 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
+  event = 'VeryLazy',
   -- Uses:
   -- 'nvim-tree/nvim-web-devicons',
   opts = {
