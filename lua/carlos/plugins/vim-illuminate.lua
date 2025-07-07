@@ -2,7 +2,7 @@ return {
   'RRethy/vim-illuminate',
   event = { 'BufReadPost', 'BufNewFile', 'BufWritePost' },
   opts = {
-    delay = 150,
+    delay = 100,
     disable_keymaps = true,
   },
   config = function(_, opts)
