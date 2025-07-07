@@ -11,6 +11,11 @@ return {
       ---@type "left"|"right"|"file-first"
       text_align = 'file-first',
     },
+    hints = {
+      -- Charaters to use for hints (NOTE: make sure they don't collide with the navigation keymaps)
+      ---@type string
+      dictionary = 'adflewcmphioxvu',
+    },
     navigate = {
       open_vsplit = 'V',
       open_split = 'S',
