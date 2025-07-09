@@ -1,11 +1,23 @@
-local files_picker_width = 200
+local files_picker_min_width = 200
 local files_picker_padding = 13
+local files_picker_width_perc = 0.73
+local files_picker_max_width = 300
 
 local calc_files_picker_width = function()
-  if vim.o.columns - files_picker_width > files_picker_padding then
-    return files_picker_width
-  else
+  local perc_width = math.floor(vim.o.columns * files_picker_width_perc)
+
+  -- if vim.o.columns - files_picker_min_width > files_picker_padding then
+  --   return files_picker_min_width
+  -- else
+  --   return vim.o.columns - files_picker_padding
+  -- end
+
+  if vim.o.columns - files_picker_min_width <= files_picker_padding then
     return vim.o.columns - files_picker_padding
+  elseif files_picker_max_width > perc_width then
+    return perc_width
+  else
+    return files_picker_max_width
   end
 end
 
@@ -74,7 +86,8 @@ local M = {
       -- height = 30,
 
       width = 200,
-      height = 40,
+      -- height = 40,
+      height = 45,
 
       preview = {
         hidden = true,
