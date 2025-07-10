@@ -119,7 +119,7 @@ local M = {
 
           -- custom
           ['<C-o>'] = 'toggle-preview',
-          ['<C-/>'] = 'toggle-help',
+          ['<C-/>'] = 'toggle-help', -- Not working anymore, use <F1> in the meantime
           ['<C-d>'] = 'preview-page-down',
           ['<C-u>'] = 'preview-page-up',
         },
