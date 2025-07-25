@@ -34,7 +34,7 @@ return { -- Main LSP Configuration
         end
 
         if client and client.name == 'eslint' then
-          map('<leader>co', function()
+          map('<leader>cF', function()
             local cur_bufnr = vim.api.nvim_get_current_buf()
 
             client:exec_cmd({
@@ -375,7 +375,7 @@ return { -- Main LSP Configuration
         },
         on_attach = function(client, bufnr)
           client.server_capabilities.hoverProvider = false
-          vim.keymap.set('n', '<leader>co', function()
+          vim.keymap.set('n', '<leader>cO', function()
             vim.lsp.buf.code_action {
               apply = true,
               context = {
