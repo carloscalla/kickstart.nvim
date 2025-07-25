@@ -300,6 +300,13 @@ local M = {
       desc = 'FzfLua builtin',
     },
     {
+      '<leader>fz',
+      function()
+        require('fzf-lua').zoxide()
+      end,
+      desc = 'Zoxide',
+    },
+    {
       '<leader>ff',
       function()
         local width = calc_files_picker_width()
