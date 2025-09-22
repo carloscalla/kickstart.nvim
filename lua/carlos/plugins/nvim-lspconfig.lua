@@ -10,7 +10,13 @@ return { -- Main LSP Configuration
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
     -- Useful status updates for LSP.
-    { 'j-hui/fidget.nvim', opts = {} },
+    {
+      'j-hui/fidget.nvim',
+      -- Use latest stable version because main branch is actively developed
+      -- and introduces temporary breaking changes from time to time
+      version = '*',
+      opts = {},
+    },
 
     -- Allows extra capabilities provided by blink.cmp
     -- 'saghen/blink.cmp',
