@@ -116,20 +116,20 @@ return {
     },
   },
   keys = {
-    --   {
-    --     '<leader>nt',
-    --     function()
-    --       Snacks.explorer.open { follow_file = false }
-    --     end,
-    --     desc = 'Snacks explorer',
-    --   },
-    --   {
-    --     '<leader>fi',
-    --     function()
-    --       Snacks.explorer.open { follow_file = true }
-    --     end,
-    --     desc = 'Snacks explorer',
-    --   },
+    {
+      '<leader>nt',
+      function()
+        Snacks.explorer.open { follow_file = false }
+      end,
+      desc = 'Snacks explorer',
+    },
+    {
+      '<leader>fi',
+      function()
+        Snacks.explorer.open { follow_file = true }
+      end,
+      desc = 'Snacks explorer',
+    },
     {
       '<leader>ti',
       function()

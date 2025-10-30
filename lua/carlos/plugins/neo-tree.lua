@@ -3,7 +3,8 @@ return {
   -- version = '*',
   branch = 'v3.x',
   -- Not lazy loading also gets rid of the problem when it opens the file in the first window
-  lazy = false, -- neo-tree will lazily load itself
+  -- lazy = false, -- neo-tree will lazily load itself
+  cmd = 'Neotree', -- lazy load on command since I'm not using this anymore but might want to have it handy
   -- Uses:
   -- 'nvim-tree/nvim-web-devicons'
   -- 'nvim-lua/plenary.nvim',
@@ -37,9 +38,10 @@ return {
     }
   end,
   keys = {
-    { '<leader>nt', ':Neotree float toggle<CR>', desc = 'Toggle Neo-tree' },
-    { '<leader>nb', ':Neotree float buffers<CR>', desc = 'Neo-tree buffers' },
-    { '<leader>fi', ':Neotree float reveal<CR>', desc = 'Neo-tree reveal current file' },
+    -- { '<leader>nt', ':Neotree float toggle<CR>', desc = 'Toggle Neo-tree' },
+    -- { '<leader>nb', ':Neotree float buffers<CR>', desc = 'Neo-tree buffers' },
+    -- { '<leader>fi', ':Neotree float reveal<CR>', desc = 'Neo-tree reveal current file' },
+
     -- { '<leader>ng', ':Neotree float git_status<CR>', desc = 'Neo-tree git status' },
   },
 }
