@@ -117,13 +117,6 @@ return {
   },
   keys = {
     --   {
-    --     '<leader>sf',
-    --     function()
-    --       Snacks.picker.files()
-    --     end,
-    --     desc = 'Snacks files',
-    --   },
-    --   {
     --     '<leader>nt',
     --     function()
     --       Snacks.explorer.open { follow_file = false }
