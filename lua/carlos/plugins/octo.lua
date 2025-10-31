@@ -6,7 +6,8 @@ return {
   -- 'nvim-lua/plenary.nvim',
   -- 'nvim-tree/nvim-web-devicons',
   dependencies = {
-    'ibhagwan/fzf-lua',
+    -- 'ibhagwan/fzf-lua',
+    'folke/snacks.nvim',
   },
   config = function()
     require('octo').setup {
