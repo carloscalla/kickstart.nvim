@@ -23,6 +23,7 @@ return {
         'mkv',
         'webm',
         'pdf',
+        'icns',
       },
       doc = {
         enabled = false,
