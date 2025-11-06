@@ -158,8 +158,9 @@ local M = {
 
           -- custom
           ['alt-l'] = actions.file_sel_to_ll,
-          ['alt-h'] = actions.toggle_hidden,
-          ['alt-i'] = actions.toggle_ignore,
+          -- not setting header to false in the options below so it shows in the header
+          ['alt-h'] = { fn = actions.toggle_hidden, reuse = true },
+          ['alt-i'] = { fn = actions.toggle_ignore, reuse = true },
           -- ctrl-i can't be used because it conflicts with TAB
           -- For more information see:
           -- https://unix.stackexchange.com/questions/563469/conflict-ctrl-i-with-tab-in-normal-mode
