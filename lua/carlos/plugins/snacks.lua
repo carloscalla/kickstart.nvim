@@ -24,6 +24,7 @@ return {
         'webm',
         'pdf',
         'icns',
+        'svg',
       },
       doc = {
         enabled = false,

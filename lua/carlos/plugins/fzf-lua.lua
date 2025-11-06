@@ -236,7 +236,7 @@ local M = {
           end,
           snacks_image = { enabled = true, render_inline = false },
           extensions = {
-            ['svg'] = { 'chafa', '--format=symbols', '{file}' },
+            -- ['svg'] = { 'chafa', '--format=symbols', '{file}' },
             ['gif'] = { 'viu', '-b' },
           },
         },
