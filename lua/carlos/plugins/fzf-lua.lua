@@ -203,6 +203,7 @@ local M = {
         },
       },
       files = {
+        formatter = 'path.dirname_first',
         winopts = vim.tbl_deep_extend('force', {}, winopts_files, {
           preview = {
             horizontal = 'right:60%',
@@ -263,6 +264,7 @@ local M = {
         },
       },
       buffers = {
+        formatter = 'path.dirname_first',
         winopts = vim.tbl_deep_extend('force', {}, winopts_files, {
           preview = {
             hidden = false,
@@ -270,11 +272,13 @@ local M = {
         }),
       },
       oldfiles = {
+        formatter = 'path.dirname_first',
         winopts = winopts_files,
         include_current_session = true,
         cwd_only = true,
       },
       quickfix = {
+        formatter = 'path.dirname_first',
         winopts = {
           width = 170,
           preview = {
@@ -406,6 +410,13 @@ local M = {
     },
     {
       '<leader>fq',
+      function()
+        require('fzf-lua').quickfix()
+      end,
+      desc = 'Quickfix list',
+    },
+    {
+      '<leader>fQ',
       function()
         require('fzf-lua').quickfix_stack()
       end,
