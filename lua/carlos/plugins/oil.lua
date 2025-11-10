@@ -34,13 +34,16 @@ return {
       winbar = '%!v:lua.get_oil_winbar()',
     },
     float = {
+      border = 'single',
       get_win_title = function()
         return 'Oil'
       end,
       max_width = 120,
       max_height = 40,
     },
-
+    confirmation = {
+      border = 'single',
+    },
     keymaps = {
       ['gd'] = {
         desc = 'Toggle file detail view',
