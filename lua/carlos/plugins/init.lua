@@ -5,9 +5,9 @@ return {
   -- { 'MunifTanjim/nui.nvim', lazy = true }, -- UI components for Neovim plugins
 
   -- Trying not lazy loading to avoid warnings in some plugins
-  { 'nvim-lua/plenary.nvim' },
-  { 'nvim-tree/nvim-web-devicons' },
-  { 'MunifTanjim/nui.nvim' },
+  { 'nvim-lua/plenary.nvim' }, -- Useful lua functions used by lots of plugins
+  { 'nvim-tree/nvim-web-devicons' }, -- Icons for Neovim plugins
+  { 'MunifTanjim/nui.nvim' }, -- UI components for Neovim plugins
 
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   { 'tpope/vim-repeat', event = 'VeryLazy' },
