@@ -1,7 +1,7 @@
 return { -- Main LSP Configuration
   'neovim/nvim-lspconfig',
   -- Need to load mason-tool-installer on start to ensure that the tools are installed
-  -- event = { 'VeryLazy''BufReadPre', 'BufNewFile' },
+  -- event = { 'VeryLazy', 'BufReadPre', 'BufNewFile' },
   dependencies = {
     -- Automatically install LSPs and related tools to stdpath for Neovim
     -- Mason must be loaded before its dependents so we need to set it up here.

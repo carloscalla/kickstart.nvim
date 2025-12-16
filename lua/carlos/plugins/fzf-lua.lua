@@ -330,7 +330,7 @@ local M = {
         if nearest_package_json and nearest_package_json:exists() then
           require('fzf-lua').files { cwd = vim.fn.fnamemodify(nearest_package_json:absolute(), ':h:p'), winopts = { width = width } }
         else
-          vim.notify(string.format "[Fzf-lua]: Can't find a parent package.json", vim.log.levels.ERROR, { title = 'Fzf-lua custom' })
+          vim.notify("[Fzf-lua]: Can't find a parent package.json", vim.log.levels.ERROR, { title = 'Fzf-lua custom' })
         end
       end,
       desc = 'Find files in nearest package.json dir', -- useful when working with monorepos
