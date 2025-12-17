@@ -5,7 +5,10 @@ return { -- Highlight, edit, and navigate code
   -- event = { 'BufReadPre', 'BufNewFile', 'VeryLazy' },
   -- lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
   dependencies = {
-    'nvim-treesitter/nvim-treesitter-textobjects',
+    {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      branch = 'master',
+    },
   },
   build = ':TSUpdate',
   opts = {
