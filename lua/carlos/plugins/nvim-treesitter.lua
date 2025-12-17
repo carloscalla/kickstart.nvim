@@ -53,21 +53,35 @@ return {
         group = group,
         desc = 'Enable treesitter highlighting and indentation',
         callback = function(event)
-          if vim.tbl_contains(ignore_filetypes, event.match) then
+          local buf, filetype = event.buf, event.match
+
+          if vim.tbl_contains(ignore_filetypes, filetype) then
             return
           end
 
-          local lang = vim.treesitter.language.get_lang(event.match) or event.match
-          local buf = event.buf
+          local lang = vim.treesitter.language.get_lang(filetype)
 
-          -- Start highlighting immediately (works if parser exists)
-          pcall(vim.treesitter.start, buf, lang)
+          if not lang then
+            return
+          end
+
+          -- Parser missing, install it asynchronously
+          -- no-op if parser is already installed
+          ts.install({ lang }):await(function(err, success)
+            if err then
+              vim.notify('Error installing parser for ' .. lang .. ': ' .. tostring(err), vim.log.levels.ERROR)
+              return
+            end
+            if success then
+              -- Try to add and start the parser after successful installation
+              if vim.treesitter.language.add(lang) then
+                pcall(vim.treesitter.start, buf, lang)
+              end
+            end
+          end)
 
           -- Enable treesitter indentation
           vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-
-          -- Install missing parsers (async, no-op if already installed)
-          ts.install { lang }
         end,
       })
     end,
