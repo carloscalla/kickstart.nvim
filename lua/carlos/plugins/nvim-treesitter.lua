@@ -4,7 +4,6 @@ return {
     branch = 'main',
     -- According to the docs treesitter doesn't support lazy loading
     lazy = false,
-    -- lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
     build = ':TSUpdate',
     opts = {
       -- Custom opt to be used in the config function
