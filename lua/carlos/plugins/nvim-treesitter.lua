@@ -39,14 +39,7 @@ return {
 
       local group = vim.api.nvim_create_augroup('TreesitterSetup', { clear = true })
 
-      local ignore_filetypes = {
-        'checkhealth',
-        'lazy',
-        'mason',
-        'snacks_dashboard',
-        'snacks_notif',
-        'snacks_win',
-      }
+      local ignore_filetypes = {}
 
       -- Auto-install parsers and enable highlighting on FileType
       vim.api.nvim_create_autocmd('FileType', {
@@ -67,16 +60,14 @@ return {
 
           -- Parser missing, install it asynchronously
           -- no-op if parser is already installed
-          ts.install({ lang }):await(function(err, success)
+          ts.install({ lang }):await(function(err)
             if err then
               vim.notify('Error installing parser for ' .. lang .. ': ' .. tostring(err), vim.log.levels.ERROR)
               return
             end
-            if success then
-              -- Try to add and start the parser after successful installation
-              if vim.treesitter.language.add(lang) then
-                pcall(vim.treesitter.start, buf, lang)
-              end
+            -- Try to add and start the parser after successful installation
+            if vim.treesitter.language.add(lang) then
+              pcall(vim.treesitter.start, buf, lang)
             end
           end)
 
