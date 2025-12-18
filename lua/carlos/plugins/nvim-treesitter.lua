@@ -41,6 +41,18 @@ return {
 
       local ignore_filetypes = {}
 
+      --- Attempt to attach treesitter to a buffer if the parser can be loaded
+      ---@param buf number
+      ---@param lang string
+      local function treesitter_try_attach(buf, lang)
+        if vim.treesitter.language.add(lang) then
+          -- Enable treesitter highlighting
+          pcall(vim.treesitter.start, buf, lang)
+          -- Enable treesitter indentation
+          vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end
+
       -- Auto-install parsers and enable highlighting on FileType
       vim.api.nvim_create_autocmd('FileType', {
         group = group,
@@ -58,32 +70,18 @@ return {
             return
           end
 
-          local installed = ts.get_installed()
-
-          if vim.tbl_contains(installed, lang) then
-            -- Parser already installed, enable highlighting
-            pcall(vim.treesitter.start, buf, lang)
-
-            -- Enable treesitter indentation
-            vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-            return
+          if vim.tbl_contains(ts.get_installed(), lang) then
+            treesitter_try_attach(buf, lang)
           else
-            -- Parser missing, install it asynchronously
-            -- no-op if parser is already installed
-            ts.install({ lang }):await(function(err)
-              if err then
-                vim.notify('Error installing parser for ' .. lang .. ': ' .. tostring(err), vim.log.levels.ERROR)
-                return
-              end
-              -- Try to add and start the parser after successful installation
-              if vim.treesitter.language.add(lang) then
-                -- Enable treesitter highlighting
-                pcall(vim.treesitter.start, buf, lang)
-
-                -- Enable treesitter indentation
-                vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-              end
-            end)
+            if vim.tbl_contains(ts.get_available(), lang) then
+              ts.install({ lang }):await(function(err)
+                if err then
+                  vim.notify('Error installing parser for ' .. lang .. ': ' .. tostring(err), vim.log.levels.ERROR)
+                  return
+                end
+                treesitter_try_attach(buf, lang)
+              end)
+            end
           end
         end,
       })
