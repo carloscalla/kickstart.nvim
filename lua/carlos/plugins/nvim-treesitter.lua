@@ -58,21 +58,33 @@ return {
             return
           end
 
-          -- Parser missing, install it asynchronously
-          -- no-op if parser is already installed
-          ts.install({ lang }):await(function(err)
-            if err then
-              vim.notify('Error installing parser for ' .. lang .. ': ' .. tostring(err), vim.log.levels.ERROR)
-              return
-            end
-            -- Try to add and start the parser after successful installation
-            if vim.treesitter.language.add(lang) then
-              pcall(vim.treesitter.start, buf, lang)
-            end
-          end)
+          local installed = ts.get_installed()
 
-          -- Enable treesitter indentation
-          vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          if vim.tbl_contains(installed, lang) then
+            -- Parser already installed, enable highlighting
+            pcall(vim.treesitter.start, buf, lang)
+
+            -- Enable treesitter indentation
+            vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            return
+          else
+            -- Parser missing, install it asynchronously
+            -- no-op if parser is already installed
+            ts.install({ lang }):await(function(err)
+              if err then
+                vim.notify('Error installing parser for ' .. lang .. ': ' .. tostring(err), vim.log.levels.ERROR)
+                return
+              end
+              -- Try to add and start the parser after successful installation
+              if vim.treesitter.language.add(lang) then
+                -- Enable treesitter highlighting
+                pcall(vim.treesitter.start, buf, lang)
+
+                -- Enable treesitter indentation
+                vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+              end
+            end)
+          end
         end,
       })
     end,
