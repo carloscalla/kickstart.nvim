@@ -72,16 +72,17 @@ return {
 
           if vim.tbl_contains(ts.get_installed(), lang) then
             treesitter_try_attach(buf, lang)
+          elseif vim.tbl_contains(ts.get_available(), lang) then
+            ts.install({ lang }):await(function(err)
+              if err then
+                vim.notify('Error installing parser for ' .. lang .. ': ' .. tostring(err), vim.log.levels.ERROR)
+                return
+              end
+              treesitter_try_attach(buf, lang)
+            end)
           else
-            if vim.tbl_contains(ts.get_available(), lang) then
-              ts.install({ lang }):await(function(err)
-                if err then
-                  vim.notify('Error installing parser for ' .. lang .. ': ' .. tostring(err), vim.log.levels.ERROR)
-                  return
-                end
-                treesitter_try_attach(buf, lang)
-              end)
-            end
+            -- try to enable treesitter features in case the parser exists but is not available from `nvim-treesitter`
+            treesitter_try_attach(buf, lang)
           end
         end,
       })
