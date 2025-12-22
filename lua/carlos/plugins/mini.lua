@@ -24,6 +24,7 @@ return { -- Collection of various small independent plugins/modules
     -- - sr)'  - [S]urround [R]eplace [)] [']
     ---[[
     require('mini.surround').setup {
+      highlight_duration = 700,
       mappings = {
         add = '', -- Add surrounding in Normal and Visual modes
         delete = '', -- Delete surrounding
