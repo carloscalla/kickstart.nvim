@@ -14,7 +14,7 @@ return {
       { '<leader>f', group = 'FzfLua' },
       { '<leader>g', group = 'Git/GrugFar' },
       { '<leader>h', group = 'Harpoon' },
-      { '<leader>n', group = 'Neotree/Neogit' },
+      { '<leader>n', group = 'Tree/Neogit' },
       { '<leader>o', group = 'Oil/Overseer' },
       { '<leader>s', group = 'Search/Snacks' },
       { '<leader>t', group = 'Toggle/Test/Terminal' },
