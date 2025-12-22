@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd('User', {
 })
 
 return { -- Collection of various small independent plugins/modules
-  'echasnovski/mini.nvim',
+  'nvim-mini/mini.nvim',
   lazy = false,
   config = function()
     -- Better Around/Inside textobjects
