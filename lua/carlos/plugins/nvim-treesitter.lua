@@ -1,109 +1,188 @@
-return { -- Highlight, edit, and navigate code
-  'nvim-treesitter/nvim-treesitter',
-  branch = 'master',
-  -- According to the docs treesitter doesn't support lazy loading
-  -- event = { 'BufReadPre', 'BufNewFile', 'VeryLazy' },
-  -- lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
-  dependencies = {
-    {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-      branch = 'master',
-    },
-  },
-  build = ':TSUpdate',
-  opts = {
-    ensure_installed = {
-      'bash',
-      'c',
-      'cpp',
-      'css',
-      'diff',
-      'html',
-      'javascript',
-      'json',
-      'json5',
-      'jsonc',
-      'lua',
-      'luadoc',
-      'markdown',
-      'markdown_inline',
-      'query',
-      'tsx',
-      'typescript',
-      'vim',
-      'vimdoc',
-      'yaml',
-    },
-    -- Autoinstall languages that are not installed
-    auto_install = true,
-    highlight = {
-      enable = true,
-      -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-      --  If you are experiencing weird indenting issues, add the language to
-      --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-      additional_vim_regex_highlighting = { 'ruby' },
-    },
-    indent = {
-      enable = true,
-      disable = { 'ruby' },
-    },
-    textobjects = {
-      select = {
-        enable = true,
-        lookahead = true,
-        include_surrounding_whitespace = false,
-        keymaps = {
-          ['af'] = {
-            query = '@function.outer',
-            desc = 'select around a function',
-          },
-          ['if'] = {
-            query = '@function.inner',
-            desc = 'select inner part of a function',
-          },
-          ['aC'] = {
-            query = '@class.outer',
-            desc = 'select around a class',
-          },
-          ['iC'] = {
-            query = '@class.inner',
-            desc = 'select inner part of a class',
-          },
-          ['ac'] = {
-            query = '@comment.outer',
-            desc = 'select around a comment',
-          },
-          ['ic'] = {
-            query = '@comment.inner',
-            desc = 'select inner part of a comment',
-          },
-          ['as'] = {
-            query = '@local.scope',
-            query_group = 'locals',
-            desc = 'Select language scope',
-          },
-        },
+return {
+  { -- Highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
+    -- According to the docs treesitter doesn't support lazy loading
+    lazy = false,
+    build = ':TSUpdate',
+    opts = {
+      -- Custom opt to be used in the config function
+      ensure_installed = {
+        'bash',
+        'c',
+        'cpp',
+        'css',
+        'diff',
+        'html',
+        'javascript',
+        'json',
+        'json5',
+        'jsonc',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'tsx',
+        'typescript',
+        'vim',
+        'vimdoc',
+        'yaml',
       },
     },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        -- maps in normal mode to init the node/scope selection with space
-        init_selection = '<leader>,',
-        -- increment to the upper named parent
-        node_incremental = ',',
-        -- decrement to the previous node
-        node_decremental = '<bs>',
-        -- increment to the upper scope (as defined in locals.scm)
-        scope_incremental = '<tab>',
-      },
-    },
-  },
-  opts_extend = { 'ensure_installed' },
-  config = function(_, opts)
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+    opts_extend = { 'ensure_installed' },
+    config = function(_, opts)
+      local ts = require 'nvim-treesitter'
 
-    ---@diagnostic disable-next-line: missing-fields
-    require('nvim-treesitter.configs').setup(opts)
-  end,
+      -- Install core parsers at startup
+      ts.install(opts.ensure_installed)
+
+      local group = vim.api.nvim_create_augroup('TreesitterSetup', { clear = true })
+
+      local ignore_filetypes = {}
+
+      --- Attempt to attach treesitter to a buffer if the parser can be loaded
+      ---@param buf number
+      ---@param lang string
+      local function treesitter_try_attach(buf, lang)
+        if vim.treesitter.language.add(lang) then
+          -- Enable treesitter highlighting
+          pcall(vim.treesitter.start, buf, lang)
+          -- Enable treesitter indentation
+          vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+      end
+
+      -- Auto-install parsers and enable highlighting on FileType
+      vim.api.nvim_create_autocmd('FileType', {
+        group = group,
+        desc = 'Enable treesitter highlighting and indentation',
+        callback = function(event)
+          local buf, filetype = event.buf, event.match
+
+          if vim.tbl_contains(ignore_filetypes, filetype) then
+            return
+          end
+
+          local lang = vim.treesitter.language.get_lang(filetype)
+
+          if not lang then
+            return
+          end
+
+          if vim.tbl_contains(ts.get_installed(), lang) then
+            treesitter_try_attach(buf, lang)
+          elseif vim.tbl_contains(ts.get_available(), lang) then
+            ts.install({ lang }):await(function(err)
+              if err then
+                vim.notify('Error installing parser for ' .. lang .. ': ' .. tostring(err), vim.log.levels.ERROR)
+                return
+              end
+              treesitter_try_attach(buf, lang)
+            end)
+          else
+            -- try to enable treesitter features in case the parser exists but is not available from `nvim-treesitter`
+            treesitter_try_attach(buf, lang)
+          end
+        end,
+      })
+    end,
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'main',
+    init = function()
+      -- Disable entire built-in ftplugin mappings to avoid conflicts.
+      -- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin for built-in ftplugins.
+      vim.g.no_plugin_maps = true
+
+      -- Or, disable per filetype (add as you like)
+      -- vim.g.no_python_maps = true
+      -- vim.g.no_ruby_maps = true
+      -- vim.g.no_rust_maps = true
+      -- vim.g.no_go_maps = true
+    end,
+    config = function()
+      -- put your config here
+      require('nvim-treesitter-textobjects').setup {
+        select = {
+          -- Automatically jump forward to textobj, similar to targets.vim
+          lookahead = true,
+          -- You can choose the select mode (default is charwise 'v')
+          --
+          -- Can also be a function which gets passed a table with the keys
+          -- * query_string: eg '@function.inner'
+          -- * method: eg 'v' or 'o'
+          -- and should return the mode ('v', 'V', or '<c-v>') or a table
+          -- mapping query_strings to modes.
+          selection_modes = {
+            ['@parameter.outer'] = 'v', -- charwise
+            ['@function.outer'] = 'V', -- linewise
+            ['@class.outer'] = '<c-v>', -- blockwise
+          },
+          -- If you set this to `true` (default is `false`) then any textobject is
+          -- extended to include preceding or succeeding whitespace. Succeeding
+          -- whitespace has priority in order to act similarly to eg the built-in
+          -- `ap`.
+          --
+          -- Can also be a function which gets passed a table with the keys
+          -- * query_string: eg '@function.inner'
+          -- * selection_mode: eg 'v'
+          -- and should return true of false
+          include_surrounding_whitespace = false,
+        },
+      }
+
+      -- keymaps
+      -- You can use the capture groups defined in `textobjects.scm`
+      vim.keymap.set({ 'x', 'o' }, 'af', function()
+        require('nvim-treesitter-textobjects.select').select_textobject('@function.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'x', 'o' }, 'if', function()
+        require('nvim-treesitter-textobjects.select').select_textobject('@function.inner', 'textobjects')
+      end)
+      vim.keymap.set({ 'x', 'o' }, 'aC', function()
+        require('nvim-treesitter-textobjects.select').select_textobject('@class.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'x', 'o' }, 'iC', function()
+        require('nvim-treesitter-textobjects.select').select_textobject('@class.inner', 'textobjects')
+      end)
+      vim.keymap.set({ 'x', 'o' }, 'ac', function()
+        require('nvim-treesitter-textobjects.select').select_textobject('@comment.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'x', 'o' }, 'ic', function()
+        require('nvim-treesitter-textobjects.select').select_textobject('@comment.inner', 'textobjects')
+      end)
+      -- You can also use captures from other query groups like `locals.scm`
+      vim.keymap.set({ 'x', 'o' }, 'as', function()
+        require('nvim-treesitter-textobjects.select').select_textobject('@local.scope', 'locals')
+      end)
+    end,
+  },
+
+  {
+    'sustech-data/wildfire.nvim',
+    event = 'VeryLazy',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    opts = {
+      surrounds = {
+        { '(', ')' },
+        { '{', '}' },
+        { '<', '>' },
+        { '[', ']' },
+      },
+      keymaps = {
+        init_selection = '<leader>,',
+        node_incremental = ',',
+        node_decremental = '<bs>',
+      },
+      filetype_exclude = { 'qf' }, --keymaps will be unset in excluding filetypes
+    },
+  },
+
+  {
+    'andymass/vim-matchup',
+    opts = {},
+  },
 }
