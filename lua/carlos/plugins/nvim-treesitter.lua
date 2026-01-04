@@ -45,8 +45,7 @@ return {
       ---@param lang string
       ---@return boolean
       local function has_indent_queries(lang)
-        local query_files = vim.api.nvim_get_runtime_file('queries/' .. lang .. '/indents.scm', false)
-        return #query_files > 0
+        return vim.treesitter.query.get(lang, 'indents') ~= nil
       end
 
       --- Attempt to attach treesitter to a buffer if the parser can be loaded
