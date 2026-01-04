@@ -41,6 +41,14 @@ return {
 
       local ignore_filetypes = {}
 
+      --- Check if a language has indent queries
+      ---@param lang string
+      ---@return boolean
+      local function has_indent_queries(lang)
+        local query_files = vim.api.nvim_get_runtime_file('queries/' .. lang .. '/indents.scm', false)
+        return #query_files > 0
+      end
+
       --- Attempt to attach treesitter to a buffer if the parser can be loaded
       ---@param buf number
       ---@param lang string
@@ -48,8 +56,10 @@ return {
         if vim.treesitter.language.add(lang) then
           -- Enable treesitter highlighting
           pcall(vim.treesitter.start, buf, lang)
-          -- Enable treesitter indentation
-          vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          -- Enable treesitter indentation (only for languages with indent queries)
+          if has_indent_queries(lang) then
+            vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          end
         end
       end
 
