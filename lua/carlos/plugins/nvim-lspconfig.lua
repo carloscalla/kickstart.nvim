@@ -448,6 +448,7 @@ return { -- Main LSP Configuration
     if vim.fn.executable 'go' == 1 then
       table.insert(ensure_installed, 'goimports')
       table.insert(ensure_installed, 'gofumpt')
+      table.insert(ensure_installed, 'golangci-lint')
     end
 
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
