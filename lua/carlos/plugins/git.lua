@@ -145,4 +145,9 @@ return {
       { '<leader>ng', '<cmd>Neogit<cr>', desc = 'Neogit' },
     },
   },
+  {
+    'esmuellert/codediff.nvim',
+    dependencies = { 'MunifTanjim/nui.nvim' },
+    cmd = 'CodeDiff',
+  },
 }
