@@ -64,6 +64,7 @@ return {
   },
   {
     'kosayoda/nvim-lightbulb',
+    enabled = false,
     event = { 'BufReadPost', 'BufNewFile', 'BufWritePost' },
     config = function()
       require('nvim-lightbulb').setup {
