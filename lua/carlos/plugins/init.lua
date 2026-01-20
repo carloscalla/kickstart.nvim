@@ -130,4 +130,15 @@ return {
       }
     end,
   },
+
+  -- {
+  --   'A7Lavinraj/fyler.nvim',
+  --   branch = 'stable',
+  --   lazy = false,
+  --   opts = {
+  --     integrations = {
+  --       icon = 'mini_icons',
+  --     },
+  --   },
+  -- },
 }
