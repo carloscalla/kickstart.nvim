@@ -41,11 +41,11 @@ return { -- Collection of various small independent plugins/modules
     }
     --]]
 
-    require('mini.files').setup {
-      options = {
-        use_as_default_explorer = false,
-      },
-    }
+    -- require('mini.files').setup {
+    --   options = {
+    --     use_as_default_explorer = false,
+    --   },
+    -- }
 
     require('mini.diff').setup {}
 
@@ -76,13 +76,13 @@ return { -- Collection of various small independent plugins/modules
     }
   end,
   keys = {
-    {
-      '<leader>fb',
-      function()
-        require('mini.files').open(vim.api.nvim_buf_get_name(0), true)
-      end,
-      desc = 'Open mini.files (Directory of Current File)',
-    },
+    -- {
+    --   '<leader>fb',
+    --   function()
+    --     require('mini.files').open(vim.api.nvim_buf_get_name(0), true)
+    --   end,
+    --   desc = 'Open mini.files (Directory of Current File)',
+    -- },
     {
       '<leader>id',
       function()
