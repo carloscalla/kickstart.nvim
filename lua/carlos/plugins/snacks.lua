@@ -100,6 +100,21 @@ return {
             },
           },
         },
+        gh_diff = {
+          layout = {
+            preset = 'ivy_split',
+            layout = {
+              height = 13,
+            },
+          },
+          win = {
+            input = {
+              keys = {
+                ['<Esc>'] = 'cancel',
+              },
+            },
+          },
+        },
       },
     },
     gitbrowse = {},
