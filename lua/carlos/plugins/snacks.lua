@@ -179,5 +179,12 @@ return {
       end,
       desc = 'GitHub PR review requested to me',
     },
+    {
+      '<leader>ghi',
+      function()
+        Snacks.picker.gh_pr { search = 'is:open involves:@me ' }
+      end,
+      desc = 'GitHub PR involving me',
+    },
   },
 }
