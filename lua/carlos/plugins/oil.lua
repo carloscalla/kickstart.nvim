@@ -26,6 +26,7 @@ return {
   -- 'nvim-tree/nvim-web-devicons',
   dependencies = {
     'folke/snacks.nvim',
+    { 'smiggiddy/git-oil.nvim', opts = { keymaps = { toggle = false } } },
   },
   cmd = { 'Oil' },
   opts = {
