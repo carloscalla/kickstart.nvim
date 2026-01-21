@@ -508,11 +508,13 @@ local M = {
         end
 
         local min_h, max_h = 0.1, 0.70
-        local h = (#items + 4) / vim.o.lines
-        if h < min_h then
-          h = min_h
-        elseif h > max_h then
-          h = max_h
+        local h_ratio = (#items + 4) / vim.o.lines
+        local final_height = #items + 4
+
+        if h_ratio < min_h then
+          final_height = min_h
+        elseif h_ratio > max_h then
+          final_height = max_h
         end
 
         fzf.fzf_exec(items, {
@@ -520,7 +522,7 @@ local M = {
           winopts = {
             -- height = 15,
             width = 0.8,
-            height = h,
+            height = final_height,
           },
           actions = {
             ['default'] = function(selected)
