@@ -150,4 +150,13 @@ return {
     dependencies = { 'MunifTanjim/nui.nvim' },
     cmd = 'CodeDiff',
   },
+
+  -- GHLite: A lightweight GitHub client for Neovim
+  -- {
+  --   'daliusd/ghlite.nvim',
+  --   enabled = false,
+  --   opts = {
+  --     diff_tool = 'auto', -- 'diffview', 'codediff'
+  --   },
+  -- },
 }
