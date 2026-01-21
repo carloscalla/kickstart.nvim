@@ -131,6 +131,7 @@ return {
     end,
   },
 
+  -- FYLER: A file explorer written in Lua
   -- {
   --   'A7Lavinraj/fyler.nvim',
   --   branch = 'stable',
