@@ -168,14 +168,14 @@ return {
     {
       '<leader>ghr',
       function()
-        Snacks.picker.gh_pr { search = 'is:open review-requested:@me' }
+        Snacks.picker.gh_pr { search = 'is:open review-requested:@me ' }
       end,
       desc = 'GitHub PR review requested to me or my team',
     },
     {
       '<leader>ghR',
       function()
-        Snacks.picker.gh_pr { search = 'is:open user-review-requested:@me' }
+        Snacks.picker.gh_pr { search = 'is:open user-review-requested:@me ' }
       end,
       desc = 'GitHub PR review requested to me',
     },
