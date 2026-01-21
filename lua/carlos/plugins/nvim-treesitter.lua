@@ -17,7 +17,6 @@ return {
         'javascript',
         'json',
         'json5',
-        'jsonc',
         'lua',
         'luadoc',
         'markdown',
