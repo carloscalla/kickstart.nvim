@@ -131,7 +131,11 @@ return {
         row = 0.45,
       },
     },
-    gh = {},
+    gh = {
+      keys = {
+        diff = { '<leader>gd', 'gh_diff', desc = 'View diff for current PR' },
+      },
+    },
   },
   keys = {
     {
