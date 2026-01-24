@@ -263,6 +263,16 @@ local M = {
           previewer = 'codeaction',
         },
       },
+      diagnostics = {
+        winopts = {
+          height = 0.9,
+          width = 150,
+          preview = {
+            layout = 'vertical',
+            vertical = 'up:53%',
+          },
+        },
+      },
       buffers = {
         formatter = 'path.dirname_first',
         winopts = vim.tbl_deep_extend('force', {}, winopts_files, {
