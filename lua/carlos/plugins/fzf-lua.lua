@@ -281,7 +281,7 @@ local M = {
           },
         }),
       },
-      oldfiles = {
+      history = {
         formatter = 'path.dirname_first',
         winopts = winopts_files,
         include_current_session = true,
@@ -385,9 +385,9 @@ local M = {
       '<leader>fo',
       function()
         local width = calc_files_picker_width()
-        require('fzf-lua').oldfiles { winopts = { width = width } }
+        require('fzf-lua').history { winopts = { width = width } }
       end,
-      desc = 'Old files',
+      desc = 'History (Oldfiles+Buffers)',
     },
     {
       '<leader>rg',
