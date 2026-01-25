@@ -12,20 +12,25 @@ vim.cmd [[ nnoremap <expr> <CR> {-> v:hlsearch ? "<Cmd>nohlsearch<Bar>diffupdate
 -- Commenting this because I set Oil as my default file explorer
 -- vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
+local diagnostics_float_opts = {
+  max_width = 80,
+}
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', function()
-  vim.diagnostic.jump { count = -1, float = true }
+  vim.diagnostic.jump { count = -1, float = diagnostics_float_opts }
 end, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', function()
-  vim.diagnostic.jump { count = 1, float = true }
+  vim.diagnostic.jump { count = 1, float = diagnostics_float_opts }
 end, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '[e', function()
-  vim.diagnostic.jump { count = -1, float = true, severity = vim.diagnostic.severity.ERROR }
+  vim.diagnostic.jump { count = -1, float = diagnostics_float_opts, severity = vim.diagnostic.severity.ERROR }
 end, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']e', function()
-  vim.diagnostic.jump { count = 1, float = true, severity = vim.diagnostic.severity.ERROR }
+  vim.diagnostic.jump { count = 1, float = diagnostics_float_opts, severity = vim.diagnostic.severity.ERROR }
 end, { desc = 'Go to next [D]iagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic messages' })
+vim.keymap.set('n', '<leader>e', function()
+  vim.diagnostic.open_float(diagnostics_float_opts)
+end, { desc = 'Show diagnostic messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic Location list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
