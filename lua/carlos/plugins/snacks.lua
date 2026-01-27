@@ -43,7 +43,8 @@ return {
       win = {
         input = {
           keys = {
-            ['<Esc>'] = { 'close', mode = { 'n', 'i' } },
+            -- Use to close the picker with Esc instead of going to normal mode
+            -- ['<Esc>'] = { 'close', mode = { 'n', 'i' } },
             ['<c-d>'] = { 'preview_scroll_down', mode = { 'i', 'n' } },
             ['<c-u>'] = { 'preview_scroll_up', mode = { 'i', 'n' } },
             ['<c-j>'] = { 'list_scroll_down', mode = { 'i', 'n' } },
@@ -92,14 +93,14 @@ return {
             },
           },
         },
-        files = {
-          layout = {
-            preset = 'ivy_split',
-            layout = {
-              height = 20,
-            },
-          },
-        },
+        -- files = {
+        --   layout = {
+        --     preset = 'ivy_split',
+        --     layout = {
+        --       height = 20,
+        --     },
+        --   },
+        -- },
         gh_diff = {
           layout = {
             preset = 'ivy_split',
