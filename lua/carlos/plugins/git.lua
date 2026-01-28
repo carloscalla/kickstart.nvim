@@ -117,6 +117,7 @@ return {
         map('n', '<leader>hD', function()
           gitsigns.diffthis '~'
         end, { desc = 'Git: Diff against last commit' })
+        map('n', '<leader>gw', '<Cmd>Gitsigns blame<CR>', { desc = 'Git: Blame buffer' })
         -- Toggles
         -- map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = '[T]oggle git show [b]lame line' })
 
