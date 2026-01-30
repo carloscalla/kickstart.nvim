@@ -131,6 +131,14 @@ return {
     end,
   },
 
+  {
+    'mikavilpas/yazi.nvim',
+    version = '*', -- use the latest stable version
+    event = 'VeryLazy',
+    dependencies = { 'nvim-lua/plenary.nvim', lazy = true },
+    opts = {},
+  },
+
   -- FYLER: A file explorer written in Lua
   -- {
   --   'A7Lavinraj/fyler.nvim',
