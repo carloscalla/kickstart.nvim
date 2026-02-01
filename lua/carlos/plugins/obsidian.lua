@@ -61,4 +61,15 @@ return {
     { '<leader>Ot', '<cmd>Obsidian today<cr>', desc = 'Obsidian Today' },
     { '<leader>Oy', '<cmd>Obsidian yesterday<cr>', desc = 'Obsidian Yesterday' },
   },
+  config = function(_, opts)
+    -- Disabling Obsidian's <CR> mapping to smart_action
+    vim.api.nvim_create_autocmd('User', {
+      pattern = 'ObsidianNoteEnter',
+      callback = function()
+        vim.keymap.del('n', '<CR>', { buffer = true })
+      end,
+    })
+
+    require('obsidian').setup(opts)
+  end,
 }
