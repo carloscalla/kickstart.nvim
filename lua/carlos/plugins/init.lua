@@ -137,6 +137,21 @@ return {
     event = 'VeryLazy',
     dependencies = { 'nvim-lua/plenary.nvim', lazy = true },
     opts = {},
+    config = function(_, opts)
+      -- Fix <Esc> mapping when yazi opens
+      -- Reset the terminal mode keymap <Esc><Esc> to exit terminal mode in keymaps.lua
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'yazi',
+        callback = function(event)
+          -- Defer to ensure the keymap is set after yazi fully initializes
+          vim.defer_fn(function()
+            vim.keymap.set('t', '<Esc>', '<Esc>', { buffer = event.buf, nowait = true })
+          end, 50)
+        end,
+      })
+
+      require('yazi').setup(opts)
+    end,
   },
 
   {

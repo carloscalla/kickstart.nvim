@@ -21,10 +21,10 @@ return {
   config = function()
     vim.api.nvim_create_autocmd('FileType', {
       pattern = { 'lazygit' },
-      callback = function()
+      callback = function(event)
         -- Fix <Esc>
         -- Reset the terminal mode keymap <Esc><Esc> to exit terminal mode in keymaps.lua
-        vim.keymap.set('t', '<Esc>', '<Esc>', { buffer = 0, nowait = true })
+        vim.keymap.set('t', '<Esc>', '<Esc>', { buffer = event.buf, nowait = true })
       end,
     })
   end,
