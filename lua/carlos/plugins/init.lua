@@ -139,6 +139,27 @@ return {
     opts = {},
   },
 
+  {
+    'stevearc/aerial.nvim',
+    -- Optional dependencies
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      { 'nvim-tree/nvim-web-devicons', lazy = true },
+    },
+    opts = {},
+    keys = {
+      { '<leader>at', '<Cmd>AerialToggle<CR>', desc = 'Aerial Toggle (focus aerial)' },
+      { '<leader>aT', '<Cmd>AerialToggle!<CR>', desc = 'Aerial Toggle (keep focus)' },
+      {
+        '<leader>fa',
+        function()
+          require('aerial').fzf_lua_picker()
+        end,
+        desc = 'Aerial Fzf Picker',
+      },
+    },
+  },
+
   -- FYLER: A file explorer written in Lua
   -- {
   --   'A7Lavinraj/fyler.nvim',
