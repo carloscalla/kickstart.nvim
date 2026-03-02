@@ -375,6 +375,14 @@ local M = {
       desc = 'Grep cword',
     },
     {
+      '<leader>fw',
+      function()
+        require('fzf-lua').grep_visual()
+      end,
+      mode = 'v',
+      desc = 'Grep cword',
+    },
+    {
       '<leader>fW',
       function()
         require('fzf-lua').grep_cWORD()
