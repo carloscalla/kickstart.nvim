@@ -1,6 +1,7 @@
 return {
   {
     'nvim-neotest/neotest',
+    enabled = false,
     -- Uses:
     -- 'nvim-lua/plenary.nvim',
     dependencies = {
@@ -53,5 +54,14 @@ return {
     init = function()
       vim.cmd [[let test#strategy = "toggleterm"]]
     end,
+    keys = {
+      -- stylua: ignore start
+      { '<leader>tf', '<Cmd>TestFile<CR>',    desc = 'Test: Run File' },
+      { '<leader>tr', '<Cmd>TestNearest<CR>', desc = 'Test: Run Nearest' },
+      { '<leader>tl', '<Cmd>TestLast<CR>',    desc = 'Test: Run Last' },
+      { '<leader>ts', '<Cmd>TestSuite<CR>',   desc = 'Test: Run Suite' },
+      { '<leader>tv', '<Cmd>TestVisit<CR>',   desc = 'Test: Visit Last' },
+      -- stylua: ignore end
+    },
   },
 }
