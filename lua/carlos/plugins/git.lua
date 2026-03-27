@@ -133,7 +133,8 @@ return {
     -- Uses:
     -- 'nvim-lua/plenary.nvim', -- required
     dependencies = {
-      'sindrets/diffview.nvim', -- optional - Diff integration
+      -- 'sindrets/diffview.nvim', -- optional - Diff integration
+      -- 'esmuellert/codediff.nvim', -- optional
       'ibhagwan/fzf-lua', -- optional
     },
     opts = {
@@ -141,6 +142,8 @@ return {
       commit_editor = {
         staged_diff_split_kind = 'split_above',
       },
+      -- Can be "diffview" or "codediff".
+      diff_viewer = 'codediff',
     },
     keys = {
       { '<leader>ng', '<cmd>Neogit<cr>', desc = 'Neogit' },
