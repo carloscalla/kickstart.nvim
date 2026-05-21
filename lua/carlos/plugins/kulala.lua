@@ -8,6 +8,7 @@ vim.filetype.add {
 return {
   {
     'mistweaverco/kulala.nvim',
+    version = 'v5.3.4',
     ft = 'http',
     keys = {
       { '<leader>R', '', desc = '+Rest', ft = 'http' },
