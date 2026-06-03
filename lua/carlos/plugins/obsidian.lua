@@ -18,6 +18,8 @@ return {
     'saghen/blink.cmp',
   },
   opts = {
+    -- TODO: remove below prop after v4.0.0 release
+    legacy_commands = false, -- gets rid of warning
     ui = {
       enable = false, -- disabling in favor of render-markdown.nvim
     },
