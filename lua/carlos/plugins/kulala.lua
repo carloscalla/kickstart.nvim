@@ -4,6 +4,8 @@ vim.filetype.add {
   },
 }
 
+-- TODO: https://www.reddit.com/r/neovim/comments/1wr06hk/psa_kulalanvim_may_be_breaking_nvimtreesitter_for/
+
 -- HTTP REST-Client Interface
 return {
   {
