@@ -30,4 +30,9 @@ vim.api.nvim_create_user_command('NearestPackagePath', function()
   end
 end, { desc = 'Copy file name of current buffer to clipboard' })
 
+vim.api.nvim_create_user_command('RevealInFinder', function()
+  local fullFilePath = vim.fn.expand '%:p'
+  vim.fn.jobstart({ 'open', '-R', fullFilePath }, { detach = true })
+end, { desc = 'Reveal current file in macOS Finder' })
+
 pcall(require, 'custom.usercmds')
