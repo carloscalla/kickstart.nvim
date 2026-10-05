@@ -7,8 +7,8 @@ return {
   event = {
     -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
     -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-    'BufReadPre ' .. vim.fn.expand '~' .. '/carlos/obsidian-vaults/personal/**.md',
-    'BufNewFile ' .. vim.fn.expand '~' .. '/carlos/obsidian-vaults/personal/**.md',
+    'BufReadPre ' .. vim.fn.expand '~' .. '/code/github/obsidian-vaults/personal/**.md',
+    'BufNewFile ' .. vim.fn.expand '~' .. '/code/github/obsidian-vaults/personal/**.md',
   },
   -- Uses:
   -- 'nvim-lua/plenary.nvim',
@@ -26,7 +26,7 @@ return {
     workspaces = {
       {
         name = 'carlos',
-        path = '~/carlos/obsidian-vaults/personal/',
+        path = '~/code/github/obsidian-vaults/personal/',
       },
     },
     -- Optional, completion of wiki links, local markdown links, and tags.
